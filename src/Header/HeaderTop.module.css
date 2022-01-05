@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+ul{
+    padding: 0;
+    margin: 0;
+}
+ul li {
+    display: inline;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #343e5c;
+    font-weight: 700;
+}
+
+.HeaderTopContainer{
+    display: flex;
+    align-items: center;
+}
+.buttonCart{
+    border: 2px solid #e3e8f0;
+    background-color: Transparent;
+    text-transform: uppercase;
+    border-radius: 16px;
+    padding: 10px 15px;
+    color: #343e5c;
+}

@@ -1,10 +1,11 @@
 import React from 'react';
+import styles from '../NavBodyLeft.module.css';
 
 class NavBarBodyLeft extends React.Component {
     render() {
         return (
-            <div>
-
+            <div className={styles.navbar}>
+                <h1>aasdasdassddasdas dasddasdas dasdasd ada sd as</h1>
             </div>
         )
     }

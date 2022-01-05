@@ -1,5 +1,7 @@
 body {
- background: red;
+ background: #e4e5e7;
 }
 
-
+nav ul li {
+ list-style-type: none;
+}
