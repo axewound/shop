@@ -14,5 +14,8 @@ export const usersAPI = {
             .then(response => {
                 return response.data;
             });
+    },
+    getProfile(userId) {
+        return instance.get(`/` + userId);
     }
 }

@@ -6,7 +6,8 @@ import axios from "axios";
 import ProductOnePage from "./ProductOnePage";
 import ProfileInfo from "./ProductPages1";
 import {connect} from "react-redux";
-import productReducer, {setProduct} from "../redux/product-reducer";
+import productReducer, {getUserProfile, setProduct} from "../redux/product-reducer";
+import {compose} from "redux";
 
 class ProductOnePages extends React.Component {
     componentDidMount() {
@@ -14,10 +15,7 @@ class ProductOnePages extends React.Component {
         if (!userId) {
             userId = 2;
         }
-        axios.get(`https://fakestoreapi.com/products/` + userId)
-            .then(response => {
-                this.props.setProduct(response.data);
-            });
+        this.props.getUserProfile(userId);
     }
     render() {
         return (
@@ -33,6 +31,8 @@ let mapStateToProps = (state) => {
 
     }
 }
+export default  compose(
+    connect(mapStateToProps, {getUserProfile}),
+    withRouter
+)(ProductOnePages)
 
-let WithUrlDataContainerComponent = withRouter(ProductOnePages);
-export default connect(mapStateToProps, {setProduct})(WithUrlDataContainerComponent);

@@ -7,13 +7,13 @@ import {Route} from "react-router-dom";
 import ProductOnePage from "./Body/ProductOnePage";
 import ProductOnePages from "./Body/ProductOnePage";
 import NavBarBodyLeft from "./Body/NavBarLeft/NavBarBodyLeft";
+import Simple from "./Simple";
 
 const App = () => {
     return (
         <div className={style.container}>
-
             <Header/>
-
+           {/* <Simple/>*/}
             <div className={style.lllll}>
 
                 <Route path='/product/:userId?'

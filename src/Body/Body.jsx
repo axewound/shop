@@ -4,22 +4,18 @@ import BodyProductBlockContainer from "./BodyProductBlockContainer";
 import BodyHeaderBlockContainer from "./BodyHeaderBlockAll/BodyHeaderBlockContainer";
 import {usersAPI} from "../api/api";
 import {connect} from "react-redux";
-import {ratingAC, setProduct, toggleIsFetching} from "../redux/product-reducer";
+import {getProductThunk, ratingAC, setProduct, toggleIsFetching} from "../redux/product-reducer";
 import Preloader from "../assets/Preloader";
 import styles from './Body.module.css';
 import ProductOnePages from "./ProductOnePage";
 import {Route} from "react-router-dom";
+import SearchProduct from "./BodyHeaderBlockAll/SearchProduct";
 
 
 class Body extends React.Component {
 
     componentDidMount() {
-        this.props.toggleIsFetching(true);
-        usersAPI.getUsers()
-            .then(data => {
-                this.props.toggleIsFetching(false);
-                this.props.setProduct(data);
-            });
+        this.props.getProductThunk();
     }
 
     handleChange = (e) => {
@@ -27,21 +23,11 @@ class Body extends React.Component {
         this.props.valueElment(value)
         this.setState(this.props.products);
     };
-    onKeyUp = e => {
-        console.log(e)
-        // filter post list by title using onKeyUp function
-        const post = this.props.products.filter(item =>
-/*
-            item.title.rendered.toLowerCase().includes(e.target.value.toLowerCase())
-*/
-            item.title.toLowerCase().includes(e.target.value.toLowerCase())
-        );
-        this.setState({ post });
-    };
+
     render() {
         return (
             <div>
-                <BodyHeaderBlockContainer handleChange={this.handleChange} onKeyUp={this.onKeyUp} products={this.props.products}/>
+                <BodyHeaderBlockContainer searchString={this.props.searchString}  handleChange={this.handleChange}  products={this.props.products}/>
 
                 <div className={styles.bodyContainer}>
                     <NavBarBodyLeft/>
@@ -60,9 +46,11 @@ class Body extends React.Component {
 let mapStateToProps = (state) => {
     return {
         products: state.productPage.products,
-        isFetching: state.productPage.isFetching
+        isFetching: state.productPage.isFetching,
+        searchString: state.productPage.searchString
+
     }
 }
 
 
-export default connect(mapStateToProps, {valueElment: ratingAC, setProduct, toggleIsFetching})(Body);
+export default connect(mapStateToProps, {getProductThunk,valueElment: ratingAC, setProduct, toggleIsFetching})(Body);

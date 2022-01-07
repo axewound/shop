@@ -1,49 +1,125 @@
 import React from 'react';
+import styles from "../ProductPages.module.css";
 
 
-    class SearchProduct extends React.Component {
-        render() {
-            {console.log(this)}
-            return (
-                <div className="container">
-                    <div className="search-outer">
-                        <form
-                            role="search"
-                            method="get"
-                            id="searchform"
-                            className="searchform"
-                            action=""
-                        >
-                            {/* input field activates onKeyUp function on state change */}
-                            <input
-                                type="search"
-                                onChange={this.props.onKeyUp}
-                                name="s"
-                                id="s"
-                                placeholder="Search"
-                            />
-                            <button type="submit" id="searchsubmit">
-                                <i className="fa fa-search" aria-hidden="true" />
-                            </button>
-                        </form>
+class SearchProduct extends React.Component {
+
+    state = {
+        searchString: "",
+        products:this.props.products
+    };
+
+
+    /*    componentDidMount() {
+            this.setState({
+                products:this.props.products
+            });
+            this.refs.search.focus();
+        }*/
+
+    handleChange1 = (e) => {
+        const searchString = e.target.value
+        this.props.handleChange2(searchString);
+    }
+
+    render() {
+
+
+        return (
+                <div className={styles.blockProducts}>
+                 {/*   {console.log(this)}*/}
+
+                    <div>
+                        <input
+                            type="text"
+                            value={this.props.searchString}
+                            ref="search"
+                            onChange={this.handleChange1}
+                            placeholder="type name here"
+                        />
                     </div>
-                    <ul className="data-list">
-                         post items mapped in a list linked to onKeyUp function
-                        {this.props.products.map((item, index) => (
-                            <li className={"block-" + index}>
-                                <a className="title" href={item.link}>
-                                    <h3>{item.title}</h3>
-                                </a>
-                                <a className="link" href={item.link}>
-
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
                 </div>
-            );
-        }
+        );
+    }
 }
 
 
 export default SearchProduct;
+
+
+
+{/*
+
+class SearchProduct extends React.Component {
+
+
+    constructor(props) {
+
+        super(props);
+
+        this.state = {
+            searchString: "s",
+
+        };
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange() {
+
+        this.setState({
+            searchString: this.refs.search.value,
+            users: this.props.products
+
+        });
+    }
+
+
+    handleChange2 = (e) => {
+        let value = e.target.value
+
+        this.props.searchString(value)
+    };
+    newPostElement = React.createRef();
+
+
+
+    render() {
+        let users = this.props.products;
+        console.log(users)
+
+        let search = this.state.searchString.trim().toLowerCase();
+
+        if (search.length > 0) {
+            users = users.filter(function (products) {
+                return products.title.toLowerCase().match(search);
+            });
+        }
+        console.log("render")
+
+        return (
+            <div>
+                <h3>React - simple search</h3>
+                <div>
+                    <input
+                        type="text"
+                        value={this.state.searchString}
+                        ref={this.newPostElement} onChange={this.handleChange}
+                        placeholder="type name here"
+                    />
+                    <ul>
+                        {users.map(l => {
+                            return (
+                                <li>
+                                    {l.name} <a href="#">{l.email}</a>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
+            </div>
+        );
+    }
+}
+
+
+export default SearchProduct;*/}

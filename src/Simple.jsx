@@ -1,75 +1,61 @@
 import React from 'react';
-import axios from "axios";
 
-URL = "https://10degrees.uk/wp-json/wp/v2/posts"; // URL variable stores JSON url || API taken from 10 Degrees WordPress Agency
+
 class Simple extends React.Component {
-    state = {
-        post: [],
-        allPosts: []
-    };
+
+   state = {
+            searchString: "",
+            products:this.props.products
+        };
+
+        handleChange = this.handleChange.bind(this);
 
     componentDidMount() {
-        axios
-            .get(URL, {
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json"
-                }
-            })
-            .then(({ data }) => {
-                this.setState({
-                    post: data,
-                    allPosts: data // array data from JSON stored in these
-                });
-            })
-            .catch(err => {});
+        console.log(this)
+        this.setState({
+            products:this.props.products
+        });
+        this.refs.search.focus();
     }
 
-    onKeyUp = e => {
-        // filter post list by title using onKeyUp function
-        const post = this.state.allPosts.filter(item =>
-            item.title.rendered.toLowerCase().includes(e.target.value.toLowerCase())
-        );
-        this.setState({ post });
-    };
+    handleChange() {
+        this.setState({
+            searchString: this.refs.search.value
+        });
+    }
 
     render() {
-        return (
-            <div className="container">
-                <div className="search-outer">
-                    <form
-                        role="search"
-                        method="get"
-                        id="searchform"
-                        className="searchform"
-                        action=""
-                    >
-                        {/* input field activates onKeyUp function on state change */}
-                        <input
-                            type="search"
-                            onChange={this.onKeyUp}
-                            name="s"
-                            id="s"
-                            placeholder="Search"
-                        />
-                        <button type="submit" id="searchsubmit">
-                            <i className="fa fa-search" aria-hidden="true" />
-                        </button>
-                    </form>
-                </div>
-                <ul className="data-list">
-                    {/* post items mapped in a list linked to onKeyUp function */}
-                    {this.state.post.map((item, index) => (
-                        <li className={"block-" + index}>
-                            <a className="title" href={item.link}>
-                                <h3>{item.title.rendered}</h3>
-                            </a>
-                            <a className="link" href={item.link}>
+        let _users = this.props.products;
+        let search = this.state.searchString.trim().toLowerCase();
 
-                            </a>
-                        </li>
-                    ))}
-                </ul>
+        if (search.length > 0) {
+            _users = _users.filter(function(user) {
+                return user.title.toLowerCase().match(search);
+            });
+        }
+
+        return (
+
+            <div>
+                <h3>React - simple search</h3>
+                <div>
+                    <input
+                        type="text"
+                        value={this.state.searchString}
+                        ref="search"
+                        onChange={this.handleChange}
+                        placeholder="type name here"
+                    />
+                    <ul>
+                        {_users.map(l => {
+                            return (
+                                <li>
+                                    {l.title} <a href="#">{l.email}</a>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
             </div>
         );
     }

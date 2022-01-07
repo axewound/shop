@@ -4,18 +4,15 @@ import SearchProduct from "./SearchProduct";
 import {ratingAC, searccch, setProduct, toggleIsFetching} from "../../redux/product-reducer";
 import {connect} from "react-redux";
 import Simple from "../../Simple";
-import SearchProductContainer from "./SearchProductContainer";
 
-const BodyHeaderBlockContainer = (props) => {
+const SearchProductContainer = (props) => {
 
 
 
     return (
         <div>
-            <SortProduct
-                handleChange={props.handleChange}
-            />
-            <SearchProductContainer searchString={props.searchString} products={props.products}/>
+
+            <SearchProduct searchString={props.searchString} products={props.products}/>
         </div>
     )
 }
@@ -27,4 +24,4 @@ const mapDispatchToProps = (dispatch) => {
 
     }
 }
-export default connect(null,mapDispatchToProps)(BodyHeaderBlockContainer);
+export default connect(null,mapDispatchToProps)(SearchProduct);
