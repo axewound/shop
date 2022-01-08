@@ -9,7 +9,6 @@ import Simple from "../../Simple";
 const mapDispatchToProps = (dispatch) => {
     return {
         handleChange2: (searchString) => {
-            debugger
             dispatch(searccch(searchString));
         },
 

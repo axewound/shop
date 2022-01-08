@@ -11,7 +11,7 @@ const BodyHeaderBlockContainer = (props) => {
 
     return (
         <div>
-            <Simple/>
+
             <SortProduct
                 handleChange={props.handleChange}
             />

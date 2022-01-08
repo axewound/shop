@@ -36,6 +36,7 @@ const productReducer = (state = initialState, action) => {
             return {...state, products: action.products}
         }
         case Low_rating:
+            console.log(state)
             return {
                 ...state,
                 products: state.products.sort((a, b) => (a.price > b.price ? 1 : -1))

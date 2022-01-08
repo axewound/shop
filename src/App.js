@@ -12,10 +12,7 @@ const App = () => {
     return (
         <div className={style.container}>
             <Header/>
-            <Route path='/product/:userId?'
-                   render={() => <ProductOnePages/>}/>
-            <Route path='/body'
-                   render={() => <Body/>}/>
+            <Body/>
             <Footer/>
         </div>
     )

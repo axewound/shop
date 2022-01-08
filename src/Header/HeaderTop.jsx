@@ -17,9 +17,9 @@ class HeaderTop extends React.Component {
                 </div>
                 <nav>
                     <ul>
-                        <Link to="/home" activeClassName={style.activeLink}>Home</Link>
-                        <Link to="/body" activeClassName={style.activeLink}>Devices</Link>
-                        <Link to="/" activeClassName={style.activeLink}>About</Link>
+                        <Link to="/home" >Home</Link>
+                        <Link to="/products" >Devices</Link>
+                        <Link to="/" >About</Link>
                         <li>Delivery & Payment</li>
                         <li>Guarantee</li>
                         <li>About Us</li>
