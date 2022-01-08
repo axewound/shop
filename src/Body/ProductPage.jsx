@@ -25,6 +25,11 @@ class ProductPages extends React.Component {
             searchString: this.refs.search.value
         });
     }
+     onPostChange  (id)  {
+        console.log()
+     /*   let text = newPostElement.current.value;
+        props.updateNewPostText(text);*/
+    }
 
 
     render() {
@@ -32,7 +37,6 @@ class ProductPages extends React.Component {
         let search = this.props.searchString.trim().toLowerCase();
 
         if (search.length > 0) {
-            console.log(this)
             _users = _users.filter(function (user) {
                 return user.title.toLowerCase().match(search);
             });
@@ -52,7 +56,9 @@ class ProductPages extends React.Component {
                             <h2 className={styles.title}>{u.title}</h2>
                             <h3 className={styles.rating}>{u.rating.rate}</h3>
                             <span className={styles.price}>$ {u.price}</span>
-                            <button>+</button>
+                            <button onClick={() => {
+                                this.props.basket(u.id)
+                            }}>Unfollow</button>
                         </div>
                     </div>)
                 }

@@ -7,6 +7,7 @@ import {Link, NavLink} from "react-router-dom";
 
 class HeaderTop extends React.Component {
     render() {
+        console.log(this)
         return (
             <div className={style.HeaderTopContainer}>
                 <div>
@@ -29,7 +30,7 @@ class HeaderTop extends React.Component {
                     <img src={Shopping_Cart_Icon} alt=""/>
                     <div>
                         <span>CART</span>
-                        <div>0</div>
+                        <div>{this.props.basket.length}</div>
                     </div>
                 </div>
                 <div>

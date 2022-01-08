@@ -8,6 +8,7 @@ const High_rating = "High_rating"
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const SER = "SER"
 const SERMINMAX = "SERMINMAX"
+const BASKET = "BASKET"
 
 let initialState = {
     products: [],
@@ -21,7 +22,8 @@ let initialState = {
         max: ""
     },
     min: "",
-    max: ""
+    max: "",
+    basket: []
 
 };
 
@@ -30,7 +32,7 @@ function strip(title) {
 }
 
 const productReducer = (state = initialState, action) => {
-    /*console.log(state)*/
+    console.log(state)
     switch (action.type) {
         case SET_PRODUCT: {
             return {...state, products: action.products}
@@ -78,6 +80,28 @@ const productReducer = (state = initialState, action) => {
             }
 
         }
+        case BASKET:
+            return {
+                ...state,
+
+                /*basket: action.userId,*/
+                basket: [...state.basket, action.userId],
+               /* message: state.newPostText,
+                likesCount: 0*/
+               /* basket: [...state.basket, newPost],*/
+
+            };
+            /*return {
+
+               /!* products: state.products.map( u =>  {
+
+                    if (u.id === action.userId) {
+                        return {...u, followed: true}
+                    }
+
+                    return u;
+                })*!/
+            }*/
         default:
             return state;
     }
@@ -96,6 +120,7 @@ export const searchMixMax = ( price) => (
 
 {  type: SERMINMAX, price}
 )
+export const basket = (userId) => ({type: BASKET, userId })
 
 export const getProductThunk = () => {
     return (dispatch) => {
