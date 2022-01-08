@@ -1,3 +1,8 @@
+
+
+
+
+
 import React, {useState} from 'react';
 import styles from './ProductPages.module.css';
 import userPhoto from '../assets/image/user.png';
@@ -5,25 +10,29 @@ import {NavLink, Route} from "react-router-dom";
 
 class ProductPages extends React.Component {
 
+
     state = {
         searchString: "",
         products: this.props.products
     };
 
     handleChange1 = (e) => {
-        const searchString = e.target.value
+        /* const searchString = e.target.value*/
 
         this.setState({
+
+            products: this.props.products,
             searchString: this.refs.search.value
         });
     }
 
+
     render() {
-        console.log(this.props)
         let _users = this.props.products;
         let search = this.props.searchString.trim().toLowerCase();
 
         if (search.length > 0) {
+            console.log(this)
             _users = _users.filter(function (user) {
                 return user.title.toLowerCase().match(search);
             });
@@ -43,6 +52,7 @@ class ProductPages extends React.Component {
                             <h2 className={styles.title}>{u.title}</h2>
                             <h3 className={styles.rating}>{u.rating.rate}</h3>
                             <span className={styles.price}>$ {u.price}</span>
+                            <button>+</button>
                         </div>
                     </div>)
                 }
@@ -53,3 +63,52 @@ class ProductPages extends React.Component {
 }
 
 export default ProductPages
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+Мейби норм тема, хз, не удалять, проверить зачем нужно была обгортка
+
+import ProductPages from "./ProductPages";
+import {connect} from "react-redux";
+import PriceMinMax from "./BodyHeaderBlockAll/PriceMinMax";
+import PriceMinMaxContainer from "./BodyHeaderBlockAll/PriceMinMaxContainer";
+
+/!*class BodyProductBlockContainer extends React.Component {
+    render() {
+
+        return (
+            <div>
+                <ProductPages searchString={this.props.searchString} products={this.props.products}
+                />
+            </div>
+        )
+    }
+}*!/
+let mapStateToProps = (state) => {
+/!*console.log(state)*!/
+    return {
+       /!* products: state.productPage.products,*!/
+        searchString: state.productPage.searchString,
+    }
+}
+
+  const BodyProductBlockContainer = connect(mapStateToProps,null)(ProductPages);
+  export default BodyProductBlockContainer;
+
+/!*export default connect(mapStateToProps,[])(BodyProductBlockContainer);*!/
+*/

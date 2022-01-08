@@ -11,6 +11,7 @@ class ProductOnePages extends React.Component {
         this.props.getUserProfile(userId);
     }
     render() {
+        console.log(this.state)
         return (
             <ProfileInfo {...this.props} products={this.props.products} />
         )
@@ -18,6 +19,8 @@ class ProductOnePages extends React.Component {
 }
 
 let mapStateToProps = (state) => {
+    console.log(state)
+
     return {
         products: state.productPage.products,
     }
