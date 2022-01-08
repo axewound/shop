@@ -1,9 +1,7 @@
 import React from 'react';
-import SortProduct from "./SortProduct";
 import SearchProduct from "./SearchProduct";
-import {ratingAC, searccch, setProduct, toggleIsFetching} from "../../redux/product-reducer";
+import { searccch } from "../../redux/product-reducer";
 import {connect} from "react-redux";
-import Simple from "../../Simple";
 
 
 const mapDispatchToProps = (dispatch) => {
@@ -11,7 +9,6 @@ const mapDispatchToProps = (dispatch) => {
         handleChange2: (searchString) => {
             dispatch(searccch(searchString));
         },
-
     }
 }
 

@@ -13,7 +13,6 @@ const mapDispatchToProps = (dispatch) => {
 
         handleChange23: (price) => {
             console.log(price)
-
             dispatch(searchMixMax(price));
         },
 

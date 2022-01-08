@@ -25,7 +25,7 @@ class Body extends React.Component {
     render() {
         return (
             <div>
-                <BodyHeaderBlockContainer  handleChange={this.handleChange}  onKeyUp={this.onKeyUp} products={this.props.products} />
+                <BodyHeaderBlockContainer  handleChange={this.handleChange}  />
                 <div className={styles.bodyContainer}>
                     <NavBarBodyLeft/>
                     {this.props.isFetching ? <Preloader/> : null}

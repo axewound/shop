@@ -1,12 +1,8 @@
 import React from 'react';
-import styles from './ProductPages.module.css';
-import userPhoto from '../assets/image/user.png';
-import {NavLink, withRouter} from "react-router-dom";
-import axios from "axios";
-import ProductOnePage from "./ProductOnePage";
-import ProfileInfo from "./ProductPages1";
+import { withRouter} from "react-router-dom";
+import ProfileInfo from "./ProfileInfo";
 import {connect} from "react-redux";
-import productReducer, {getUserProfile, setProduct} from "../redux/product-reducer";
+import {getUserProfile} from "../redux/product-reducer";
 import {compose} from "redux";
 
 class ProductOnePages extends React.Component {
@@ -16,7 +12,7 @@ class ProductOnePages extends React.Component {
     }
     render() {
         return (
-            <ProfileInfo {...this.props}  />
+            <ProfileInfo {...this.props} products={this.props.products} />
         )
     }
 }
