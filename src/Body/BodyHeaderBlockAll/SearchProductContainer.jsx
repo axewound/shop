@@ -5,23 +5,17 @@ import {ratingAC, searccch, setProduct, toggleIsFetching} from "../../redux/prod
 import {connect} from "react-redux";
 import Simple from "../../Simple";
 
-const SearchProductContainer = (props) => {
 
-
-
-    return (
-        <div>
-
-            <SearchProduct searchString={props.searchString} products={props.products}/>
-        </div>
-    )
-}
 const mapDispatchToProps = (dispatch) => {
     return {
         handleChange2: (searchString) => {
+            debugger
             dispatch(searccch(searchString));
         },
 
     }
 }
-export default connect(null,mapDispatchToProps)(SearchProduct);
+
+const SearchProductContainer = connect(null,mapDispatchToProps)(SearchProduct);
+
+export default SearchProductContainer;

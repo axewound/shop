@@ -2,14 +2,13 @@ import React from 'react';
 import NavBarBodyLeft from "./NavBarLeft/NavBarBodyLeft";
 import BodyProductBlockContainer from "./BodyProductBlockContainer";
 import BodyHeaderBlockContainer from "./BodyHeaderBlockAll/BodyHeaderBlockContainer";
-import {usersAPI} from "../api/api";
 import {connect} from "react-redux";
 import {getProductThunk, ratingAC, setProduct, toggleIsFetching} from "../redux/product-reducer";
 import Preloader from "../assets/Preloader";
 import styles from './Body.module.css';
 import ProductOnePages from "./ProductOnePage";
 import {Route} from "react-router-dom";
-import SearchProduct from "./BodyHeaderBlockAll/SearchProduct";
+import App from "../App";
 
 
 class Body extends React.Component {
@@ -27,16 +26,16 @@ class Body extends React.Component {
     render() {
         return (
             <div>
-                <BodyHeaderBlockContainer searchString={this.props.searchString}  handleChange={this.handleChange}  products={this.props.products}/>
+                <Route path="/home" component={App} />
 
+                <BodyHeaderBlockContainer  handleChange={this.handleChange}  />
                 <div className={styles.bodyContainer}>
                     <NavBarBodyLeft/>
-
                     {this.props.isFetching ? <Preloader/> : null}
-                    <Route path='/product/:userId?'
+
+                    <Route path='/product/:userId?/'
                            render={ () => <ProductOnePages /> }/>
-                    <Route path='/body'
-                           render={ () => <BodyProductBlockContainer products={this.props.products} /> }/>
+                  <BodyProductBlockContainer />
                 </div>
             </div>
         )
@@ -48,7 +47,6 @@ let mapStateToProps = (state) => {
         products: state.productPage.products,
         isFetching: state.productPage.isFetching,
         searchString: state.productPage.searchString
-
     }
 }
 

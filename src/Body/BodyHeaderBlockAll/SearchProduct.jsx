@@ -5,17 +5,8 @@ import styles from "../ProductPages.module.css";
 class SearchProduct extends React.Component {
 
     state = {
-        searchString: "",
         products:this.props.products
     };
-
-
-    /*    componentDidMount() {
-            this.setState({
-                products:this.props.products
-            });
-            this.refs.search.focus();
-        }*/
 
     handleChange1 = (e) => {
         const searchString = e.target.value
@@ -27,7 +18,6 @@ class SearchProduct extends React.Component {
 
         return (
                 <div className={styles.blockProducts}>
-                 {/*   {console.log(this)}*/}
 
                     <div>
                         <input
@@ -35,7 +25,7 @@ class SearchProduct extends React.Component {
                             value={this.props.searchString}
                             ref="search"
                             onChange={this.handleChange1}
-                            placeholder="type name here"
+                            placeholder="type name heres"
                         />
                     </div>
                 </div>

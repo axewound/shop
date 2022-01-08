@@ -7,6 +7,7 @@ const Low_rating = "Low_rating"
 const High_rating = "High_rating"
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const SER = "SER"
+const SERMINMAX = "SERMINMAX"
 
 let initialState = {
     products: [],
@@ -14,7 +15,14 @@ let initialState = {
     profile: {},
     post: [],
     allPosts: [],
-    searchString: ""
+    searchString: "",
+    price:{
+        min: "",
+        max: ""
+    },
+    min: "",
+    max: ""
+
 };
 
 function strip(title) {
@@ -57,19 +65,22 @@ const productReducer = (state = initialState, action) => {
             return {
                 ...state,
                 searchString: action.searchString,
-   /*             prodd:action.products,
-                products: state.products.filter(element => {
-                    if (action.searchString === "") {
-                        return state
-                    } else return element.title.toLowerCase().includes(action.searchString.toLowerCase())}
-                    )*/
-
             }
 
+        }
+        case SERMINMAX: {
+            console.log(state)
+            return {
+                ...state,
+
+                max: action.price.value,
+                min: action.price.value,
+            }
+
+        }
+        default:
+            return state;
     }
-default:
-return state;
-}
 }
 
 
@@ -81,6 +92,10 @@ export const ratingAC = (value) => (
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export const searccch = (searchString) => ({type: SER, searchString})
+export const searchMixMax = ( price) => (
+
+{  type: SERMINMAX, price}
+)
 
 export const getProductThunk = () => {
     return (dispatch) => {

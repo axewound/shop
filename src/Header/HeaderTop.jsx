@@ -3,7 +3,7 @@ import style from "./HeaderTop.module.css"
 import Header_burger from '../assets/image/Header_burger.svg'
 import Icon_Portland from '../assets/image/Icon_Portland.svg'
 import Shopping_Cart_Icon from '../assets/image/Shopping_Cart_Icon.svg'
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 
 class HeaderTop extends React.Component {
     render() {
@@ -17,9 +17,9 @@ class HeaderTop extends React.Component {
                 </div>
                 <nav>
                     <ul>
-                        <li>Home</li>
-                        <NavLink to="/body" activeClassName={style.activeLink}>Devices</NavLink>
-                        <NavLink to="/products" activeClassName={style.activeLink}>About</NavLink>
+                        <Link to="/home" activeClassName={style.activeLink}>Home</Link>
+                        <Link to="/body" activeClassName={style.activeLink}>Devices</Link>
+                        <Link to="/" activeClassName={style.activeLink}>About</Link>
                         <li>Delivery & Payment</li>
                         <li>Guarantee</li>
                         <li>About Us</li>

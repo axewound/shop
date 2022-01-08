@@ -5,17 +5,18 @@ import {ratingAC, searccch, setProduct, toggleIsFetching} from "../../redux/prod
 import {connect} from "react-redux";
 import Simple from "../../Simple";
 import SearchProductContainer from "./SearchProductContainer";
+import SearchMinMaxContainer from "./PriceMinMaxContainer";
 
 const BodyHeaderBlockContainer = (props) => {
 
-
-
     return (
         <div>
+            <Simple/>
             <SortProduct
                 handleChange={props.handleChange}
             />
-            <SearchProductContainer searchString={props.searchString} products={props.products}/>
+            <SearchProductContainer/>
+            <SearchMinMaxContainer/>
         </div>
     )
 }

@@ -7,7 +7,6 @@ class BodyProductBlockContainer extends React.Component {
     render() {
         return (
             <div>
-                {console.log(this)}
 
 
                 <ProductPages searchString={this.props.searchString} products={this.props.products}

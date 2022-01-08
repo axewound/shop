@@ -12,23 +12,18 @@ import {compose} from "redux";
 class ProductOnePages extends React.Component {
     componentDidMount() {
         let userId = this.props.match.params.userId;
-        if (!userId) {
-            userId = 2;
-        }
         this.props.getUserProfile(userId);
     }
     render() {
         return (
-            <ProfileInfo {...this.props} products={this.props.products}  />
+            <ProfileInfo {...this.props}  />
         )
     }
 }
 
 let mapStateToProps = (state) => {
-    console.log(state.productPage.profile)
     return {
         products: state.productPage.products,
-
     }
 }
 export default  compose(

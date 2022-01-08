@@ -1,62 +1,49 @@
 import React from 'react';
 
-
 class Simple extends React.Component {
-
-   state = {
-            searchString: "",
-            products:this.props.products
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: '',
+            address: ''
         };
 
-        handleChange = this.handleChange.bind(this);
-
-    componentDidMount() {
-        console.log(this)
-        this.setState({
-            products:this.props.products
-        });
-        this.refs.search.focus();
     }
 
-    handleChange() {
+    handleInputChange = (event) => {
+        const target = event.target;
+        const { value, name } = target;
+
         this.setState({
-            searchString: this.refs.search.value
+            [name]: target.value
         });
     }
 
     render() {
-        let _users = this.props.products;
-        let search = this.state.searchString.trim().toLowerCase();
-
-        if (search.length > 0) {
-            _users = _users.filter(function(user) {
-                return user.title.toLowerCase().match(search);
-            });
-        }
-
         return (
-
-            <div>
-                <h3>React - simple search</h3>
-                <div>
+            <form>
+                <label>
+                    姓名
                     <input
+                        name="name"
                         type="text"
-                        value={this.state.searchString}
-                        ref="search"
-                        onChange={this.handleChange}
-                        placeholder="type name here"
-                    />
-                    <ul>
-                        {_users.map(l => {
-                            return (
-                                <li>
-                                    {l.title} <a href="#">{l.email}</a>
-                                </li>
-                            );
-                        })}
-                    </ul>
+                        value={this.state.name}
+                        onChange={this.handleInputChange} />
+                </label>
+                <label>
+                    地址
+                    <input
+                        name="address"
+                        type="text"
+                        value={this.state.address}
+                        onChange={this.handleInputChange} />
+                </label>
+                <hr/>
+                <div>
+                    {this.state.name} <br/>
+                    {this.state.address}
                 </div>
-            </div>
+            </form>
         );
     }
 }

@@ -4,24 +4,18 @@ import Header from "./Header/Header";
 import Body from "./Body/Body";
 import Footer from "./Footer/Footer";
 import {Route} from "react-router-dom";
-import ProductOnePage from "./Body/ProductOnePage";
 import ProductOnePages from "./Body/ProductOnePage";
-import NavBarBodyLeft from "./Body/NavBarLeft/NavBarBodyLeft";
-import Simple from "./Simple";
 
 const App = () => {
+
+
     return (
         <div className={style.container}>
             <Header/>
-           {/* <Simple/>*/}
-            <div className={style.lllll}>
-
-                <Route path='/product/:userId?'
-                       render={() => <ProductOnePages/>}/>
-                <Route path='/body'
-                       render={() => <Body/>}/>
-            </div>
-            {/*<Body/>*/}
+            <Route path='/product/:userId?'
+                   render={() => <ProductOnePages/>}/>
+            <Route path='/body'
+                   render={() => <Body/>}/>
             <Footer/>
         </div>
     )
