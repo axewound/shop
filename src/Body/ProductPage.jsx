@@ -1,8 +1,3 @@
-
-
-
-
-
 import React, {useState} from 'react';
 import styles from './ProductPages.module.css';
 import userPhoto from '../assets/image/user.png';
@@ -25,11 +20,7 @@ class ProductPages extends React.Component {
             searchString: this.refs.search.value
         });
     }
-     onPostChange  (id)  {
-        console.log()
-     /*   let text = newPostElement.current.value;
-        props.updateNewPostText(text);*/
-    }
+
 
 
     render() {
@@ -43,23 +34,28 @@ class ProductPages extends React.Component {
         }
 
         return (
+
             <div className={styles.blockProducts}>
+
                 {
                     _users.map(u => <div className={styles.productInfo} key={u.id}>
-                        <NavLink to={'/product/' + u.id}>
-                            <div>
+                       {/* <NavLink to={'/product/' + u.id}> */}
+                            <NavLink to={'/product/' + u.id}>
+                                1
+                        {/*    <div>
                                 <img src={u.image != null ? u.image : userPhoto} className={styles.productPhoto}/>
-                            </div>
-                        </NavLink>
+                            </div>*/}
+                            </NavLink>
 
                         <div className={styles.productInfoMin}>
                             <h2 className={styles.title}>{u.title}</h2>
                             <h3 className={styles.rating}>{u.rating.rate}</h3>
                             <span className={styles.price}>$ {u.price}</span>
                             <button onClick={() => {
-                                this.props.basket(u.id)
-                            }}>Unfollow</button>
+                                this.props.basket(u.id,u.title)
+                            }}>Add Case</button>
                         </div>
+
                     </div>)
                 }
 

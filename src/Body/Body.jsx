@@ -26,10 +26,12 @@ class Body extends React.Component {
     render() {
         return (
             <div>
-                <BodyHeaderBlockContainer handleChange={this.handleChange}/>
+                <BodyHeaderBlockContainer handleChange={this.handleChange} />
                 <div className={styles.bodyContainer}>
                     <NavBarBodyLeft/>
                     {this.props.isFetching ? <Preloader/> : null}
+                 {/*   <Route path='/product/:userId?/'
+                           render={() => <ProductOnePages/>}/>*/}
                     <Route path='/product/:userId?/'
                            render={() => <ProductOnePages/>}/>
                     <Route path='/products'

@@ -9,6 +9,7 @@ const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const SER = "SER"
 const SERMINMAX = "SERMINMAX"
 const BASKET = "BASKET"
+const BASKETDELETE = "BASKETDELETE"
 
 let initialState = {
     products: [],
@@ -17,14 +18,23 @@ let initialState = {
     post: [],
     allPosts: [],
     searchString: "",
-    price:{
+    price: {
         min: "",
         max: ""
     },
     min: "",
     max: "",
-    basket: []
-
+    count:1,
+    basketProduct: [],
+    basketDelete: [{
+        "id": 1,
+        "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",
+        "price": 109.95,
+        "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
+        "category": "men's clothing",
+        "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+        "rating": {"rate": 3.9, "count": 120}
+    }]
 };
 
 function strip(title) {
@@ -32,7 +42,6 @@ function strip(title) {
 }
 
 const productReducer = (state = initialState, action) => {
-    console.log(state)
     switch (action.type) {
         case SET_PRODUCT: {
             return {...state, products: action.products}
@@ -81,27 +90,37 @@ const productReducer = (state = initialState, action) => {
 
         }
         case BASKET:
+            console.log(action.userId)
+            console.log(state)
+            if (state.basketProduct.map(e => e.id === action.userId)) {
+
+                console.log(true)
+            } else {
+                console.log(false);
+            }
+            let newPost = {
+                id: action.userId,
+                title: action.title,
+                count:state.count++
+            };
+
+
+
+
+            return {
+                ...state,
+                basketProduct: [...state.basketProduct, newPost],
+            }
+        case BASKETDELETE:
+
+
             return {
                 ...state,
 
-                /*basket: action.userId,*/
-                basket: [...state.basket, action.userId],
-               /* message: state.newPostText,
-                likesCount: 0*/
-               /* basket: [...state.basket, newPost],*/
-
-            };
-            /*return {
-
-               /!* products: state.products.map( u =>  {
-
-                    if (u.id === action.userId) {
-                        return {...u, followed: true}
-                    }
-
-                    return u;
-                })*!/
-            }*/
+                basketProduct: state.basketProduct.filter((item) => {
+                    return item.id !== action.userId
+                })
+            }
         default:
             return state;
     }
@@ -116,11 +135,12 @@ export const ratingAC = (value) => (
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export const searccch = (searchString) => ({type: SER, searchString})
-export const searchMixMax = ( price) => (
+export const searchMixMax = (price) => (
 
-{  type: SERMINMAX, price}
+    {type: SERMINMAX, price}
 )
-export const basket = (userId) => ({type: BASKET, userId })
+export const basket = (userId, title) => ({type: BASKET, userId, title})
+export const basketDelete = (userId) => ({type: BASKETDELETE, userId})
 
 export const getProductThunk = () => {
     return (dispatch) => {

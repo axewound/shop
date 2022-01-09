@@ -5,6 +5,10 @@ import Body from "./Body/Body";
 import Footer from "./Footer/Footer";
 import {Route} from "react-router-dom";
 import ProductOnePages from "./Body/ProductOnePage";
+import Slider from "./Simple";
+import Home from "./Header/Home";
+
+
 
 const App = () => {
 
@@ -12,6 +16,12 @@ const App = () => {
     return (
         <div className={style.container}>
             <Header/>
+            <Route path='/home'
+                   render={() =>  <Home/>}/>
+
+         {/*   <Route path='/devices'
+                   render={() => <Body/>}/>*/}
+
             <Body/>
             <Footer/>
         </div>
