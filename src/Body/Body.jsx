@@ -30,13 +30,16 @@ class Body extends React.Component {
                 <div className={styles.bodyContainer}>
                     <NavBarBodyLeft/>
                     {this.props.isFetching ? <Preloader/> : null}
-                 {/*   <Route path='/product/:userId?/'
-                           render={() => <ProductOnePages/>}/>*/}
-                    <Route path='/product/:userId?/'
+
+                    <Route path='/devices/device/:userId?/'
                            render={() => <ProductOnePages/>}/>
-                    <Route path='/products'
+                    {/*<ProductOnePages/>*/}
+              {/*      <ProductPages basket={this.props.basket} searchString={this.props.searchString}
+                                                       products={this.props.products}/>*/}
+                    <Route exact path='/devices'
                            render={() => <ProductPages basket={this.props.basket} searchString={this.props.searchString}
-                                                       products={this.props.products}/>}/>
+                                                       products={this.props.products}/>
+                           }/>
                 </div>
             </div>
         )

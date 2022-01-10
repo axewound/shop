@@ -1,9 +1,11 @@
 import React from 'react';
 
 const ProfileInfo = (props) => {
+console.log(props)
     return (
         <div>
             <div>
+
                 <img src={props.products.image}/>
             </div>
             <div >

@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styles from './ProductPages.module.css';
 import userPhoto from '../assets/image/user.png';
-import {NavLink, Route} from "react-router-dom";
+import {Link, NavLink, Route} from "react-router-dom";
 
 class ProductPages extends React.Component {
 
@@ -32,15 +32,16 @@ class ProductPages extends React.Component {
                 return user.title.toLowerCase().match(search);
             });
         }
-
         return (
 
             <div className={styles.blockProducts}>
 
                 {
                     _users.map(u => <div className={styles.productInfo} key={u.id}>
+
                        {/* <NavLink to={'/product/' + u.id}> */}
-                            <NavLink to={'/product/' + u.id}>
+
+                            <NavLink to={'/devices/device/' + u.id}>
                                 1
                         {/*    <div>
                                 <img src={u.image != null ? u.image : userPhoto} className={styles.productPhoto}/>

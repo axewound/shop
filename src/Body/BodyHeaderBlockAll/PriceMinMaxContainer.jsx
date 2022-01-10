@@ -3,7 +3,7 @@ import SortProduct from "./SortProduct";
 import SearchProduct from "./SearchProduct";
 import {ratingAC, searccch, searchMixMax, setProduct, toggleIsFetching} from "../../redux/product-reducer";
 import {connect} from "react-redux";
-import Simple from "../../Simple";
+import Simple from "../../assets/Slider";
 import SearchProductContainer from "./SearchProductContainer";
 import PriceMinMax from "./PriceMinMax";
 

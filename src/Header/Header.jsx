@@ -6,7 +6,7 @@ import style from "./Header.module.css"
 import {connect} from "react-redux";
 import Basket from "./Basket";
 import {basketDelete} from "../redux/product-reducer";
-import Slider from "../Simple";
+import Slider from "../assets/Slider";
 
 class Header extends React.Component {
     render() {

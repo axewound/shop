@@ -6,12 +6,14 @@ import {getUserProfile} from "../redux/product-reducer";
 import {compose} from "redux";
 
 class ProductOnePages extends React.Component {
+
     componentDidMount() {
         let userId = this.props.match.params.userId;
         this.props.getUserProfile(userId);
     }
     render() {
-        console.log(this.state)
+        console.log(this)
+
         return (
             <ProfileInfo {...this.props} products={this.props.products} />
         )
