@@ -26,7 +26,7 @@ class MenuLinks extends React.Component {
         let links = this.state.links.map((link, i) => <li ref={i + 1}><i aria-hidden="true" className={`fa ${ link.icon }`}></i><a href={link.link} target="_blank">{link.text}</a></li>);
 
         return (
-            <div className={this.props.menuStatus} id='menu'>
+            <div className={this.props.menuStatus} id={s.menu}>
                 <ul>
                     { links }
                 </ul>
@@ -64,13 +64,13 @@ class Menu extends React.Component {
         });
     }
     render() {
-        let menuStatus = this.state.isOpen ? 'isopen' : '';
+        let menuStatus = this.state.isOpen ? `${s.isopen}` : '';
 
         return (
             <div ref="root">
                 <div className={s.menubar}>
                     <div className={s.hambclicker} onClick={ this._menuToggle }></div>
-                    <div id="hambmenu" className={ menuStatus }><span></span><span></span><span></span><span></span></div>
+                    <div id={s.hambmenu} className={ menuStatus }><span></span><span></span><span></span><span></span></div>
 
                 </div>
                 <MenuLinks menuStatus={ menuStatus }/>

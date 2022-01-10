@@ -4,13 +4,15 @@ import Header_burger from '../assets/image/Header_burger.svg'
 import Icon_Portland from '../assets/image/Icon_Portland.svg'
 import Shopping_Cart_Icon from '../assets/image/Shopping_Cart_Icon.svg'
 import {Link, NavLink} from "react-router-dom";
+import Menu from "../Simple";
 
 class HeaderTop extends React.Component {
     render() {
         return (
             <div className={style.HeaderTopContainer}>
                 <div>
-                    <img src={Header_burger} alt=""/>
+                    <Menu/>
+
                 </div>
                 <div>
                     <img src={Icon_Portland} alt=""/>

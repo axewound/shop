@@ -25,8 +25,7 @@ let slides = [
 class Home extends React.Component {
     render() {
         return (
-            <div>
-                <Menu/>
+            <div className={style.slider_height}>
                <Slider slides={slides}/>
             </div>
         )
