@@ -7,7 +7,7 @@ import {basket, getProductThunk, ratingAC, setProduct, toggleIsFetching} from ".
 import Preloader from "../assets/Preloader";
 import styles from './Body.module.css';
 import ProductOnePages from "./ProductOnePage";
-import {Route} from "react-router-dom";
+import {Route, withRouter} from "react-router-dom";
 import ProductPages from "./ProductPage";
 
 
@@ -31,12 +31,12 @@ class Body extends React.Component {
                     <NavBarBodyLeft/>
                     {this.props.isFetching ? <Preloader/> : null}
 
-                    <Route path='/devices/device/:userId?/'
+                    <Route path='/products/:userId'
                            render={() => <ProductOnePages/>}/>
                     {/*<ProductOnePages/>*/}
               {/*      <ProductPages basket={this.props.basket} searchString={this.props.searchString}
                                                        products={this.props.products}/>*/}
-                    <Route exact path='/devices'
+                    <Route exact path='/products'
                            render={() => <ProductPages basket={this.props.basket} searchString={this.props.searchString}
                                                        products={this.props.products}/>
                            }/>
@@ -54,6 +54,6 @@ let mapStateToProps = (state) => {
         /*basket: state.productPage.basket*/
     }
 }
+let WithContainer = withRouter(Body)
 
-
-export default connect(mapStateToProps, {getProductThunk,basket, valueElment: ratingAC, setProduct, toggleIsFetching})(Body);
+export default connect(mapStateToProps, {getProductThunk,basket, valueElment: ratingAC, setProduct, toggleIsFetching})(WithContainer);

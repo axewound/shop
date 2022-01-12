@@ -19,7 +19,7 @@ const App = () => {
             <Route path='/home'
                    render={() =>  <Home/>}/>
 
-            <Route path='/devices'
+            <Route path='/products'
                    render={() => <Body/>}/>
 
             {/*<Body/>*/}

@@ -30,6 +30,7 @@ class ProductPages extends React.Component {
 
 
     render() {
+
         let _users = this.props.products;
         let search = this.props.searchString.trim().toLowerCase();
 
@@ -50,7 +51,9 @@ class ProductPages extends React.Component {
 
 
         const renderPageNumbers = pageNumbers.map(number => {
+
             return (
+
                 <li
                     key={number}
                     id={number}
@@ -67,12 +70,13 @@ class ProductPages extends React.Component {
             <div className={styles.blockProducts}>
 
 
+
                 {
                     currentTodos.map(u => <div className={styles.productInfo} key={u.id}>
 
                         {/* <NavLink to={'/product/' + u.id}> */}
 
-                        <NavLink to={'/devices/device/' + u.id}>
+                        <NavLink to={'/products/' + u.id}>
                                 <div>
                                 <img src={u.image != null ? u.image : userPhoto} className={styles.productPhoto}/>
                             </div>
