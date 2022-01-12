@@ -24,7 +24,7 @@ let initialState = {
     },
     min: "",
     max: "",
-    count:1,
+    count: 1,
     basketProduct: [],
     basketDelete: [{
         "id": 1,
@@ -80,31 +80,41 @@ const productReducer = (state = initialState, action) => {
 
         }
         case SERMINMAX: {
+            console.log(action.name)
             console.log(state)
+            for (let key in action.name) {
+
+            }
             return {
                 ...state,
+                ...state.max,
+                ...state.min,
 
-                max: action.price.value,
-                min: action.price.value,
+                price: {
+                    max: action.name.value,
+                    min: action.name.name["min"],
+                }
+
+
+                /* max: action.price.value,
+                 min: action.price.value,*/
             }
 
         }
         case BASKET:
-            console.log(action.userId)
-            console.log(state)
-            if (state.basketProduct.map(e => e.id === action.userId)) {
+            /*         console.log(action.userId)
+                     console.log(state)
+                     if (state.basketProduct.map(e => e.id === action.userId)) {
 
-                console.log(true)
-            } else {
-                console.log(false);
-            }
+                         console.log(true)
+                     } else {
+                         console.log(false);
+                     }*/
             let newPost = {
                 id: action.userId,
                 title: action.title,
-                count:state.count++
+                count: state.count++
             };
-
-
 
 
             return {
@@ -135,9 +145,9 @@ export const ratingAC = (value) => (
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export const searccch = (searchString) => ({type: SER, searchString})
-export const searchMixMax = (price) => (
+export const searchMixMax = (name) => (
 
-    {type: SERMINMAX, price}
+    {type: SERMINMAX, name}
 )
 export const basket = (userId, title) => ({type: BASKET, userId, title})
 export const basketDelete = (userId) => ({type: BASKETDELETE, userId})

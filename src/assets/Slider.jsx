@@ -17,7 +17,6 @@ class Slide extends React.Component {
                 data-active={this.props.active}
                 style={slideStyle}
             >
-                <div className={s.slider__slide__text}>{this.props.text}</div>
             </div>
         );
     }
@@ -29,8 +28,8 @@ class Slider extends React.Component {
 
         this.state = {
             activeSlide: 0,
-            interval: 3,
-            autoplay: true
+            interval: 30,
+            autoplay: false
         };
     }
 
@@ -81,7 +80,6 @@ class Slider extends React.Component {
                     return (
                         <Slide
                             background={slide.background}
-                            text={slide.text}
                             active={index === this.state.activeSlide}
                         />
                     );

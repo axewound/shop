@@ -22,12 +22,11 @@
   cursor: pointer; }
 #hambmenu span {
   position: absolute;
-  height: 5px;
-  width: 100%;
+  height: 2px;
+  width: 20px;
   vertical-align: middle;
-  margin: 20px 0 0 15px;
-  background: white;
-  border-radius: 8px;
+  margin: 25px 0 0 0px;
+  background: #3e425a;
   opacity: 1;
   left: 0;
   transform: rotate(0deg);
@@ -36,11 +35,9 @@
 
 .hambclicker {
   content: '';
-  height: 48px;
-  width: 55px;
+  height: 35px;
+  width: 35px;
   position: absolute;
-  top: 8px;
-  left: 8px;
   cursor: pointer;
   z-index: 9; }
 
@@ -48,10 +45,10 @@
   top: 0px; }
 
 #hambmenu span:nth-child(2), #hambmenu span:nth-child(3) {
-  top: 10px; }
+  top: 4px; }
 
 #hambmenu span:nth-child(4) {
-  top: 20px; }
+  top: 8px; }
 
 #hambmenu.isopen span:nth-child(1) {
   top: 18px;
@@ -75,6 +72,7 @@
   position: absolute;
   height: calc(100vh - 60px);
   width: 210px;
+  opacity: 0;
   background-color: white;
   transform: translateX(-100%);
   transition: transform 300ms; }
@@ -100,6 +98,7 @@ li a {
   color: black; }
 
 #menu.isopen {
+  opacity: 1;
   z-index: 9999;
   transform: none; }
 

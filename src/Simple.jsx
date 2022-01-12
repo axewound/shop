@@ -10,20 +10,23 @@ class MenuLinks extends React.Component {
             links: [{
                 text: 'Author',
                 link: 'https://github.com/Lakston',
-                icon: 'fa-pencil-square-o'
+                icon: 'fa-pencil-square-o',
+                id:0
             }, {
                 text: 'Github page',
                 link: 'https://github.com/Lakston',
-                icon: 'fa-github'
+                icon: 'fa-github',
+                id:1
             }, {
                 text: 'Twitter',
                 link: 'https://twitter.com/Fab_is_coding',
-                icon: 'fa-twitter'
+                icon: 'fa-twitter',
+                id:2
             }]
         }
     }
     render() {
-        let links = this.state.links.map((link, i) => <li ref={i + 1}><i aria-hidden="true" className={`fa ${ link.icon }`}></i><a href={link.link} target="_blank">{link.text}</a></li>);
+        let links = this.state.links.map((link, i) => <li key={link.id} ref={i + 1}><i aria-hidden="true" className={`fa ${ link.icon }`}></i><a href={link.link} target="_blank">{link.text}</a></li>);
 
         return (
             <div className={this.props.menuStatus} id={s.menu}>

@@ -11,9 +11,9 @@ import PriceMinMax from "./PriceMinMax";
 const mapDispatchToProps = (dispatch) => {
     return {
 
-        handleChange23: (price) => {
-            console.log(price)
-            dispatch(searchMixMax(price));
+        handleChange23: (name) => {
+            console.log(name)
+            dispatch(searchMixMax(name));
         },
 
     }

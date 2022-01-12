@@ -17,8 +17,9 @@ class PriceMinMax extends React.Component {
     handleInputChange = (event) => {
         const target = event.target;
         const {value, name} = target;
+
         this.props.handleChange23(
-            {name,value}
+        {name,value}
         )
         this.setState({
             price: {
@@ -31,7 +32,6 @@ class PriceMinMax extends React.Component {
         return (
             <form>
                 <label>
-                    姓名
                     <input
                         name="min"
                         type="text"
@@ -39,7 +39,6 @@ class PriceMinMax extends React.Component {
                         onChange={this.handleInputChange}/>
                 </label>
                 <label>
-                    地址
                     <input
                         name="max"
                         type="text"

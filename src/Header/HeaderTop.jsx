@@ -15,23 +15,23 @@ class HeaderTop extends React.Component {
 
                 </div>
                 <div>
-                    <img src={Icon_Portland} alt=""/>
+                    <img className={style.Icon_Portland} src={Icon_Portland} alt=""/>
                 </div>
                 <nav>
                     <ul>
-                        <Link to="/home" >Home</Link>
-                        <Link to="/devices" >Devices</Link>
+                        <NavLink to="/home" className={style.NavLink}>Home</NavLink>
+                        <NavLink to="/devices" className={style.NavLink}>Devices</NavLink>
                      {/*   <Link to="/device" >About</Link>*/}
                         <li>Delivery & Payment</li>
                         <li>Guarantee</li>
                         <li>About Us</li>
                     </ul>
                 </nav>
-                <div>
+                <div className={style.basketHeader}>
                     <img src={Shopping_Cart_Icon} alt=""/>
-                    <div>
+                    <div className={style.basketHeaderCount}>
                         <span>CART</span>
-                        <div>{this.props.basketProduct.length}</div>
+                        <div className={style.basketCount}>{this.props.basketProduct.length}</div>
                     </div>
                 </div>
                 <div>

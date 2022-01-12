@@ -1,29 +1,95 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-ul{
+ul {
     padding: 0;
     margin: 0;
 }
-ul li {
+
+.NavLink, ul li {
     display: inline;
     font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     color: #343e5c;
     font-weight: 700;
+    text-decoration: none;
+    margin-right: 30px;
 }
 
-.HeaderTopContainer{
+.HeaderTopContainer {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
 }
-.buttonCart{
+
+.buttonCart {
     border: 2px solid #e3e8f0;
     background-color: Transparent;
     text-transform: uppercase;
-    border-radius: 16px;
-    padding: 10px 15px;
+    border-radius: 24px;
+    padding: 5px 22px;
     color: #343e5c;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
-.slider_height{
-    height: 64vw;
+
+.slider_box {
+    position: relative;
+    height: 18vw;
+
+}
+
+.basketHeader {
+    display: flex;
+}
+
+.basketHeader span {
+    margin: 0 7px 0 8px;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #343e5c;
+    font-weight: 700;
+}
+
+.basketHeaderCount {
+    display: flex;
+    align-items: center;
+
+}
+
+.basketCount {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #343e5c;
+    background: #e3e8f0;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.Icon_Portland {
+    margin-left: 75px;
+    margin-right: 150px;
+}
+
+hr {
+    margin-top: 15px !important;
+}
+
+.headerAfterNav {
+    margin-bottom: 24px;
+    margin-top: 24px;
+
+}
+
+.headerAfterNav li {
+
+    color: #b9bed1;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 11px;
 }

@@ -4,9 +4,8 @@ import Header from "./Header/Header";
 import Body from "./Body/Body";
 import Footer from "./Footer/Footer";
 import {Route} from "react-router-dom";
-import ProductOnePages from "./Body/ProductOnePage";
-import Slider from "./assets/Slider";
 import Home from "./Header/Home";
+import {Container} from "react-bootstrap";
 
 
 
@@ -14,7 +13,8 @@ const App = () => {
 
 
     return (
-        <div className={style.container}>
+        <Container>
+
             <Header/>
             <Route path='/home'
                    render={() =>  <Home/>}/>
@@ -24,7 +24,7 @@ const App = () => {
 
             {/*<Body/>*/}
             <Footer/>
-        </div>
+        </Container>
     )
 
 }

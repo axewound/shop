@@ -25,7 +25,7 @@ let slides = [
 class Home extends React.Component {
     render() {
         return (
-            <div className={style.slider_height}>
+            <div className={style.slider_box}>
                <Slider slides={slides}/>
             </div>
         )
