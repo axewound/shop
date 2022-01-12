@@ -8,7 +8,9 @@ class ProductPages extends React.Component {
 
     state = {
         searchString: "",
-        products: this.props.products
+        products: this.props.products,
+        currentPage: 1,
+        todosPerPage: 10
     };
 
     handleChange1 = (e) => {
@@ -20,7 +22,11 @@ class ProductPages extends React.Component {
             searchString: this.refs.search.value
         });
     }
-
+    handleClick = (event) => {
+        this.setState({
+            currentPage: Number(event.target.id)
+        });
+    }
 
 
     render() {
@@ -32,53 +38,68 @@ class ProductPages extends React.Component {
                 return user.title.toLowerCase().match(search);
             });
         }
+        const indexOfLastTodo = this.state.currentPage * this.state.todosPerPage;
+        const indexOfFirstTodo = indexOfLastTodo - this.state.todosPerPage;
+        const currentTodos = _users.slice(indexOfFirstTodo, indexOfLastTodo);
+
+        const pageNumbers = [];
+
+        for (let i = 1; i <= Math.ceil(this.props.products.length / this.state.todosPerPage); i++) {
+            pageNumbers.push(i);
+        }
+
+
+        const renderPageNumbers = pageNumbers.map(number => {
+            return (
+                <li
+                    key={number}
+                    id={number}
+                    onClick={this.handleClick}
+                >
+                    {number}
+                </li>
+            );
+        });
+
+
         return (
 
             <div className={styles.blockProducts}>
 
+
                 {
-                    _users.map(u => <div className={styles.productInfo} key={u.id}>
+                    currentTodos.map(u => <div className={styles.productInfo} key={u.id}>
 
-                       {/* <NavLink to={'/product/' + u.id}> */}
+                        {/* <NavLink to={'/product/' + u.id}> */}
 
-                            <NavLink to={'/devices/device/' + u.id}>
-                                1
-                        {/*    <div>
+                        <NavLink to={'/devices/device/' + u.id}>
+                                <div>
                                 <img src={u.image != null ? u.image : userPhoto} className={styles.productPhoto}/>
-                            </div>*/}
-                            </NavLink>
+                            </div>
+                        </NavLink>
 
                         <div className={styles.productInfoMin}>
                             <h2 className={styles.title}>{u.title}</h2>
                             <h3 className={styles.rating}>{u.rating.rate}</h3>
                             <span className={styles.price}>$ {u.price}</span>
                             <button onClick={() => {
-                                this.props.basket(u.id,u.title)
-                            }}>Add Case</button>
+                                this.props.basket(u.id, u.title)
+                            }}>Add Case
+                            </button>
                         </div>
 
                     </div>)
                 }
 
+                <ul id="page-numbers">
+                    {renderPageNumbers}
+                </ul>
             </div>
         );
     }
 }
 
 export default ProductPages
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*
