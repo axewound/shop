@@ -1,27 +1,15 @@
-import React from 'react';
-import { withRouter} from "react-router-dom";
+/*import React from 'react';
 import ProfileInfo from "./ProfileInfo";
-import {connect} from "react-redux";
-import {getUserProfile} from "../redux/product-reducer";
-import {compose} from "redux";
 
-class ProductOnePages extends React.Component {
+let ProductOnePages =(props)=> {
 
-    componentDidMount() {
-        let userId = this.props.match.params.userId;
-        this.props.getUserProfile(userId);
-    }
-    render() {
-        console.log(this)
-
-        return (
-            <ProfileInfo {...this.props} products={this.props.products} />
-        )
-    }
+    return (
+        <ProfileInfo products={props.products}/>
+    )
 }
-
+export default ProductOnePages*/
+/*
 let mapStateToProps = (state) => {
-    console.log(state)
 
     return {
         products: state.productPage.products,
@@ -30,5 +18,5 @@ let mapStateToProps = (state) => {
 export default  compose(
     connect(mapStateToProps, {getUserProfile}),
     withRouter
-)(ProductOnePages)
+)(ProductOnePages)*/
 

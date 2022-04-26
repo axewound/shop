@@ -1,6 +1,7 @@
 import React from 'react';
 import NavBarBodyLeft from "./NavBarLeft/NavBarBodyLeft";
 import BodyProductBlockContainer from "./ProductPage";
+import ProductOnePagesContrtainer from "./ProductOnePageContainer";
 import BodyHeaderBlockContainer from "./BodyHeaderBlockAll/BodyHeaderBlockContainer";
 import {connect} from "react-redux";
 import {basket, getProductThunk, ratingAC, setProduct, toggleIsFetching} from "../redux/product-reducer";
@@ -9,6 +10,7 @@ import styles from './Body.module.css';
 import ProductOnePages from "./ProductOnePage";
 import {Route, withRouter} from "react-router-dom";
 import ProductPages from "./ProductPage";
+import ProductPages2 from "./ProductPage2";
 
 
 class Body extends React.Component {
@@ -32,7 +34,7 @@ class Body extends React.Component {
                     {this.props.isFetching ? <Preloader/> : null}
 
                     <Route path='/products/:userId'
-                           render={() => <ProductOnePages/>}/>
+                           render={() => <ProductOnePagesContrtainer products={this.props.products}/> }/>
                     {/*<ProductOnePages/>*/}
               {/*      <ProductPages basket={this.props.basket} searchString={this.props.searchString}
                                                        products={this.props.products}/>*/}

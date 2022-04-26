@@ -69,12 +69,12 @@ class ProductPages extends React.Component {
 
             <div className={styles.blockProducts}>
 
+                console.log(state)
 
 
                 {
                     currentTodos.map(u => <div className={styles.productInfo} key={u.id}>
 
-                        {/* <NavLink to={'/product/' + u.id}> */}
 
                         <NavLink to={'/products/' + u.id}>
                                 <div>

@@ -44,6 +44,8 @@ function strip(title) {
 const productReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_PRODUCT: {
+            /*  return { ...state, products: [ ...state.products, ...action.products ]}*/
+
             return {...state, products: action.products}
         }
         case Low_rating:
@@ -80,46 +82,66 @@ const productReducer = (state = initialState, action) => {
 
         }
         case SERMINMAX: {
-            console.log(action.name)
-            console.log(state)
-            for (let key in action.name) {
+            console.log(action.name.name)
+            let a = Number(action.name.value)
 
-            }
             return {
                 ...state,
-                ...state.max,
-                ...state.min,
+                products: state.products.filter((item) => {
+                    for (var prop in item) {
+                        return item.price > a && item.price < 30
+                    }
+                }),
 
-                price: {
-                    max: action.name.value,
-                    min: action.name.name["min"],
-                }
+                /* products: state.products.filter(products => products.price < a  && products.price > 30),*/
 
-
-                /* max: action.price.value,
-                 min: action.price.value,*/
             }
 
         }
         case BASKET:
-            /*         console.log(action.userId)
-                     console.log(state)
-                     if (state.basketProduct.map(e => e.id === action.userId)) {
+            console.log(action)
+            console.log(state.basketProduct)
+            var found = false;
+            var updatedCart = state.basketProduct.map((cartItem) => {
+                console.log(state.basketProduct)
+                console.log(cartItem)
+                if (cartItem.userId == action.id) {
+                    found = true;
+                    cartItem.count++;
+                    return cartItem;
+                } else {
+                    return cartItem;
+                }
+            });
 
-                         console.log(true)
-                     } else {
-                         console.log(false);
-                     }*/
+            if (!found) { updatedCart.push({id: action.userId, title: action.title, price: action.price, count: 1}) }
+
+
+       /*     state.basketProduct.map((cartItem) => {
+                if (cartItem.userId == action.id) {
+                    cartItem.count++;
+                    console.log(cartItem)
+                    return cartItem;
+                } else {
+                    return cartItem;
+                }
+            })*/
+
+         /*   if (action.userId == state.newPost.id){
+                console.log("1")
+            }else {
+                console.log("2")
+            }*/
             let newPost = {
                 id: action.userId,
                 title: action.title,
-                count: state.count++
+                count: initialState.count++,
             };
 
 
             return {
                 ...state,
-                basketProduct: [...state.basketProduct, newPost],
+                basketProduct: [...state.basketProduct, updatedCart],
             }
         case BASKETDELETE:
 
@@ -146,7 +168,6 @@ export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFe
 
 export const searccch = (searchString) => ({type: SER, searchString})
 export const searchMixMax = (name) => (
-
     {type: SERMINMAX, name}
 )
 export const basket = (userId, title) => ({type: BASKET, userId, title})
