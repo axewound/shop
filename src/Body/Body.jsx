@@ -10,7 +10,7 @@ import styles from './Body.module.css';
 import ProductOnePages from "./ProductOnePage";
 import {Route, withRouter} from "react-router-dom";
 import ProductPages from "./ProductPage";
-import ProductPages2 from "./ProductPage2";
+
 
 
 class Body extends React.Component {

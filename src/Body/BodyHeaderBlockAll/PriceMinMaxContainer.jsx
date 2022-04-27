@@ -7,8 +7,12 @@ import Simple from "../../assets/Slider";
 import SearchProductContainer from "./SearchProductContainer";
 import PriceMinMax from "./PriceMinMax";
 
+let mapStateToProps = (state) => ({
+    products: state.productPage.products,
+});
 
 const mapDispatchToProps = (dispatch) => {
+
     return {
 
         handleChange23: (name) => {
@@ -17,7 +21,7 @@ const mapDispatchToProps = (dispatch) => {
 
     }
 }
-const PriceMinMaxContainer = connect(null,mapDispatchToProps)(PriceMinMax);
+const PriceMinMaxContainer = connect(mapStateToProps,mapDispatchToProps)(PriceMinMax);
 
 export default PriceMinMaxContainer;
 

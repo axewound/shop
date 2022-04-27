@@ -21,13 +21,14 @@ let initialState = {
     post: [],
     allPosts: [],
     searchString: "",
-    price: {
-        min: "",
-        max: ""
-    },
+    /* price: {
+         min: "",
+         max: ""
+     },*/
     min: "",
     max: "",
     count: 1,
+    value: "",
     basketProduct: [],
     basketDelete: [{
         "id": 1,
@@ -85,102 +86,138 @@ const productReducer = (state = initialState, action) => {
 
         }
         case SERMINMAX: {
-            console.log(action)
-            let a = Number(action.name.value)
-
+            let min = 0;
+            let max = 10000
+            if (action.name.name === "min") {
+                 min = Number(action.name.value)
+            } else {
+                 max = Number(action.name.value)
+            }
             return {
                 ...state,
                 products: state.products.filter((item) => {
-                    for (var prop in item) {
-                        return item.price > a && item.price < 100 &&  10000
-                    }
-                }),
-
-                /* products: state.products.filter(products => products.price < a  && products.price > 30),*/
-
-            }
-
-        }
-        case BASKET:
-
-            if (state.numberCart === 0) {
-                let cart = {
-                    id: action.userId,
-                    quantity: 1,
-                    name: action.title,
-
-                }
-                state.basketProduct.push(cart);
-            } else {
-
-                let check = false;
-                state.basketProduct.map((item, key) => {
-
-                    if (item.id === action.userId) {
-                        state.basketProduct[key].quantity++;
-
-                        check = true;
-                    }
-                });
-                if (!check) {
-                    let _cart = {
-                        id: action.userId,
-                        quantity: 1,
-                        name: action.title,
-                        price: action.price
-                    }
-
-                    state.basketProduct.push(_cart);
-                }
-            }
-
-            return {
-                ...state,
-                numberCart: state.numberCart + 1,
-                basketProduct: [...state.basketProduct],
-            }
-        case INCREASE_QUANTITY:
-            state.basketProduct.map((item, key) => {
-                if (item.id === action.userId) {
-                    state.basketProduct[key].quantity++;
-                }
-            })
-            return {
-                ...state,
-                basketProduct: [...state.basketProduct],
-            }
-
-        case DECREASE_QUANTITY:
-            state.basketProduct.map((item, key) => {
-                if (item.id === action.userId) {
-                    state.basketProduct[key].quantity--;
-
-
-                    if (state.basketProduct[key].quantity === 0){
-                        let idBase = state.basketProduct.findIndex(el => el.id === item.id)
-                        state.basketProduct.splice(idBase,1)
-                    }
-                }
-            })
-            return {
-                ...state,
-                basketProduct: [...state.basketProduct],
-            }
-
-        case BASKETDELETE:
-
-
-            return {
-                ...state,
-
-                basketProduct: state.basketProduct.filter((item) => {
-                    return item.id !== action.userId
+                    return item.price >= min && item.price <= max
                 })
             }
 
-        default:
-            return state;
+        /*     if (action.name.name === "min") {
+                 let min = Number(action.name.value)
+                 products: state.products.filter((item) => {
+                         console.log(state.products)
+                         return item.price >= min
+                     })
+             } else {
+                 let max = Number(action.name.value)
+                 products: state.products.filter((item) => {
+                     return item.price <= max
+                 })
+             }*/
+
+
+        /*    let a = Number(action.name.value)
+            products: state.products.filter((item) => {
+                for (var prop in item) {
+                    return item.price > a && item.price < 10000
+                }
+            })*/
+        /*       return {
+                   ...state,
+                   products: state.products
+
+                   /!*      products: state.products.filter((item) => {
+                             for (var prop in item) {
+                                 return item.price > a && item.price < 10000
+                             }
+                         })*!/
+                   /!* products: state.products.filter(products => products.price < a  && products.price > 30),*!/
+
+               }*/
+
     }
+case
+    BASKET:
+
+        if (state.numberCart === 0) {
+            let cart = {
+                id: action.userId,
+                quantity: 1,
+                name: action.title,
+
+            }
+            state.basketProduct.push(cart);
+        } else {
+
+            let check = false;
+            state.basketProduct.map((item, key) => {
+
+                if (item.id === action.userId) {
+                    state.basketProduct[key].quantity++;
+
+                    check = true;
+                }
+            });
+            if (!check) {
+                let _cart = {
+                    id: action.userId,
+                    quantity: 1,
+                    name: action.title,
+                    price: action.price
+                }
+
+                state.basketProduct.push(_cart);
+            }
+        }
+
+    return {
+        ...state,
+        numberCart: state.numberCart + 1,
+        basketProduct: [...state.basketProduct],
+    }
+case
+    INCREASE_QUANTITY:
+        state.basketProduct.map((item, key) => {
+            if (item.id === action.userId) {
+                state.basketProduct[key].quantity++;
+            }
+        })
+    return {
+        ...state,
+        basketProduct: [...state.basketProduct],
+    }
+
+case
+    DECREASE_QUANTITY:
+        state.basketProduct.map((item, key) => {
+            if (item.id === action.userId) {
+                state.basketProduct[key].quantity--;
+
+
+                if (state.basketProduct[key].quantity === 0) {
+                    let idBase = state.basketProduct.findIndex(el => el.id === item.id)
+                    state.basketProduct.splice(idBase, 1)
+                }
+            }
+        })
+    return {
+        ...state,
+        basketProduct: [...state.basketProduct],
+    }
+
+case
+    BASKETDELETE:
+
+
+        return {
+            ...state,
+
+            basketProduct: state.basketProduct.filter((item) => {
+                return item.id !== action.userId
+            })
+        }
+
+default:
+    return state;
+}
 }
 
 

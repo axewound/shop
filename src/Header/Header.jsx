@@ -7,6 +7,7 @@ import {connect} from "react-redux";
 import Basket from "./Basket";
 import {basketDelete,increaseQuantity,decreaseQuantity} from "../redux/product-reducer";
 import Slider from "../assets/Slider";
+import DoubleRangeSlider from "../Body/ProductPage2";
 
 class Header extends React.Component {
     render() {
@@ -14,7 +15,6 @@ class Header extends React.Component {
 
             return (
             <div>
-
                 <HeaderTop basketProduct={this.props.basketProduct}/>
                 <Basket basketProduct={this.props.basketProduct} basketDelete={this.props.basketDelete}
                         increaseQuantity={this.props.increaseQuantity}
