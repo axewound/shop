@@ -10,8 +10,10 @@ const SER = "SER"
 const SERMINMAX = "SERMINMAX"
 const BASKET = "BASKET"
 const BASKETDELETE = "BASKETDELETE"
-
+const INCREASE_QUANTITY = "INCREASE_QUANTITY"
 let initialState = {
+    numberCart: 0,
+    Carts: [],
     products: [],
     isFetching: true,
     profile: {},
@@ -99,50 +101,123 @@ const productReducer = (state = initialState, action) => {
 
         }
         case BASKET:
-            console.log(action)
-            console.log(state.basketProduct)
-            var found = false;
-            var updatedCart = state.basketProduct.map((cartItem) => {
-                console.log(state.basketProduct)
-                console.log(cartItem)
-                if (cartItem.userId == action.id) {
-                    found = true;
-                    cartItem.count++;
-                    return cartItem;
-                } else {
-                    return cartItem;
+
+            /*          let found = false;
+                      let updatedCart = state.basketProduct.map((cartItem) => {
+
+                          if (cartItem.id == action.userId) {
+                              found = true;
+                              cartItem.id = action.userId
+                                  cartItem.count++;
+                              /!*return cartItem;*!/
+                          } else {
+                              return cartItem;
+                          }
+                      });
+
+                      if (!found) { updatedCart.push({id: action.userId, title: action.title, price: action.price, count: 1}) }
+
+          */
+            /*     state.basketProduct.map((cartItem) => {
+                     if (cartItem.userId == action.id) {
+                         cartItem.count++;
+                         console.log(cartItem)
+                         return cartItem;
+                     } else {
+                         return cartItem;
+                     }
+                 })*/
+
+            /*   if (action.userId == state.newPost.id){
+                   console.log("1")
+               }else {
+                   console.log("2")
+               }*/
+            /*        let newPost ={
+                        id: action.userId,
+                        title: action.title,
+                        count: 5,
+                    }
+                    console.log(action.userId)
+                    console.log(newPost.id)
+
+                    if (action.userId == newPost.id){
+                      let newPost = {
+                        id: action.userId,
+                        title: action.title,
+                        count: initialState.count++,
+                    };
+                    }
+        */
+            /* let found = false;
+             let newPost ={
+                 id: 0,
+                 title: action.title,
+                 count: initialState.count,
+             }
+             console.log(newPost.id)
+             console.log(action.userId)
+             if (action.userId == newPost.id) {
+                 let found = true;
+                 let newPost = {
+                     id: action.userId,
+                     title: action.title,
+                     count: initialState.count++,
+                 };
+             }*/
+            if (state.numberCart === 0) {
+                let cart = {
+                    id: action.userId,
+                    quantity: 1,
+                    name: action.title,
+
                 }
-            });
+                state.basketProduct.push(cart);
+            } else {
 
-            if (!found) { updatedCart.push({id: action.userId, title: action.title, price: action.price, count: 1}) }
+                let check = false;
+                state.basketProduct.map((item, key) => {
 
+                    if (item.id === action.userId) {
+                        state.basketProduct[key].quantity++;
 
-       /*     state.basketProduct.map((cartItem) => {
-                if (cartItem.userId == action.id) {
-                    cartItem.count++;
-                    console.log(cartItem)
-                    return cartItem;
-                } else {
-                    return cartItem;
+                        check = true;
+                    }
+                });
+                if (!check) {
+                    let _cart = {
+                        id: action.userId,
+                        quantity: 1,
+                        name: action.title,
+                        price: action.price
+                    }
+
+                    state.basketProduct.push(_cart);
                 }
-            })*/
-
-         /*   if (action.userId == state.newPost.id){
-                console.log("1")
-            }else {
-                console.log("2")
-            }*/
-            let newPost = {
-                id: action.userId,
-                title: action.title,
-                count: initialState.count++,
-            };
-
+            }
 
             return {
                 ...state,
-                basketProduct: [...state.basketProduct, updatedCart],
+                numberCart: state.numberCart + 1,
+                basketProduct: [...state.basketProduct],
             }
+        case INCREASE_QUANTITY:
+            console.log(state.basketProduct)
+            console.log(action)
+
+
+            state.basketProduct.map((item, key) => {
+                console.log(action)
+                if (item.id === action.userId) {
+                    state.basketProduct[key].quantity++;
+
+                }
+
+            })
+            return {
+                ...state
+            }
+
         case BASKETDELETE:
 
 
@@ -153,6 +228,7 @@ const productReducer = (state = initialState, action) => {
                     return item.id !== action.userId
                 })
             }
+
         default:
             return state;
     }
@@ -172,6 +248,9 @@ export const searchMixMax = (name) => (
 )
 export const basket = (userId, title) => ({type: BASKET, userId, title})
 export const basketDelete = (userId) => ({type: BASKETDELETE, userId})
+
+
+export const increaseQuantity = (quantity,userId) => ({type: INCREASE_QUANTITY, quantity, userId})
 
 export const getProductThunk = () => {
     return (dispatch) => {

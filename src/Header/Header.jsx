@@ -5,27 +5,32 @@ import HeaderSlider from "./HeaderSlider";
 import style from "./Header.module.css"
 import {connect} from "react-redux";
 import Basket from "./Basket";
-import {basketDelete} from "../redux/product-reducer";
+import {basketDelete,increaseQuantity} from "../redux/product-reducer";
 import Slider from "../assets/Slider";
 
 class Header extends React.Component {
     render() {
-        return (
+          console.log(this.props)
+
+            return (
             <div>
 
                 <HeaderTop basketProduct={this.props.basketProduct}/>
-                <Basket basketProduct={this.props.basketProduct} basketDelete={this.props.basketDelete}/>
+                <Basket basketProduct={this.props.basketProduct} basketDelete={this.props.basketDelete}
+                        increaseQuantity={this.props.increaseQuantity} />
                 <HeaderAfterTop/>
             </div>
         )
     }
 }
 let mapStateToProps = (state) => {
+
     return {
+
         basketProduct: state.productPage.basketProduct,
     }
 }
-export default connect(mapStateToProps, {basketDelete})(Header);
+export default connect(mapStateToProps, {basketDelete,increaseQuantity})(Header);
 
 /*
 export default Header*/

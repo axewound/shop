@@ -1,4 +1,5 @@
 import React from 'react';
+import {usersAPI} from "../api/api";
 
 class Basket extends React.Component {
 
@@ -6,10 +7,17 @@ class Basket extends React.Component {
         return (
             <div>
                 <div>{this.props.basketProduct.map(item => {
-                    return  <div key={item.id}><h5>{item.title}</h5>
+                    return  <div key={item.id}><h5>{item.name}</h5>
+                        <div ><h5>{item.quantity}</h5>
+                        </div>
                         <button onClick={() => {
                             this.props.basketDelete(item.id)
                         }}>X
+                        </button>
+                        <button onClick={() => {
+
+                            this.props.increaseQuantity(item.quantity, item.id)
+                        }}>+
                         </button>
                         {item.count}
                     </div>
