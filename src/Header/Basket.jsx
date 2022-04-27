@@ -18,6 +18,10 @@ class Basket extends React.Component {
 
                             this.props.increaseQuantity(item.quantity, item.id)
                         }}>+
+                        </button><button onClick={() => {
+
+                            this.props.decreaseQuantity(item.quantity, item.id)
+                        }}>-
                         </button>
                         {item.count}
                     </div>

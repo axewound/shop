@@ -11,6 +11,7 @@ const SERMINMAX = "SERMINMAX"
 const BASKET = "BASKET"
 const BASKETDELETE = "BASKETDELETE"
 const INCREASE_QUANTITY = "INCREASE_QUANTITY"
+const DECREASE_QUANTITY = "DECREASE_QUANTITY"
 let initialState = {
     numberCart: 0,
     Carts: [],
@@ -84,14 +85,14 @@ const productReducer = (state = initialState, action) => {
 
         }
         case SERMINMAX: {
-            console.log(action.name.name)
+            console.log(action)
             let a = Number(action.name.value)
 
             return {
                 ...state,
                 products: state.products.filter((item) => {
                     for (var prop in item) {
-                        return item.price > a && item.price < 30
+                        return item.price > a && item.price < 100 &&  10000
                     }
                 }),
 
@@ -102,69 +103,6 @@ const productReducer = (state = initialState, action) => {
         }
         case BASKET:
 
-            /*          let found = false;
-                      let updatedCart = state.basketProduct.map((cartItem) => {
-
-                          if (cartItem.id == action.userId) {
-                              found = true;
-                              cartItem.id = action.userId
-                                  cartItem.count++;
-                              /!*return cartItem;*!/
-                          } else {
-                              return cartItem;
-                          }
-                      });
-
-                      if (!found) { updatedCart.push({id: action.userId, title: action.title, price: action.price, count: 1}) }
-
-          */
-            /*     state.basketProduct.map((cartItem) => {
-                     if (cartItem.userId == action.id) {
-                         cartItem.count++;
-                         console.log(cartItem)
-                         return cartItem;
-                     } else {
-                         return cartItem;
-                     }
-                 })*/
-
-            /*   if (action.userId == state.newPost.id){
-                   console.log("1")
-               }else {
-                   console.log("2")
-               }*/
-            /*        let newPost ={
-                        id: action.userId,
-                        title: action.title,
-                        count: 5,
-                    }
-                    console.log(action.userId)
-                    console.log(newPost.id)
-
-                    if (action.userId == newPost.id){
-                      let newPost = {
-                        id: action.userId,
-                        title: action.title,
-                        count: initialState.count++,
-                    };
-                    }
-        */
-            /* let found = false;
-             let newPost ={
-                 id: 0,
-                 title: action.title,
-                 count: initialState.count,
-             }
-             console.log(newPost.id)
-             console.log(action.userId)
-             if (action.userId == newPost.id) {
-                 let found = true;
-                 let newPost = {
-                     id: action.userId,
-                     title: action.title,
-                     count: initialState.count++,
-                 };
-             }*/
             if (state.numberCart === 0) {
                 let cart = {
                     id: action.userId,
@@ -202,20 +140,31 @@ const productReducer = (state = initialState, action) => {
                 basketProduct: [...state.basketProduct],
             }
         case INCREASE_QUANTITY:
-            console.log(state.basketProduct)
-            console.log(action)
-
-
             state.basketProduct.map((item, key) => {
-                console.log(action)
                 if (item.id === action.userId) {
                     state.basketProduct[key].quantity++;
-
                 }
-
             })
             return {
-                ...state
+                ...state,
+                basketProduct: [...state.basketProduct],
+            }
+
+        case DECREASE_QUANTITY:
+            state.basketProduct.map((item, key) => {
+                if (item.id === action.userId) {
+                    state.basketProduct[key].quantity--;
+
+
+                    if (state.basketProduct[key].quantity === 0){
+                        let idBase = state.basketProduct.findIndex(el => el.id === item.id)
+                        state.basketProduct.splice(idBase,1)
+                    }
+                }
+            })
+            return {
+                ...state,
+                basketProduct: [...state.basketProduct],
             }
 
         case BASKETDELETE:
@@ -250,7 +199,8 @@ export const basket = (userId, title) => ({type: BASKET, userId, title})
 export const basketDelete = (userId) => ({type: BASKETDELETE, userId})
 
 
-export const increaseQuantity = (quantity,userId) => ({type: INCREASE_QUANTITY, quantity, userId})
+export const increaseQuantity = (quantity, userId) => ({type: INCREASE_QUANTITY, quantity, userId})
+export const decreaseQuantity = (quantity, userId) => ({type: DECREASE_QUANTITY, quantity, userId})
 
 export const getProductThunk = () => {
     return (dispatch) => {

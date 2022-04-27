@@ -16,7 +16,7 @@ const BodyHeaderBlockContainer = (props) => {
                 handleChange={props.handleChange}
             />
             <SearchProductContainer/>
-            <SearchMinMaxContainer/>
+            <SearchMinMaxContainer />
         </div>
     )
 }
