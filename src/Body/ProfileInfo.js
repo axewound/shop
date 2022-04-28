@@ -4,7 +4,6 @@ const ProfileInfo = (props) => {
 
     return (
         <div>
-            {console.log(props.products)
             }
             <div>
 

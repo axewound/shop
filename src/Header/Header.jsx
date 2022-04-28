@@ -11,12 +11,13 @@ import DoubleRangeSlider from "../Body/ProductPage2";
 
 class Header extends React.Component {
     render() {
-          console.log(this.props)
-
+console.log(this.props)
             return (
             <div>
                 <HeaderTop basketProduct={this.props.basketProduct}/>
-                <Basket basketProduct={this.props.basketProduct} basketDelete={this.props.basketDelete}
+                <Basket basketProduct={this.props.basketProduct}
+                        totalPrice={this.props.totalPrice}
+                        basketDelete={this.props.basketDelete}
                         increaseQuantity={this.props.increaseQuantity}
                         decreaseQuantity={this.props.decreaseQuantity}/>
                 <HeaderAfterTop/>
@@ -25,10 +26,12 @@ class Header extends React.Component {
     }
 }
 let mapStateToProps = (state) => {
+    console.log(state)
 
     return {
 
         basketProduct: state.productPage.basketProduct,
+        totalPrice: state.productPage.totalPrice,
     }
 }
 export default connect(mapStateToProps, {basketDelete,increaseQuantity,decreaseQuantity})(Header);

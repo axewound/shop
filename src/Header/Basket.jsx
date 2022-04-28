@@ -7,8 +7,9 @@ class Basket extends React.Component {
         return (
             <div>
                 <div>{this.props.basketProduct.map(item => {
-                    return  <div key={item.id}><h5>{item.name}</h5>
-                        <div ><h5>{item.quantity}</h5>
+                    return <div key={item.id}><h5>{item.name}</h5>
+                        <div><h5>{item.quantity}</h5>
+                            <h4>{item.price}</h4>
                         </div>
                         <button onClick={() => {
                             this.props.basketDelete(item.id)
@@ -16,19 +17,26 @@ class Basket extends React.Component {
                         </button>
                         <button onClick={() => {
 
-                            this.props.increaseQuantity(item.quantity, item.id)
+                            this.props.increaseQuantity(item.quantity, item.id, item.price)
                         }}>+
-                        </button><button onClick={() => {
+                        </button>
+                        <button onClick={() => {
 
-                            this.props.decreaseQuantity(item.quantity, item.id)
+                            this.props.decreaseQuantity(item.quantity, item.id, item.price)
                         }}>-
                         </button>
                         {item.count}
+
                     </div>
-                })}</div>
+                })}
+                    Total Price : {this.props.totalPrice.toFixed(2)}
+
+                </div>
+
             </div>
         )
     }
+
 }
 
 export default Basket
