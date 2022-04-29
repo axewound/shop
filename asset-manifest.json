@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/portland/static/css/main.7ce06d9e.css",
+    "main.js": "/portland/static/js/main.8c0f886f.js",
+    "static/media/user.png": "/portland/static/media/user.96e310a6add3a711174d.png",
+    "static/media/Icon_Portland.svg": "/portland/static/media/Icon_Portland.8428353d66645bae9d6bdacdb922f8ce.svg",
+    "static/media/preloader.svg": "/portland/static/media/preloader.5788b05c9c3040dbc893f9a2d7327e3c.svg",
+    "static/media/Shopping_Cart_Icon.svg": "/portland/static/media/Shopping_Cart_Icon.57e70b921c4251e16d20b1fc9728715a.svg",
+    "index.html": "/portland/index.html",
+    "static/media/Header_burger.svg": "/portland/static/media/Header_burger.42bf809fcfdbd75dfac5a335fb8f0267.svg",
+    "main.7ce06d9e.css.map": "/portland/static/css/main.7ce06d9e.css.map",
+    "main.8c0f886f.js.map": "/portland/static/js/main.8c0f886f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7ce06d9e.css",
+    "static/js/main.8c0f886f.js"
+  ]
+}
