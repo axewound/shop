@@ -10,7 +10,7 @@ class ProductPages extends React.Component {
         searchString: "",
         products: this.props.products,
         currentPage: 1,
-        todosPerPage: 10
+        todosPerPage: 5
     };
 
     handleChange1 = (e) => {
@@ -30,7 +30,6 @@ class ProductPages extends React.Component {
 
 
     render() {
-
         let _users = this.props.products;
         let search = this.props.searchString.trim().toLowerCase();
 
@@ -42,10 +41,13 @@ class ProductPages extends React.Component {
         const indexOfLastTodo = this.state.currentPage * this.state.todosPerPage;
         const indexOfFirstTodo = indexOfLastTodo - this.state.todosPerPage;
         const currentTodos = _users.slice(indexOfFirstTodo, indexOfLastTodo);
+        console.log(currentTodos)
+        console.log(indexOfLastTodo)
+        console.log(indexOfFirstTodo)
 
         const pageNumbers = [];
 
-        for (let i = 1; i <= Math.ceil(this.props.products.length / this.state.todosPerPage); i++) {
+        for (let i = 1; i <= Math.ceil(_users.length / this.state.todosPerPage); i++) {
             pageNumbers.push(i);
         }
 
@@ -69,7 +71,7 @@ class ProductPages extends React.Component {
 
             <div className={styles.blockProducts}>
 
-                console.log(state)
+
 
 
                 {
@@ -86,6 +88,7 @@ class ProductPages extends React.Component {
                             <h2 className={styles.title}>{u.title}</h2>
                             <h3 className={styles.rating}>{u.rating.rate}</h3>
                             <span className={styles.price}>$ {u.price}</span>
+
                             <button onClick={() => {
                                 this.props.basket(u.id, u.title, u.price)
                             }}>Add Case

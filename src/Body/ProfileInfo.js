@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './ProfileInfo.module.css';
 
 const ProfileInfo = (props) => {
 
@@ -7,7 +8,7 @@ const ProfileInfo = (props) => {
             }
             <div>
 
-                <img src={props.products.image}/>
+                <img className={styles.imgOneProduct} src={props.products.image}/>
             </div>
             <div >
                 {props.products.title}

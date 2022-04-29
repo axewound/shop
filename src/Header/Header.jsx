@@ -26,7 +26,6 @@ console.log(this.props)
     }
 }
 let mapStateToProps = (state) => {
-    console.log(state)
 
     return {
 
