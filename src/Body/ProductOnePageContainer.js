@@ -11,15 +11,14 @@ class ProductOnePagesContrtainer extends React.Component {
 
     componentDidMount() {
         let userId = this.props.match.params.userId;
-        if (!userId) {
-            userId = 2;
-        }
+  /*      if (!userId) {
+            userId = 0;
+        }*/
         this.props.getUserProfile(userId);
     }
 
 
     render() {
-        {console.log(this)}
 
 
         return (

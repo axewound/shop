@@ -80,8 +80,18 @@ const productReducer = (state = initialState, action) => {
             return {...state, isFetching: action.isFetching}
         }
         case SER: {
+            let _users = state.products;
+            let search = state.searchString.trim().toLowerCase();
+
+            if (search.length > 0) {
+                _users = _users.filter(function (user) {
+                    return user.title.toLowerCase().match(search);
+                });
+            }
+
             return {
                 ...state,
+                products: _users,
                 searchString: action.searchString,
             }
 

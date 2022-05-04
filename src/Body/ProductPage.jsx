@@ -38,12 +38,12 @@ class ProductPages extends React.Component {
                 return user.title.toLowerCase().match(search);
             });
         }
+
         const indexOfLastTodo = this.state.currentPage * this.state.todosPerPage;
         const indexOfFirstTodo = indexOfLastTodo - this.state.todosPerPage;
+
+
         const currentTodos = _users.slice(indexOfFirstTodo, indexOfLastTodo);
-        console.log(currentTodos)
-        console.log(indexOfLastTodo)
-        console.log(indexOfFirstTodo)
 
         const pageNumbers = [];
 

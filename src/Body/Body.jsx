@@ -10,6 +10,11 @@ import styles from './Body.module.css';
 import ProductOnePages from "./ProductOnePage";
 import {Route, withRouter} from "react-router-dom";
 import ProductPages from "./ProductPage";
+import SearchExample from "./Serch";
+import {Container} from "react-bootstrap";
+import FilteredList from "./Serch";
+import SearchBar from "./Serch";
+import App1 from "./Serch";
 
 
 
@@ -28,6 +33,7 @@ class Body extends React.Component {
     render() {
         return (
             <div>
+
                 <BodyHeaderBlockContainer handleChange={this.handleChange} />
                 <div className={styles.bodyContainer}>
                     <NavBarBodyLeft/>
