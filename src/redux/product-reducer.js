@@ -357,6 +357,7 @@ const productReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER_PROFILE: {
             /*debugger*/
+
             return {...state, profile: action.profile}
         }
         case SET_PRODUCT: {
