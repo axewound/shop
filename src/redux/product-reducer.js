@@ -1,4 +1,4 @@
-import {usersAPI} from "../api/api";
+import {profileAPI, usersAPI} from "../api/api";
 
 const SET_PRODUCT = 'SET_PRODUCT';
 const Z_A = "Z_A";
@@ -12,6 +12,8 @@ const BASKET = "BASKET"
 const BASKETDELETE = "BASKETDELETE"
 const INCREASE_QUANTITY = "INCREASE_QUANTITY"
 const DECREASE_QUANTITY = "DECREASE_QUANTITY"
+const SET_PRODUCT_ONE ="SET_PRODUCT_ONE"
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 let initialState = {
     numberCart: 0,
     Carts: [],
@@ -39,7 +41,8 @@ let initialState = {
         "category": "men's clothing",
         "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
         "rating": {"rate": 3.9, "count": 120}
-    }]
+    }],
+    product:null
 };
 
 function strip(title) {
@@ -48,10 +51,18 @@ function strip(title) {
 
 const productReducer = (state = initialState, action) => {
     switch (action.type) {
+        case SET_USER_PROFILE: {
+            /*debugger*/
+            return {...state, profile: action.profile}
+        }
         case SET_PRODUCT: {
-            /*  return { ...state, products: [ ...state.products, ...action.products ]}*/
 
-            return {...state, products: action.products}
+            /*  return { ...state, products: [ ...state.products, ...action.products ]}*/
+            return {...state, products: action.products, product: action.products}
+        }
+        case SET_PRODUCT_ONE: {
+            /*  return { ...state, products: [ ...state.products, ...action.products ]}*/
+            return {...state, product: action.product}
         }
         case Low_rating:
             return {
@@ -81,7 +92,7 @@ const productReducer = (state = initialState, action) => {
         }
         case SER: {
             let _users = state.products;
-            let search = state.searchString.trim().toLowerCase();
+            let search = action.searchString.trim().toLowerCase();
 
             if (search.length > 0) {
                 _users = _users.filter(function (user) {
@@ -92,7 +103,7 @@ const productReducer = (state = initialState, action) => {
             return {
                 ...state,
                 products: _users,
-                searchString: action.searchString,
+                searchString: search,
             }
 
         }
@@ -246,7 +257,8 @@ const productReducer = (state = initialState, action) => {
 }
 
 
-export const setProduct = (products) => ({type: SET_PRODUCT, products})
+export const setProduct = (products,product,userId,id) => ({type: SET_PRODUCT, products,product,userId,id})
+export const setProductOne = (product) => ({type: SET_PRODUCT_ONE, product})
 export const ratingAC = (value) => (
     ({type: value})
 )
@@ -260,6 +272,7 @@ export const searchMixMax = (name) => (
 export const basket = (userId, title, price) => ({type: BASKET, userId, title, price})
 export const basketDelete = (userId) => ({type: BASKETDELETE, userId})
 
+export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 
 export const increaseQuantity = (quantity, userId,price) => ({type: INCREASE_QUANTITY, quantity, userId,price})
 export const decreaseQuantity = (quantity, userId,price) => ({type: DECREASE_QUANTITY, quantity, userId,price})
@@ -275,9 +288,12 @@ export const getProductThunk = () => {
     }
 }
 export const getUserProfile = (userId) => (dispatch) => {
+ /*   debugger*/
     usersAPI.getProfile(userId).then(response => {
-        dispatch(setProduct(response.data));
+        dispatch(setUserProfile(response.data));
     });
 }
+
+
 
 export default productReducer;

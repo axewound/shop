@@ -1,7 +1,7 @@
 import React from 'react';
 import SortProduct from "./SortProduct";
 import SearchProduct from "./SearchProduct";
-import {ratingAC, searccch, searchMixMax, setProduct, toggleIsFetching} from "../../redux/product-reducer";
+import {ratingAC, searccch, searchMixMax,  toggleIsFetching} from "../../redux/product-reducer";
 import {connect} from "react-redux";
 import Simple from "../../assets/Slider";
 import SearchProductContainer from "./SearchProductContainer";

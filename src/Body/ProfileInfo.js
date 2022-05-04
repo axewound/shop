@@ -8,10 +8,11 @@ const ProfileInfo = (props) => {
             }
             <div>
 
-                <img className={styles.imgOneProduct} src={props.products.image}/>
+                <img className={styles.imgOneProduct} src={props.profile.image}/>
             </div>
             <div >
                 {props.products.title}
+                {props.profile.title}
             </div>
         </div>
     )
