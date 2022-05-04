@@ -4,7 +4,7 @@ import BodyProductBlockContainer from "./ProductPage";
 import ProductOnePagesContrtainer from "./ProductOnePageContainer";
 import BodyHeaderBlockContainer from "./BodyHeaderBlockAll/BodyHeaderBlockContainer";
 import {connect} from "react-redux";
-import {basket, getProductThunk, ratingAC, setProduct, toggleIsFetching} from "../redux/product-reducer";
+import {basket, getProductThunk, ratingAC, setProduct,  toggleIsFetching} from "../redux/product-reducer";
 import Preloader from "../assets/Preloader";
 import styles from './Body.module.css';
 import ProductOnePages from "./ProductOnePage";
@@ -38,15 +38,16 @@ class Body extends React.Component {
                 <div className={styles.bodyContainer}>
                     <NavBarBodyLeft/>
                     {this.props.isFetching ? <Preloader/> : null}
-                    <Route path='/products/:userId'
-                           render={() => <ProductOnePagesContrtainer products={this.props.products}/> }/>
-                    {/*<ProductOnePages/>*/}
-              {/*      <ProductPages basket={this.props.basket} searchString={this.props.searchString}
+                    }
+                    {/* <Route path='/profile/:userId?'
+                           render={() => <ProductOnePagesContrtainer products={this.props.products}product={this.props.product}/> }/>
+                 */}   {/*<ProductOnePages/>*/}
+                    {/*      <ProductPages basket={this.props.basket} searchString={this.props.searchString}
                                                        products={this.props.products}/>*/}
-                    <Route exact path='/products'
-                           render={() => <ProductPages basket={this.props.basket} searchString={this.props.searchString}
-                                                       products={this.props.products}/>
-                           }/>
+                    <Route
+                        render={() => <ProductPages basket={this.props.basket} searchString={this.props.searchString}
+                                                    products={this.props.products} product={this.props.product}/>
+                        }/>
                 </div>
             </div>
         )
@@ -56,6 +57,7 @@ class Body extends React.Component {
 let mapStateToProps = (state) => {
     return {
         products: state.productPage.products,
+        product: state.productPage.product,
         isFetching: state.productPage.isFetching,
         searchString: state.productPage.searchString,
         /*basket: state.productPage.basket*/

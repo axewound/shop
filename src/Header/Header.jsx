@@ -11,8 +11,7 @@ import DoubleRangeSlider from "../Body/ProductPage2";
 
 class Header extends React.Component {
     render() {
-console.log(this.props)
-            return (
+        return (
             <div>
                 <HeaderTop basketProduct={this.props.basketProduct}/>
                 <Basket basketProduct={this.props.basketProduct}

@@ -78,7 +78,7 @@ class ProductPages extends React.Component {
                     currentTodos.map(u => <div className={styles.productInfo} key={u.id}>
 
 
-                        <NavLink to={'/products/' + u.id}>
+                        <NavLink to={'/product/' + u.id}>
                                 <div>
                                 <img src={u.image != null ? u.image : userPhoto} className={styles.productPhoto}/>
                             </div>

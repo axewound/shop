@@ -21,7 +21,8 @@ class HeaderTop extends React.Component {
                     <ul>
                         <NavLink to="/" className={style.NavLink}>Home</NavLink>
                         <NavLink to="/products" className={style.NavLink}>Devices</NavLink>
-                     {/*   <Link to="/device" >About</Link>*/}
+                        {/*   <Link to="/device" >About</Link>*/}
+
                         <li>Delivery & Payment</li>
                         <li>Guarantee</li>
                         <li>About Us</li>

@@ -16,6 +16,15 @@ export const usersAPI = {
             });
     },
     getProfile(userId) {
+        console.log('Obsolete method. Please profileAPI object.')
+        /*debugger*/
+        return profileAPI.getProfile(userId);
+    }
+}
+
+export const profileAPI = {
+    getProfile(userId) {
+        /*debugger*/
         return instance.get(`/` + userId);
     }
 }
