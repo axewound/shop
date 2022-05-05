@@ -30,6 +30,7 @@ class ProductPages extends React.Component {
 
 
     render() {
+        console.log(this.props)
         let _users = this.props.products;
         let search = this.props.searchString.trim().toLowerCase();
 

@@ -4,7 +4,15 @@ import BodyProductBlockContainer from "./ProductPage";
 import ProductOnePagesContrtainer from "./ProductOnePageContainer";
 import BodyHeaderBlockContainer from "./BodyHeaderBlockAll/BodyHeaderBlockContainer";
 import {connect} from "react-redux";
-import {basket, getProductThunk, ratingAC, setProduct,  toggleIsFetching} from "../redux/product-reducer";
+import {
+    basket,
+    getProductThunk,
+    ratingAC,
+    searccch,
+    searccch23,
+    setProduct,
+    toggleIsFetching
+} from "../redux/product-reducer";
 import Preloader from "../assets/Preloader";
 import styles from './Body.module.css';
 import ProductOnePages from "./ProductOnePage";
@@ -15,7 +23,7 @@ import {Container} from "react-bootstrap";
 import FilteredList from "./Serch";
 import SearchBar from "./Serch";
 import App1 from "./Serch";
-
+import CostTable from "./BodyHeaderBlockAll/PriceMinMax2";
 
 
 class Body extends React.Component {
@@ -31,23 +39,26 @@ class Body extends React.Component {
     };
 
     render() {
+
         return (
             <div>
-
-                <BodyHeaderBlockContainer handleChange={this.handleChange} />
+         {/*       <CostTable products={this.props.products}  searchString={this.props.searchString}/>*/}
+                <BodyHeaderBlockContainer handleChange={this.handleChange} products={this.props.products}  searchString={this.props.searchString}/>
                 <div className={styles.bodyContainer}>
                     <NavBarBodyLeft/>
                     {this.props.isFetching ? <Preloader/> : null}
                     }
                     {/* <Route path='/profile/:userId?'
                            render={() => <ProductOnePagesContrtainer products={this.props.products}product={this.props.product}/> }/>
-                 */}   {/*<ProductOnePages/>*/}
+                 */} {/*<ProductOnePages/>*/}
                     {/*      <ProductPages basket={this.props.basket} searchString={this.props.searchString}
                                                        products={this.props.products}/>*/}
+
+{/*
                     <Route
                         render={() => <ProductPages basket={this.props.basket} searchString={this.props.searchString}
                                                     products={this.props.products} product={this.props.product}/>
-                        }/>
+                        }/>*/}
                 </div>
             </div>
         )
@@ -63,6 +74,19 @@ let mapStateToProps = (state) => {
         /*basket: state.productPage.basket*/
     }
 }
+/*const mapDispatchToProps = (dispatch) => {
+    return {
+        filteredGoods: (filteredGoods123) => {
+            dispatch(searccch23(filteredGoods123));
+        },
+    }
+}*/
 let WithContainer = withRouter(Body)
 
-export default connect(mapStateToProps, {getProductThunk,basket, valueElment: ratingAC, setProduct, toggleIsFetching})(WithContainer);
+export default connect(mapStateToProps, /*mapDispatchToProps*/ {
+    getProductThunk,
+    basket,
+    valueElment: ratingAC,
+    setProduct,
+    toggleIsFetching
+})(WithContainer);

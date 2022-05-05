@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import Simple from "../../assets/Slider";
 import SearchProductContainer from "./SearchProductContainer";
 import SearchMinMaxContainer from "./PriceMinMaxContainer";
+import CostTable from "./PriceMinMax2";
 
 const BodyHeaderBlockContainer = (props) => {
 
@@ -16,7 +17,9 @@ const BodyHeaderBlockContainer = (props) => {
                 handleChange={props.handleChange}
             />
             <SearchProductContainer/>
-            <SearchMinMaxContainer />
+            <CostTable products={props.products}  searchString={props.searchString}/>
+
+{/*            <SearchMinMaxContainer />*/}
         </div>
     )
 }

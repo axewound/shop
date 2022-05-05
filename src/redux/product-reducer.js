@@ -301,10 +301,8 @@ export default productReducer;
 */
 
 
-
-
-
 import {usersAPI} from "../api/api";
+import React from "react";
 
 const SET_PRODUCT = 'SET_PRODUCT';
 const Z_A = "Z_A";
@@ -313,6 +311,7 @@ const Low_rating = "Low_rating"
 const High_rating = "High_rating"
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const SER = "SER"
+const SER23 = "SER23"
 const SERMINMAX = "SERMINMAX"
 const BASKET = "BASKET"
 const BASKETDELETE = "BASKETDELETE"
@@ -356,7 +355,6 @@ function strip(title) {
 const productReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER_PROFILE: {
-            /*debugger*/
 
             return {...state, profile: action.profile}
         }
@@ -397,8 +395,15 @@ const productReducer = (state = initialState, action) => {
                 searchString: action.searchString,
             }
 
+        }        case SER23: {
+            return {
+                ...state,
+                searchString: action.searchString,
+            }
+
         }
         case SERMINMAX: {
+
             let min = 0;
             let max = 10000
             if (action.name.name === "min") {
@@ -406,8 +411,10 @@ const productReducer = (state = initialState, action) => {
             } else {
                 max = Number(action.name.value)
             }
+            console.log(action)
             return {
                 ...state,
+
                 products: state.products.filter((item) => {
                     return item.price >= min && item.price <= max
                 })
@@ -490,7 +497,7 @@ const productReducer = (state = initialState, action) => {
                 ...state,
                 numberCart: state.numberCart + 1,
                 basketProduct: [...state.basketProduct],
-                totalPrice: state.totalPrice+ action.price
+                totalPrice: state.totalPrice + action.price
             }
         case
         INCREASE_QUANTITY:
@@ -504,8 +511,7 @@ const productReducer = (state = initialState, action) => {
             return {
                 ...state,
                 basketProduct: [...state.basketProduct],
-                totalPrice: state.totalPrice+ action.price
-
+                totalPrice: state.totalPrice + action.price
 
 
             }
@@ -559,13 +565,15 @@ export const searccch = (searchString) => ({type: SER, searchString})
 export const searchMixMax = (name) => (
     {type: SERMINMAX, name}
 )
+export const searccch23 = (filteredGoods123) => ({type: SER23, filteredGoods123})
+
 export const basket = (userId, title, price) => ({type: BASKET, userId, title, price})
 export const basketDelete = (userId) => ({type: BASKETDELETE, userId})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 
 
-export const increaseQuantity = (quantity, userId,price) => ({type: INCREASE_QUANTITY, quantity, userId,price})
-export const decreaseQuantity = (quantity, userId,price) => ({type: DECREASE_QUANTITY, quantity, userId,price})
+export const increaseQuantity = (quantity, userId, price,products) => ({type: INCREASE_QUANTITY, quantity, userId, price,products})
+export const decreaseQuantity = (quantity, userId, price,products) => ({type: DECREASE_QUANTITY, quantity, userId, price,products})
 
 export const getProductThunk = () => {
     return (dispatch) => {

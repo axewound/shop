@@ -21,10 +21,8 @@ const App = () => {
                    render={() =>  <Home/>}/>
             <Route path='/product/:userId?'
                    render={() => <ProductOnePagesContrtainer /> }/>
-
             <Route path='/products'
                    render={() => <Body/>}/>
-
             <Footer/>
         </Container>
     )
