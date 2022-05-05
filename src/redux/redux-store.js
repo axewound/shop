@@ -3,10 +3,8 @@ import productReducer from "./product-reducer";
 import thunkMiddleware from "redux-thunk";
 
 let reducers = combineReducers({
-  /*  profilePage: profileReducer,*/
     productPage: productReducer,
 
-   /* auth: authReducer*/
 });
 
 let store = createStore(reducers,applyMiddleware(thunkMiddleware));

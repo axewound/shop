@@ -1,5 +1,4 @@
 import React from 'react';
-import {usersAPI} from "../api/api";
 
 class Basket extends React.Component {
 

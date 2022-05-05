@@ -88,7 +88,7 @@ class ProductPages extends React.Component {
                             <h2 className={styles.title}>{u.title}</h2>
                             <h3 className={styles.rating}>{u.rating.rate}</h3>
                             <span className={styles.price}>$ {u.price}</span>
-
+c{console.log(this.props)}
                             <button onClick={() => {
                                 this.props.basket(u.id, u.title, u.price)
                             }}>Add Case

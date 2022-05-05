@@ -355,12 +355,9 @@ function strip(title) {
 const productReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_USER_PROFILE: {
-
             return {...state, profile: action.profile}
         }
         case SET_PRODUCT: {
-            /*  return { ...state, products: [ ...state.products, ...action.products ]}*/
-
             return {...state, products: action.products}
         }
         case Low_rating:
@@ -400,97 +397,34 @@ const productReducer = (state = initialState, action) => {
                 ...state,
                 searchString: action.searchString,
             }
-
-        }
-        case SERMINMAX: {
-
-            let min = 0;
-            let max = 10000
-            if (action.name.name === "min") {
-                min = Number(action.name.value)
-            } else {
-                max = Number(action.name.value)
-            }
-            console.log(action)
-            return {
-                ...state,
-
-                products: state.products.filter((item) => {
-                    return item.price >= min && item.price <= max
-                })
-            }
-
-            /*     if (action.name.name === "min") {
-                     let min = Number(action.name.value)
-                     products: state.products.filter((item) => {
-                             console.log(state.products)
-                             return item.price >= min
-                         })
-                 } else {
-                     let max = Number(action.name.value)
-                     products: state.products.filter((item) => {
-                         return item.price <= max
-                     })
-                 }*/
-
-
-            /*    let a = Number(action.name.value)
-                products: state.products.filter((item) => {
-                    for (var prop in item) {
-                        return item.price > a && item.price < 10000
-                    }
-                })*/
-            /*       return {
-                       ...state,
-                       products: state.products
-
-                       /!*      products: state.products.filter((item) => {
-                                 for (var prop in item) {
-                                     return item.price > a && item.price < 10000
-                                 }
-                             })*!/
-                       /!* products: state.products.filter(products => products.price < a  && products.price > 30),*!/
-
-                   }*/
-
         }
         case
         BASKET:
-
             if (state.numberCart === 0) {
-
                 let cart = {
                     id: action.userId,
                     quantity: 1,
                     name: action.title,
                     price: action.price
                 }
-
                 state.basketProduct.push(cart);
             } else {
-
-
                 let check = false;
-
                 state.basketProduct.map((item, key) => {
                     if (item.id === action.userId) {
                         state.basketProduct[key].quantity++;
-
                         check = true;
                     }
                 });
                 if (!check) {
-
                     let _cart = {
                         id: action.userId,
                         quantity: 1,
                         name: action.title,
                         price: action.price
                     }
-
                     state.basketProduct.push(_cart);
                 }
-
             }
 
             return {
@@ -512,17 +446,12 @@ const productReducer = (state = initialState, action) => {
                 ...state,
                 basketProduct: [...state.basketProduct],
                 totalPrice: state.totalPrice + action.price
-
-
             }
-
         case
         DECREASE_QUANTITY:
             state.basketProduct.map((item, key) => {
                 if (item.id === action.userId) {
                     state.basketProduct[key].quantity--;
-
-
                     if (state.basketProduct[key].quantity === 0) {
                         let idBase = state.basketProduct.findIndex(el => el.id === item.id)
                         state.basketProduct.splice(idBase, 1)
@@ -535,11 +464,8 @@ const productReducer = (state = initialState, action) => {
                 totalPrice: state.totalPrice - action.price
 
             }
-
         case
         BASKETDELETE:
-
-
             return {
                 ...state,
 
@@ -547,7 +473,6 @@ const productReducer = (state = initialState, action) => {
                     return item.id !== action.userId
                 })
             }
-
         default:
             return state;
     }
@@ -562,9 +487,7 @@ export const ratingAC = (value) => (
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 
 export const searccch = (searchString) => ({type: SER, searchString})
-export const searchMixMax = (name) => (
-    {type: SERMINMAX, name}
-)
+
 export const searccch23 = (filteredGoods) => ({type: SER23, filteredGoods})
 
 export const basket = (userId, title, price) => ({type: BASKET, userId, title, price})

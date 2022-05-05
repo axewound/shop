@@ -7,7 +7,6 @@ import {connect} from "react-redux";
 import Basket from "./Basket";
 import {basketDelete,increaseQuantity,decreaseQuantity} from "../redux/product-reducer";
 import Slider from "../assets/Slider";
-import DoubleRangeSlider from "../Body/ProductPage2";
 
 class Header extends React.Component {
     render() {
@@ -33,6 +32,3 @@ let mapStateToProps = (state) => {
     }
 }
 export default connect(mapStateToProps, {basketDelete,increaseQuantity,decreaseQuantity})(Header);
-
-/*
-export default Header*/

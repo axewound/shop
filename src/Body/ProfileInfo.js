@@ -5,7 +5,6 @@ const ProfileInfo = (props) => {
 
     return (
         <div>
-            }
             <div>
 
                 <img className={styles.imgOneProduct} src={props.profile.image}/>

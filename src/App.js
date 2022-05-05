@@ -6,7 +6,6 @@ import Footer from "./Footer/Footer";
 import {Redirect, Route} from "react-router-dom";
 import Home from "./Header/Home";
 import {Container} from "react-bootstrap";
-import SearchExample from "./Body/Serch";
 import ProductOnePagesContrtainer from "./Body/ProductOnePageContainer";
 
 
