@@ -565,7 +565,7 @@ export const searccch = (searchString) => ({type: SER, searchString})
 export const searchMixMax = (name) => (
     {type: SERMINMAX, name}
 )
-export const searccch23 = (filteredGoods123) => ({type: SER23, filteredGoods123})
+export const searccch23 = (filteredGoods) => ({type: SER23, filteredGoods})
 
 export const basket = (userId, title, price) => ({type: BASKET, userId, title, price})
 export const basketDelete = (userId) => ({type: BASKETDELETE, userId})

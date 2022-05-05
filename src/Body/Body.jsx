@@ -48,6 +48,7 @@ class Body extends React.Component {
                     <NavBarBodyLeft/>
                     {this.props.isFetching ? <Preloader/> : null}
                     }
+
                     {/* <Route path='/profile/:userId?'
                            render={() => <ProductOnePagesContrtainer products={this.props.products}product={this.props.product}/> }/>
                  */} {/*<ProductOnePages/>*/}
@@ -74,19 +75,20 @@ let mapStateToProps = (state) => {
         /*basket: state.productPage.basket*/
     }
 }
-/*const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
     return {
-        filteredGoods: (filteredGoods123) => {
-            dispatch(searccch23(filteredGoods123));
+        productPeredal: (filteredGoods) => {
+            dispatch(searccch23(filteredGoods));
         },
     }
-}*/
+}
+
 let WithContainer = withRouter(Body)
 
-export default connect(mapStateToProps, /*mapDispatchToProps*/ {
+export default connect(mapStateToProps,  /*mapDispatchToProps,*/{
     getProductThunk,
-    basket,
+ /*   basket,
     valueElment: ratingAC,
     setProduct,
-    toggleIsFetching
+    toggleIsFetching*/
 })(WithContainer);

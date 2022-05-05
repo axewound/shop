@@ -15,7 +15,8 @@ const PriceFilter = ({ props, value, onChange, }) => (
     </div>
 );
 
-const GoodsList = ( { products,searchString } ) => (
+
+const GoodsList = ( { products,searchString,props } ) => (
     <div>
         {products.map(n => (
             <div className="good" key={n.id}>
@@ -26,13 +27,14 @@ const GoodsList = ( { products,searchString } ) => (
     </div>
 );
 
-const CostTable = ({ products,searchString }) => {
+const CostTable = ({ products,searchString,props }) => {
 
 
     const [ price, setPrice ] = React.useState([ '', '' ]);
 
     const onPriceChange = ({ target: { value, dataset: { index } } }) => {
         setPrice(price.map((n, i) => i === +index ? value : n));
+        console.log()
     };
 
     const filteredGoods = products.filter(n => (
@@ -40,6 +42,12 @@ const CostTable = ({ products,searchString }) => {
         (!price[0] || price[0] <= n.price) &&
         (!price[1] || price[1] >= n.price)
     ));
+
+    function SpeedDetector(props) {
+        props.productPeredal(filteredGoods)
+    }
+
+
 
     return (
         <div>
