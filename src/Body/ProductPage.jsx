@@ -72,7 +72,6 @@ class ProductPages extends React.Component {
             <div className={styles.blockProducts}>
 
 
-
                 {
                     currentTodos.map(u => <div className={styles.productInfo} key={u.id}>
 

@@ -53,7 +53,52 @@ const CostTable = ({products, searchString, props}) => {
 
 
 
-
+    const menus = [
+        {
+            label: "Top Sales",
+        },
+        {
+            label: "Clothing",
+            submenu: [
+                {
+                    label: "Women's clothing"
+                },
+                {
+                    label: "Men's clothing"
+                },
+            ]
+        },
+        {
+            label: "Hi-Tech",
+            submenu: [
+                {
+                    label: "Electronics"
+                },
+            ]
+        },
+        {
+            label: "Jewelery",
+            submenu: [
+                {
+                    label: "Jewelery"
+                },
+            ]
+        },
+        {
+            label: "Sale",
+            submenu: [
+                {
+                    label: "Last 1"
+                },
+                {
+                    label: "Last 2"
+                },
+                {
+                    label: "Last 3"
+                }
+            ]
+        }
+    ];
     return (
         <div>
             <div className="filters">
@@ -65,7 +110,7 @@ const CostTable = ({products, searchString, props}) => {
                 <PriceFilter value={price} onChange= { onPriceChange}/>
             </div>
             <div style={{display: "flex"}}>
-            <NavBarBodyLeft/>
+            <NavBarBodyLeft menus={menus} />
                 {props.isFetching ? <Preloader/> : null}
             <ProductPagesContainer basket={props.basket}  isFetching={props.isFetching} products={filteredGoods} searchString={searchString}/>
             </div>

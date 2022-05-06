@@ -17,3 +17,7 @@ dl, ol, ul{
  padding-left: 0 !important;
 
 }
+
+#root{
+ background: #e4e5e7;
+}
