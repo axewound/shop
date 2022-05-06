@@ -1,19 +1,15 @@
 import React from 'react';
 import SortProduct from "./SortProduct";
-import {ratingAC, searccch,  toggleIsFetching} from "../../redux/product-reducer";
 import {connect} from "react-redux";
 import SearchProductContainer from "./SearchProductContainer";
-import CostTable from "./CostTable";
 import SearchProduct from "./SearchProduct";
+import CostTableContainer from "./CostTableContainer";
+import NavBarBodyLeft from "../NavBarLeft/NavBarBodyLeft";
 
 const BodyHeaderBlockContainer = (props) => {
     return (
         <div>
-            <SortProduct
-                handleChange={props.handleChange}
-            />
-            <SearchProductContainer/>
-            <CostTable products={props.products}  searchString={props.searchString}/>
+            <CostTableContainer products={props.products}  isFetching={props.isFetching} props={props} searchString={props.searchString} basket={props.basket} />
         </div>
     )
 }
