@@ -10,7 +10,7 @@ class ProductPages extends React.Component {
         searchString: "",
         products: this.props.products,
         currentPage: 1,
-        todosPerPage: 5
+        todosPerPage: 6
     };
 
     handleChange1 = (e) => {
@@ -42,7 +42,6 @@ class ProductPages extends React.Component {
         const indexOfLastTodo = this.state.currentPage * this.state.todosPerPage;
         const indexOfFirstTodo = indexOfLastTodo - this.state.todosPerPage;
 
-
         const currentTodos = _users.slice(indexOfFirstTodo, indexOfLastTodo);
 
         const pageNumbers = [];
@@ -50,12 +49,9 @@ class ProductPages extends React.Component {
         for (let i = 1; i <= Math.ceil(_users.length / this.state.todosPerPage); i++) {
             pageNumbers.push(i);
         }
-
-
         const renderPageNumbers = pageNumbers.map(number => {
 
             return (
-
                 <li
                     key={number}
                     id={number}
@@ -68,7 +64,7 @@ class ProductPages extends React.Component {
 
 
         return (
-
+<div>
             <div className={styles.blockProducts}>
 
 
@@ -77,7 +73,7 @@ class ProductPages extends React.Component {
 
 
                         <NavLink to={'/product/' + u.id}>
-                                <div>
+                            <div>
                                 <img src={u.image != null ? u.image : userPhoto} className={styles.productPhoto}/>
                             </div>
                         </NavLink>
@@ -88,17 +84,19 @@ class ProductPages extends React.Component {
                             <span className={styles.price}>$ {u.price}</span>
 
                             <button onClick={() => {
-                                this.props.basket(u.id, u.title, u.price)
+                                this.props.basket(u.id, u.title, u.price, u.image)
                             }}>Add Case
                             </button>
                         </div>
 
                     </div>)
                 }
-
-                <ul id="page-numbers">
-                    {renderPageNumbers}
-                </ul>
+            </div>
+                <div>
+                    <ul id="page-numbers">
+                        {renderPageNumbers}
+                    </ul>
+                </div>
             </div>
         );
     }

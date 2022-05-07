@@ -12,12 +12,13 @@ class Header extends React.Component {
     render() {
         return (
             <div>
-                <HeaderTop basketProduct={this.props.basketProduct}/>
-                <Basket basketProduct={this.props.basketProduct}
-                        totalPrice={this.props.totalPrice}
-                        basketDelete={this.props.basketDelete}
-                        increaseQuantity={this.props.increaseQuantity}
-                        decreaseQuantity={this.props.decreaseQuantity}/>
+                <HeaderTop basketProduct={this.props.basketProduct}
+                           totalPrice={this.props.totalPrice}
+                           basketDelete={this.props.basketDelete}
+                           increaseQuantity={this.props.increaseQuantity}
+                           decreaseQuantity={this.props.decreaseQuantity}
+                />
+
                 <HeaderAfterTop/>
             </div>
         )

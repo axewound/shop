@@ -8,9 +8,53 @@ import Menu from "../Simple";
 import Basket from "./Basket";
 
 class HeaderTop extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            popupVisible: false
+        };
+    }
+
+    handleClick = () => {
+        if (!this.state.popupVisible) {
+            document.addEventListener('click', this.handleOutsideClick, false);
+        } else {
+            document.removeEventListener('click', this.handleOutsideClick, false);
+        }
+
+        this.setState(prevState => ({
+            popupVisible: !prevState.popupVisible,
+        }));
+    }
+
+    handleOutsideClick = (e) => {
+        if (this.node.contains(e.target)) {
+            return;
+        }
+
+        this.handleClick();
+    }
+
     render() {
         return (
+
             <div className={style.HeaderTopContainer}>
+                <div className="popover-container" ref={node => {
+                    this.node = node;
+                }}>
+                {this.state.popupVisible && (
+                    <div>
+                        <Basket basketProduct={this.props.basketProduct}
+                                totalPrice={this.props.totalPrice}
+                                basketDelete={this.props.basketDelete}
+                                increaseQuantity={this.props.increaseQuantity}
+                                decreaseQuantity={this.props.decreaseQuantity}/>
+                    </div>
+                )}
+                </div>
+
+
+
                 <div>
                     <Menu/>
 
@@ -29,13 +73,18 @@ class HeaderTop extends React.Component {
                         <li>About Us</li>
                     </ul>
                 </nav>
+
                 <div className={style.basketHeader}>
-                    <img src={Shopping_Cart_Icon} alt=""/>
-                    <Basket/>
-                    <div className={style.basketHeaderCount}>
-                        <span>CART</span>
-                        <div className={style.basketCount}>{this.props.basketProduct.length}</div>
-                    </div>
+                    <button
+                        onClick={this.handleClick}
+                    >
+                        <img src={Shopping_Cart_Icon} alt=""/>
+                        <div className={style.basketHeaderCount}>
+                            <span>CART</span>
+                            <div className={style.basketCount}>{this.props.basketProduct.length}</div>
+                        </div>
+                    </button>
+
                 </div>
                 <div>
                     <button className={style.buttonCart}>Sing in</button>

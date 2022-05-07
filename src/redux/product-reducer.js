@@ -15,7 +15,7 @@ const INCREASE_QUANTITY = "INCREASE_QUANTITY"
 const DECREASE_QUANTITY = "DECREASE_QUANTITY"
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_PRODUCT_EXECT = 'SET_PRODUCT_EXECT'
-
+const CHECKBOX = "CHECKBOX"
 let initialState = {
     numberCart: 0,
     Carts: [],
@@ -48,8 +48,6 @@ function strip(title) {
 }
 
 const productReducer = (state = initialState, action) => {
-    console.log(action)
-
     switch (action.type) {
 
         case SET_PRODUCT_EXECT: {
@@ -120,7 +118,8 @@ const productReducer = (state = initialState, action) => {
                     id: action.userId,
                     quantity: 1,
                     name: action.title,
-                    price: action.price
+                    price: action.price,
+                    image: action.image,
                 }
                 state.basketProduct.push(cart);
             } else {
@@ -136,7 +135,8 @@ const productReducer = (state = initialState, action) => {
                         id: action.userId,
                         quantity: 1,
                         name: action.title,
-                        price: action.price
+                        price: action.price,
+                        image: action.image
                     }
                     state.basketProduct.push(_cart);
                 }
@@ -188,11 +188,28 @@ const productReducer = (state = initialState, action) => {
                     return item.id !== action.userId
                 })
             }
+        case CHECKBOX:
+
+            if (action.che) {
+                return {
+                    ...state,
+                    products: state.filteredGoods.filter((row) => row.rating.rate >= 4.0)
+
+                }
+            } else {
+                return {
+                    ...state,
+                    products: state.filteredGoods
+
+                }
+            }
+
         default:
             return state;
     }
 }
 
+export const setCheckFunction = (che) => ({type: CHECKBOX, che})
 export const setProductExect = (label) => ({type: SET_PRODUCT_EXECT, label})
 export const setProduct = (products) => ({type: SET_PRODUCT, products})
 export const ratingAC = (value) => (
@@ -208,7 +225,7 @@ export const searccch23 = (filteredGoods) => (
     {type: SER23, filteredGoods}
 )
 
-export const basket = (userId, title, price) => ({type: BASKET, userId, title, price})
+export const basket = (userId, title, price, image) => ({type: BASKET, userId, title, price, image})
 export const basketDelete = (userId) => ({type: BASKETDELETE, userId})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 

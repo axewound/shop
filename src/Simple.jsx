@@ -9,12 +9,10 @@ class MenuLinks extends React.Component {
         this.state = {
             links: [{
                 text: 'Author',
-                link: 'https://github.com/Lakston',
                 icon: 'fa-pencil-square-o',
                 id:0
             }, {
                 text: 'Github page',
-                link: 'https://github.com/Lakston',
                 icon: 'fa-github',
                 id:1
             }, {

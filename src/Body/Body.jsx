@@ -9,7 +9,7 @@ import {
     setProduct,
     toggleIsFetching,
     searccch,
-    searccch23
+    searccch23, setCheckFunction
 } from "../redux/product-reducer";
 import Preloader from "../assets/Preloader";
 import styles from './Body.module.css';
@@ -77,5 +77,6 @@ export default connect(mapStateToProps, {
     valueElment: ratingAC,
     setProduct,
     toggleIsFetching,
-    setProductExect
+    setProductExect,
+    setCheckFunction
 })(WithContainer);
