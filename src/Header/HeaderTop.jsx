@@ -5,6 +5,7 @@ import Icon_Portland from '../assets/image/Icon_Portland.svg'
 import Shopping_Cart_Icon from '../assets/image/Shopping_Cart_Icon.svg'
 import {Link, NavLink} from "react-router-dom";
 import Menu from "../Simple";
+import Basket from "./Basket";
 
 class HeaderTop extends React.Component {
     render() {
@@ -30,6 +31,7 @@ class HeaderTop extends React.Component {
                 </nav>
                 <div className={style.basketHeader}>
                     <img src={Shopping_Cart_Icon} alt=""/>
+                    <Basket/>
                     <div className={style.basketHeaderCount}>
                         <span>CART</span>
                         <div className={style.basketCount}>{this.props.basketProduct.length}</div>

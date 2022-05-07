@@ -14,19 +14,20 @@ class NavBarBodyLeft extends React.Component {
 export default NavBarBodyLeft*/
 
 
-
-
-import React, { useState } from "react";
+import React, {useState} from "react";
 import styles from '../NavBodyLeft.module.css';
 
 
-
-const NavBarBodyLeft = ({ menus }) => {
+const NavBarBodyLeft = ({menus,setProductExectFunction},) => {
     const [activeMenus, setActiveMenus] = useState([]);
 
     const handleMenuClick = (data) => {
-        console.log(data);
+        const setProductExectFunction248 = (data) => {
+            setProductExectFunction(data)
+        };
+        setProductExectFunction248(data.label)
     };
+
 
     const handleArrowClick = (menuName) => {
         let newActiveMenus = [...activeMenus];
@@ -43,15 +44,16 @@ const NavBarBodyLeft = ({ menus }) => {
         setActiveMenus(newActiveMenus);
     };
 
-    const ListMenu = ({ dept, data, hasSubMenu, menuName, menuIndex }) => (
-        <span >
+    const ListMenu = ({dept, data, hasSubMenu, menuName, menuIndex}) => (
+        <span>
             <div className={styles.listText}>
-                <label onClick={() => handleMenuClick(data)}>{data.label} </label>
+                <label onClick={() => handleMenuClick(data)}>{data.label}
+ </label>
                 {hasSubMenu && (
                     <div className={styles.arrow}
-                        onClick={() => handleArrowClick(menuName)}
+                         onClick={() => handleArrowClick(menuName)}
 
-                        toggle={activeMenus.includes(menuName)}
+                         toggle={activeMenus.includes(menuName)}
                     />
 
                 )}
@@ -66,7 +68,7 @@ const NavBarBodyLeft = ({ menus }) => {
         </span>
     );
 
-    const SubMenu = ({ dept, data, toggle, menuIndex }) => {
+    const SubMenu = ({dept, data, toggle, menuIndex}) => {
         if (!toggle) {
             return null;
         }
@@ -77,7 +79,6 @@ const NavBarBodyLeft = ({ menus }) => {
             <ul>
                 {data.map((menu, index) => {
                     const menuName = `sidebar-submenu-${dept}-${menuIndex}-${index}`;
-
                     return (
                         <ListMenu
                             dept={dept}
@@ -97,24 +98,23 @@ const NavBarBodyLeft = ({ menus }) => {
 
     return (
         <div className={styles.blockList}>
+            <ul>
+                {menus.map((menu, index) => {
+                    const dept = 1;
+                    const menuName = `sidebar-menu-${dept}-${index}`;
 
-        <ul>
-            {menus.map((menu, index) => {
-                const dept = 1;
-                const menuName = `sidebar-menu-${dept}-${index}`;
-
-                return (
-                    <ListMenu
-                        dept={dept}
-                        data={menu}
-                        hasSubMenu={menu.submenu}
-                        menuName={menuName}
-                        key={menuName}
-                        menuIndex={index}
-                    />
-                );
-            })}
-        </ul>
+                    return (
+                        <ListMenu
+                            dept={dept}
+                            data={menu}
+                            hasSubMenu={menu.submenu}
+                            menuName={menuName}
+                            key={menuName}
+                            menuIndex={index}
+                        />
+                    );
+                })}
+            </ul>
         </div>
 
     );

@@ -1,4 +1,3 @@
-
 import {usersAPI} from "../api/api";
 import React from "react";
 
@@ -15,6 +14,8 @@ const BASKETDELETE = "BASKETDELETE"
 const INCREASE_QUANTITY = "INCREASE_QUANTITY"
 const DECREASE_QUANTITY = "DECREASE_QUANTITY"
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const SET_PRODUCT_EXECT = 'SET_PRODUCT_EXECT'
+
 let initialState = {
     numberCart: 0,
     Carts: [],
@@ -39,7 +40,7 @@ let initialState = {
         "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
         "rating": {"rate": 3.9, "count": 120}
     }],
-    filteredGoods:[]
+    filteredGoods: []
 };
 
 function strip(title) {
@@ -47,7 +48,27 @@ function strip(title) {
 }
 
 const productReducer = (state = initialState, action) => {
+    console.log(action)
+
     switch (action.type) {
+
+        case SET_PRODUCT_EXECT: {
+
+            switch (action.label) {
+                case "Top Sales": {
+
+
+                }
+                case action.label: {
+
+
+                    return {
+                        ...state,
+                        products: state.filteredGoods.filter(word => word.category === action.label.toLowerCase())
+                    }
+                }
+            }
+        }
         case SET_USER_PROFILE: {
             return {...state, profile: action.profile}
         }
@@ -89,8 +110,7 @@ const productReducer = (state = initialState, action) => {
 
         }
         case SER23: {
-            console.log(action)
-            return {...state, profile: action.profile,  filteredGoods: action.filteredGoods}
+            return {...state, profile: action.profile, filteredGoods: action.filteredGoods}
 
         }
         case
@@ -173,7 +193,7 @@ const productReducer = (state = initialState, action) => {
     }
 }
 
-
+export const setProductExect = (label) => ({type: SET_PRODUCT_EXECT, label})
 export const setProduct = (products) => ({type: SET_PRODUCT, products})
 export const ratingAC = (value) => (
     ({type: value})

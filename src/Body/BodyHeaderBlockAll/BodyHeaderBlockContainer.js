@@ -7,9 +7,11 @@ import CostTableContainer from "./CostTableContainer";
 import NavBarBodyLeft from "../NavBarLeft/NavBarBodyLeft";
 
 const BodyHeaderBlockContainer = (props) => {
+
     return (
         <div>
-            <CostTableContainer products={props.products}  isFetching={props.isFetching} props={props} searchString={props.searchString} basket={props.basket} />
+            <CostTableContainer products={props.products} isFetching={props.isFetching} props={props}
+                                searchString={props.searchString} basket={props.basket} menus={props.menus}/>
         </div>
     )
 }

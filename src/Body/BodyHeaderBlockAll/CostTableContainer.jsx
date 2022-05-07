@@ -5,6 +5,7 @@ import SearchProductContainer from "./SearchProductContainer";
 import ProductPagesContainer from "../ProductPageContainer";
 import NavBarBodyLeft from "../NavBarLeft/NavBarBodyLeft";
 import Preloader from "../../assets/Preloader";
+import NavBarBodyLeftContainer from "../NavBarLeft/NavBarBodyLeftContainer";
 
 
 const PriceInput = ({index, ...props}) => (
@@ -49,56 +50,12 @@ const CostTable = ({products, searchString, props}) => {
 
     const onPriceChange = ({target: {value, dataset: {index}}}) => {
         setPrice(price.map((n, i) => i === +index ? value : n));
+
     };
 
 
 
-    const menus = [
-        {
-            label: "Top Sales",
-        },
-        {
-            label: "Clothing",
-            submenu: [
-                {
-                    label: "Women's clothing"
-                },
-                {
-                    label: "Men's clothing"
-                },
-            ]
-        },
-        {
-            label: "Hi-Tech",
-            submenu: [
-                {
-                    label: "Electronics"
-                },
-            ]
-        },
-        {
-            label: "Jewelery",
-            submenu: [
-                {
-                    label: "Jewelery"
-                },
-            ]
-        },
-        {
-            label: "Sale",
-            submenu: [
-                {
-                    label: "Last 1"
-                },
-                {
-                    label: "Last 2"
-                },
-                {
-                    label: "Last 3"
-                }
-            ]
-        }
-    ];
+
     return (
         <div>
             <div className="filters">
@@ -110,7 +67,8 @@ const CostTable = ({products, searchString, props}) => {
                 <PriceFilter value={price} onChange= { onPriceChange}/>
             </div>
             <div style={{display: "flex"}}>
-            <NavBarBodyLeft menus={menus} />
+
+                <NavBarBodyLeftContainer props={props}menus={props.menus} />
                 {props.isFetching ? <Preloader/> : null}
             <ProductPagesContainer basket={props.basket}  isFetching={props.isFetching} products={filteredGoods} searchString={searchString}/>
             </div>

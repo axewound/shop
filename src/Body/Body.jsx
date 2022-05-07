@@ -17,6 +17,7 @@ import {Route, withRouter} from "react-router-dom";
 import ProductPages from "./ProductPage";
 import CostTableContainer from "./BodyHeaderBlockAll/CostTableContainer";
 import ProductPagesContainer from "./ProductPageContainer";
+import {setProductExect} from "../redux/label-reducer";
 
 class Body extends React.Component {
     componentDidMount() {
@@ -45,13 +46,10 @@ class Body extends React.Component {
                                            props={this.props}
                                           basket={this.props.basket}
                                           isFetching={this.props.isFetching}
+                                          menus={this.props.label}
+
                 />
-                <div className={styles.bodyContainer}>
 
-
-
-
-                </div>
             </div>
         )
     }
@@ -64,6 +62,7 @@ let mapStateToProps = (state) => {
         isFetching: state.productPage.isFetching,
         searchString: state.productPage.searchString,
         filteredGoods: state.productPage.filteredGoods,
+        label:state.labelPage
     }
 }
 
@@ -77,5 +76,6 @@ export default connect(mapStateToProps, {
     searccch23,
     valueElment: ratingAC,
     setProduct,
-    toggleIsFetching
+    toggleIsFetching,
+    setProductExect
 })(WithContainer);
