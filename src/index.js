@@ -9,14 +9,26 @@ import history from "./api/history";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./Header/Home";
 import {Container} from "react-bootstrap";
+import {IntlProvider} from "react-intl";
+import {messages} from "./assets/i18n/messages";
+import {LOCALES} from "./assets/i18n/locales";
+
+const locale = LOCALES.ENGLISH
+
 
 ReactDOM.render(
-    <BrowserRouter  history={history}>
-        <Provider store={store}>
-            <App/>
+    <IntlProvider
+        messages={messages[locale]}
+        locale={locale}
+        defaultLocale={LOCALES.ENGLISH}>
+        <BrowserRouter history={history}>
 
-        </Provider>
-    </BrowserRouter>, document.getElementById('root'));
+            <Provider store={store}>
+                <App/>
+            </Provider>
+        </BrowserRouter>
+
+    </IntlProvider>, document.getElementById('root'));
 
 
 // If you want to start measuring performance in your app, pass a function

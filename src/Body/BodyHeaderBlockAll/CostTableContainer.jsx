@@ -8,6 +8,7 @@ import Preloader from "../../assets/Preloader";
 import NavBarBodyLeftContainer from "../NavBarLeft/NavBarBodyLeftContainer";
 import Checkbox from "../NavBarLeft/NavCheckbox";
 import NavCheckboxContainer from "../NavBarLeft/NavCheckboxContainer";
+import LanguageSelected from "./Language";
 
 /**
  * Stores recently viewed urls to local storage along with their view times
@@ -121,6 +122,7 @@ const CostTable = ({products, searchString, props}) => {
                 />
                 <SearchProductContainer/>
                 <PriceFilter value={price} onChange={onPriceChange}/>
+                <LanguageSelected/>
             </div>
             <div style={{display: "flex"}}>
                 <div>

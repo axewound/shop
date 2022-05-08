@@ -7,11 +7,16 @@ import {connect} from "react-redux";
 import Basket from "./Basket";
 import {basketDelete,increaseQuantity,decreaseQuantity} from "../redux/product-reducer";
 import Slider from "../assets/Slider";
+import {LOCALES} from "../assets/i18n/locales";
+import {FormattedMessage} from "react-intl";
 
 class Header extends React.Component {
+
     render() {
+
         return (
             <div>
+
                 <HeaderTop basketProduct={this.props.basketProduct}
                            totalPrice={this.props.totalPrice}
                            basketDelete={this.props.basketDelete}
