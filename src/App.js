@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import style from './App.module.css';
 import Header from "./Header/Header";
 import Body from "./Body/Body";
@@ -13,20 +13,39 @@ import {LOCALES} from "./assets/i18n/locales";
 
 const App = () => {
 
-    return (
+    const [currentLocale, setCurrentLocale] = useState(getInitialLocal());
 
+    const handleChange = (e) => {
+        setCurrentLocale(e.target.value);
+        // storing locale in the localstorage
+        localStorage.setItem("locale", e.target.value);
+    };
+
+    //localstorage
+    function getInitialLocal() {
+        // getting stored items
+        const savedLocale = localStorage.getItem("locale");
+        return savedLocale || LOCALES.ENGLISH;
+    }
+
+    return (
+        <IntlProvider
+            messages={messages[currentLocale]}
+            locale={currentLocale}
+            defaultLocale={LOCALES.ENGLISH}
+        >
             <Container>
-                <Header/>
-                <FormattedMessage id='learn_to' />
+                <Header />
 
                 <Route path='/' exact
                        render={() => <Home/>}/>
                 <Route path='/product/:userId?'
                        render={() => <ProductOnePagesContrtainer/>}/>
                 <Route path='/products'
-                       render={() => <Body/>}/>
+                       render={() => <Body currentLocale={currentLocale} handleChange={handleChange} />}/>
                 <Footer/>
             </Container>
+        </IntlProvider>
     )
 }
 

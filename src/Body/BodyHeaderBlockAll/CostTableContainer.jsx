@@ -9,6 +9,8 @@ import NavBarBodyLeftContainer from "../NavBarLeft/NavBarBodyLeftContainer";
 import Checkbox from "../NavBarLeft/NavCheckbox";
 import NavCheckboxContainer from "../NavBarLeft/NavCheckboxContainer";
 import LanguageSelected from "./Language";
+import {LOCALES} from "../../assets/i18n/locales";
+import Header from "../../Header/Header";
 
 /**
  * Stores recently viewed urls to local storage along with their view times
@@ -113,6 +115,7 @@ const CostTable = ({products, searchString, props}) => {
     };
 
 
+
     return (
         <div>
             <div className="filters">
@@ -122,8 +125,9 @@ const CostTable = ({products, searchString, props}) => {
                 />
                 <SearchProductContainer/>
                 <PriceFilter value={price} onChange={onPriceChange}/>
-                <LanguageSelected/>
+                <LanguageSelected currentLocale={props.currentLocale} handleChange={props.handleChange} />
             </div>
+            {console.log(props)}
             <div style={{display: "flex"}}>
                 <div>
                     <NavBarBodyLeftContainer props={props} menus={props.menus}/>

@@ -18,6 +18,7 @@ import ProductPages from "./ProductPage";
 import CostTableContainer from "./BodyHeaderBlockAll/CostTableContainer";
 import ProductPagesContainer from "./ProductPageContainer";
 import {setProductExect} from "../redux/label-reducer";
+import HeaderTop from "../Header/HeaderTop";
 
 class Body extends React.Component {
     componentDidMount() {
@@ -47,7 +48,7 @@ class Body extends React.Component {
                                           basket={this.props.basket}
                                           isFetching={this.props.isFetching}
                                           menus={this.props.label}
-
+                                          currentLocale={this.props.currentLocale} handleChange={this.props.handleChange}
                 />
 
             </div>

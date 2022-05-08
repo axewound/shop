@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -9,18 +9,14 @@ import history from "./api/history";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from "./Header/Home";
 import {Container} from "react-bootstrap";
-import {IntlProvider} from "react-intl";
 import {messages} from "./assets/i18n/messages";
 import {LOCALES} from "./assets/i18n/locales";
+import {IntlProvider} from "react-intl";
 
-const locale = LOCALES.ENGLISH
 
 
 ReactDOM.render(
-    <IntlProvider
-        messages={messages[locale]}
-        locale={locale}
-        defaultLocale={LOCALES.ENGLISH}>
+
         <BrowserRouter history={history}>
 
             <Provider store={store}>
@@ -28,7 +24,7 @@ ReactDOM.render(
             </Provider>
         </BrowserRouter>
 
-    </IntlProvider>, document.getElementById('root'));
+    , document.getElementById('root'));
 
 
 // If you want to start measuring performance in your app, pass a function

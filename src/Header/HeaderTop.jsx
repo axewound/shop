@@ -6,6 +6,7 @@ import Shopping_Cart_Icon from '../assets/image/Shopping_Cart_Icon.svg'
 import {Link, NavLink} from "react-router-dom";
 import Menu from "../Simple";
 import Basket from "./Basket";
+import {FormattedMessage} from "react-intl";
 
 class HeaderTop extends React.Component {
     constructor() {
@@ -66,6 +67,7 @@ class HeaderTop extends React.Component {
                     <ul>
                         <NavLink to="/" className={style.NavLink}>Home</NavLink>
                         <NavLink to="/products" className={style.NavLink}>Devices</NavLink>
+                        <FormattedMessage id='NavLink' />
                         {/*   <Link to="/device" >About</Link>*/}
                         <li>Delivery & Payment</li>
                         <li>Guarantee</li>

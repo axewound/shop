@@ -8,7 +8,9 @@ import Basket from "./Basket";
 import {basketDelete,increaseQuantity,decreaseQuantity} from "../redux/product-reducer";
 import Slider from "../assets/Slider";
 import {LOCALES} from "../assets/i18n/locales";
-import {FormattedMessage} from "react-intl";
+import {Container} from "react-bootstrap";
+import {FormattedMessage, IntlProvider} from "react-intl";
+import LanguageSelected from "../Body/BodyHeaderBlockAll/Language";
 
 class Header extends React.Component {
 
@@ -22,6 +24,7 @@ class Header extends React.Component {
                            basketDelete={this.props.basketDelete}
                            increaseQuantity={this.props.increaseQuantity}
                            decreaseQuantity={this.props.decreaseQuantity}
+
                 />
 
                 <HeaderAfterTop/>
