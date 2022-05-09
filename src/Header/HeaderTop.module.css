@@ -21,9 +21,12 @@ ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 10px;
 }
-
+.button_basket{
+    border: none;
+    background: #e4e5e7;
+    display: flex;
+}
 .buttonCart {
     border: 2px solid #e3e8f0;
     background-color: Transparent;
@@ -37,7 +40,6 @@ ul {
 
 .slider_box {
     position: relative;
-    height: 18vw;
 
 }
 
@@ -116,3 +118,5 @@ hr {
     border: 1px solid red;
     width: 100%;
 }
+
+

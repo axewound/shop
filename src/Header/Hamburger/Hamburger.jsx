@@ -1,5 +1,5 @@
 import React from 'react';
-import s from "./Simple.module.css";
+import s from "./Hamburger.module.css";
 
 
 class MenuLinks extends React.Component {
@@ -8,18 +8,20 @@ class MenuLinks extends React.Component {
         // Any number of links can be added here
         this.state = {
             links: [{
-                text: 'Author',
-                icon: 'fa-pencil-square-o',
+                text: 'Home',
                 id:0
             }, {
-                text: 'Github page',
-                icon: 'fa-github',
+                text: 'Products',
                 id:1
             }, {
-                text: 'Twitter',
-                link: 'https://twitter.com/Fab_is_coding',
-                icon: 'fa-twitter',
+                text: 'Delivery & Payment',
                 id:2
+            }, {
+                text: 'Guarantee',
+                id:3
+            }, {
+                text: 'About Us',
+                id:4
             }]
         }
     }

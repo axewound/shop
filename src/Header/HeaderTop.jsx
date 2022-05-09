@@ -1,10 +1,9 @@
 import React from 'react';
-import style from "./HeaderTop.module.css"
-import Header_burger from '../assets/image/Header_burger.svg'
+import styles from "./HeaderTop.module.css"
 import Icon_Portland from '../assets/image/Icon_Portland.svg'
 import Shopping_Cart_Icon from '../assets/image/Shopping_Cart_Icon.svg'
-import {Link, NavLink} from "react-router-dom";
-import Menu from "../Simple";
+import {NavLink} from "react-router-dom";
+import Menu from "./Hamburger/Hamburger";
 import Basket from "./Basket";
 
 class HeaderTop extends React.Component {
@@ -38,7 +37,7 @@ class HeaderTop extends React.Component {
     render() {
         return (
 
-            <div className={style.HeaderTopContainer}>
+            <div className={styles.HeaderTopContainer}>
                 <div className="popover-container" ref={node => {
                     this.node = node;
                 }}>
@@ -60,12 +59,12 @@ class HeaderTop extends React.Component {
 
                 </div>
                 <div>
-                    <img className={style.Icon_Portland} src={Icon_Portland} alt=""/>
+                    <img className={styles.Icon_Portland} src={Icon_Portland} alt=""/>
                 </div>
                 <nav>
                     <ul>
-                        <NavLink to="/" className={style.NavLink}>Home</NavLink>
-                        <NavLink to="/products" className={style.NavLink}>Devices</NavLink>
+                        <NavLink to="/" className={styles.NavLink}>Home</NavLink>
+                        <NavLink to="/products" className={styles.NavLink}>Devices</NavLink>
                         {/*   <Link to="/device" >About</Link>*/}
                         <li>Delivery & Payment</li>
                         <li>Guarantee</li>
@@ -73,20 +72,20 @@ class HeaderTop extends React.Component {
                     </ul>
                 </nav>
 
-                <div className={style.basketHeader}>
-                    <button
+                <div className={styles.basketHeader}>
+                    <button className={styles.button_basket}
                         onClick={this.handleClick}
                     >
                         <img src={Shopping_Cart_Icon} alt=""/>
-                        <div className={style.basketHeaderCount}>
+                        <div className={styles.basketHeaderCount}>
                             <span>CART</span>
-                            <div className={style.basketCount}>{this.props.basketProduct.length}</div>
+                            <div className={styles.basketCount}>{this.props.basketProduct.length}</div>
                         </div>
                     </button>
 
                 </div>
                 <div>
-                    <button className={style.buttonCart}>Sing in</button>
+                    <button className={styles.buttonCart}>Sing in</button>
                 </div>
             </div>
         )

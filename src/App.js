@@ -14,6 +14,7 @@ const App = () => {
     return (
 
             <Container>
+
                 <Header/>
 
                 <Route path='/' exact
