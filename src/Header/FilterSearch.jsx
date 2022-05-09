@@ -1,28 +1,26 @@
 import React, { useState, useRef, useEffect } from 'react';
+import style from "./HeaderTop.module.css"
 
 
 
 const FilterSearch = (props) => {
-    const list = props.filteredGoods
-/*    const list = [
-        { id: 1, name: 'Tom', type: 'Cat' },
-        { id: 2, name: 'Zeus', type: 'Labrador' },
-        { id: 3, name: 'Jax', type: 'Malamute' },
-        { id: 4, name: 'Seb', type: 'Developer' },
-        { id: 5, name: 'MacBook', type: 'Notebook' },
-    ];*/
-    console.log(props)
+    const list = props.uniqueArr
+
     const [visible, setVisible] = useState(false);
     const [searchValue, setSearchValue] = useState('');
     const [selectedItem, setSelectedItem] = useState(null);
     const dropdownRef = useRef(null);
 
     useEffect(() => {
+
         document.addEventListener('mousedown', handleClick, false);
         return () => document.removeEventListener('mousedown', handleClick, false);
     }, []);
 
     const handleClick = e => {
+
+
+
         if (dropdownRef.current.contains(e.target)) {
             return;
         }
@@ -30,21 +28,23 @@ const FilterSearch = (props) => {
     };
 
     const handleChange = e => {
+
         setSearchValue(e.target.value);
         if (!visible) {
             setVisible(true);
         }
+
     };
 
     const selectItem = item => {
-        setSearchValue(item.name);
-        setSelectedItem(item.id);
+        setSearchValue(item);
         setVisible(false);
     };
 
 
+
     return (
-        <div className="container">
+        <div >
             <div tabIndex="0" className="input_container">
                 <input
                     className="input"
@@ -59,7 +59,7 @@ const FilterSearch = (props) => {
                     }}
                 />
             </div>
-            <div ref={dropdownRef} className={`dropdown ${visible ? 'v' : ''}`}>
+            <div ref={dropdownRef} className={style.dropdown  }>
                 {visible && (
                     <ul>
                         {!list && (
@@ -69,13 +69,14 @@ const FilterSearch = (props) => {
                         )}
                         {list &&
                         searchFilter(searchValue, list).map(x => (
+
                             <li
-                                key={x.id}
+                                key={x+1}
                                 onClick={() => selectItem(x)}
-                                className="dropdown_item"
+                                className={style.dropdown_item}
                             >
-                                <div className="item_text1">{x.title}</div>
-                                <div className="item_text2">{x.type}</div>
+
+                                <div className={style.item_text1}>{x}</div>
                             </li>
                         ))}
                     </ul>
@@ -84,11 +85,13 @@ const FilterSearch = (props) => {
         </div>
     );
 };
-export const searchFilter = ( searchValue, list, searchBy = 'title') => {
+export const searchFilter = ( searchValue, list) => {
     let lowerCaseQuery = searchValue.toLowerCase();
     let filteredList = searchValue
-        ? list.filter(x => x[searchBy].toLowerCase().includes(lowerCaseQuery))
+        ? list.filter(x => x.toLowerCase().includes(lowerCaseQuery))
         : list;
+    console.log(filteredList)
+
     return filteredList;
 };
 

@@ -10,7 +10,7 @@ class HeaderAfterTop extends React.Component {
     render() {
         return (
 
-            <div>
+            <div className={style.navHeaderTopBlock}>
                 <div className={style.navHeaderTop}>
                     <hr className={style.hr}/>
 
@@ -31,7 +31,8 @@ class HeaderAfterTop extends React.Component {
                 <FilterSearchContainerTop products={this.props.products}
                 product={this.props.product}
                 filteredGoods={this.props.filteredGoods}
-                searchString={this.props.searchString}/>
+                searchString={this.props.searchString}
+                                          uniqueArr={this.props.uniqueArr}/>
             </div>
 
         )

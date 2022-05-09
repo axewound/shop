@@ -15,7 +15,8 @@ let mapStateToProps = (state) => {
         products: state.productPage.products,
         product: state.productPage.product,
         filteredGoods: state.productPage.filteredGoods,
-        searchString: state.productPage.searchString
+        searchString: state.productPage.searchString,
+        uniqueArr:state.productPage.uniqueArr
     }
 }
 

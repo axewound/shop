@@ -95,3 +95,24 @@ hr {
     font-weight: 900;
     font-size: 11px;
 }
+.navHeaderTopBlock{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dropdown_item{
+    background: #ffffff;
+}
+.dropdown_item ul{
+    padding: 10px 0;
+    margin: 10px 0;
+}
+.dropdown{
+    position: absolute !important;
+    z-index: 999;
+    background: #fff;
+}
+.item_text1{
+    border: 1px solid red;
+    width: 100%;
+}

@@ -17,6 +17,7 @@ const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_PRODUCT_EXECT = 'SET_PRODUCT_EXECT'
 const CHECKBOX = "CHECKBOX"
 const SLIDERID = "SLIDERID"
+const NAVLINKSEARCH = "NAVLINKSEARCH"
 
 let initialState = {
     numberCart: 0,
@@ -50,7 +51,8 @@ let initialState = {
         {name: "Hi-tech", id: 2,active:false},
         {name: "Best Sellers", id: 3,active:false},
         {name: "Projects", id: 4,active:false},
-    ]
+    ],
+    uniqueArr:[{}]
 };
 
 function strip(title) {
@@ -82,7 +84,7 @@ const productReducer = (state = initialState, action) => {
         }
         case SET_PRODUCT: {
 
-            return {...state, products: action.products, filteredGoods: action.products, product: action.products}
+            return {...state, products: action.products, filteredGoods: action.products, product: action.products,uniqueArr : [... new Set(action.products.map(data => data.category))]}
         }
         case Low_rating:
             return {
@@ -198,6 +200,7 @@ const productReducer = (state = initialState, action) => {
                     return item.id !== action.userId
                 })
             }
+
         case CHECKBOX:
 
             if (action.che) {
@@ -227,11 +230,20 @@ const productReducer = (state = initialState, action) => {
 
 
             }
+        case
+        NAVLINKSEARCH:
+           /* const uniqueArr = [... new Set(props.filteredGoods.map(data => data.category))]*/
+
+            return {
+                ...state,
+
+            }
         default:
             return state;
     }
 }
 export const sliderId = (id) => ({type: SLIDERID, id})
+export const navLinkSearch = (products) => ({type: NAVLINKSEARCH, products})
 
 
 export const setCheckFunction = (che) => ({type: CHECKBOX, che})

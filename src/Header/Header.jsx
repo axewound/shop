@@ -5,13 +5,15 @@ import HeaderSlider from "./HeaderSlider";
 import style from "./Header.module.css"
 import {connect} from "react-redux";
 import Basket from "./Basket";
-import {basketDelete, increaseQuantity, decreaseQuantity, } from "../redux/product-reducer";
+import {basketDelete, increaseQuantity, decreaseQuantity, getProductThunk,} from "../redux/product-reducer";
 import Slider from "../assets/Slider";
 import {withRouter} from "react-router-dom";
 import HeaderAfterTopContainer from "./HeaderAfterTopContainer";
 
 class Header extends React.Component {
-
+    componentDidMount() {
+        this.props.getProductThunk();
+    }
     render() {
 
         return (
@@ -30,6 +32,7 @@ class Header extends React.Component {
                     searchString={this.props.searchString}
                     product={this.props.product}
                     filteredGoods={this.props.filteredGoods}
+                    uniqueArr={this.props.uniqueArr}
 
                 />
             </div>
@@ -45,10 +48,12 @@ let mapStateToProps = (state) => {
         products: state.productPage.products,
         product: state.productPage.product,
         filteredGoods: state.productPage.filteredGoods,
-        searchString: state.productPage.searchString
+        searchString: state.productPage.searchString,
+        uniqueArr: state.productPage.uniqueArr,
+
     }
 }
 
 
 let WithContainer = withRouter(Header)
-export default connect(mapStateToProps, {basketDelete,increaseQuantity,decreaseQuantity,})(WithContainer);
+export default connect(mapStateToProps, {basketDelete,increaseQuantity,decreaseQuantity,getProductThunk})(WithContainer);
