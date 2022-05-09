@@ -1,14 +1,13 @@
 import React from 'react';
 import {connect} from "react-redux";
-import NavBarBodyLeft from "./NavBarBodyLeft";
-import {setProductExect} from "../../redux/label-reducer";
-import {sliderId, } from "../../redux/product-reducer";
+import FilterSearch from "./FilterSearch";
+import {setCheckFunction} from "../redux/product-reducer";
 
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setProductExectFunction: (label) => {
-            dispatch(setProductExect(label));
+        setCheck: (che) => {
+            dispatch(setCheckFunction(che));
         },
     }
 }
@@ -22,6 +21,6 @@ let mapStateToProps = (state) => {
         label: state.labelPage
     }
 }
-const NavBarBodyLeftContainer = connect(mapStateToProps,mapDispatchToProps)(NavBarBodyLeft);
+const FilterSearchContainerTop = connect(mapStateToProps,mapDispatchToProps)(FilterSearch);
 
-export default NavBarBodyLeftContainer;
+export default FilterSearchContainerTop;

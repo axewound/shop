@@ -1,35 +1,51 @@
 import React from 'react';
 import style from "./HeaderTop.module.css"
-import Header_burger from '../assets/image/Header_burger.svg'
-import Icon_Portland from '../assets/image/Icon_Portland.svg'
-import Shopping_Cart_Icon from '../assets/image/Shopping_Cart_Icon.svg'
-import {Link, NavLink} from "react-router-dom";
-import Slider from "../assets/Slider";
-import MenuLinks from "../Simple";
-import Menu from "../Simple";
+import {Link, NavLink, withRouter} from "react-router-dom";
+import SliderContainer from "../assets/SliderContainer";
+import {connect} from "react-redux";
+import {sliderId} from "../redux/product-reducer";
 let slides = [
     {
         background: "https://picsum.photos/800/500?image=563",
-        text: "Road"
+        id: "0"
     },
     {
         background: "https://unsplash.it/800/500?image=580",
-        text: "America"
+        id: "1"
     },
     {
         background: "https://unsplash.it/800/500?image=824",
-        text: "Pieapple"
-    }
-];
+        id: "2"
+    },
+    {
+        background: "https://unsplash.it/800/500?image=580",
+        id: "1"
+    },
+    {
+        background: "https://unsplash.it/800/500?image=824",
+        id: "2"
+    },
+]
 
 class Home extends React.Component {
     render() {
         return (
             <div className={style.slider_box}>
-               <Slider slides={slides}/>
+               <SliderContainer slides={slides}/>
             </div>
         )
     }
 }
 
-export default Home
+/*let mapStateToProps = (state) => {
+console.log(state)
+    return {
+        textnav: state.productPage.textnav,
+
+    }
+}*/
+
+let WithContainer = withRouter(Home)
+export default connect(null,  {sliderId})(WithContainer);
+
+

@@ -14,7 +14,9 @@ ul {
     text-decoration: none;
     margin-right: 30px;
 }
-
+.navHeaderTop{
+    display: flex;
+}
 .HeaderTopContainer {
     display: flex;
     align-items: center;

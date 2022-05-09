@@ -8,8 +8,6 @@ import Home from "./Header/Home";
 import {Container} from "react-bootstrap";
 import ProductOnePagesContrtainer from "./Body/ProductOnePageContainer";
 import {FormattedMessage, IntlProvider} from "react-intl";
-import {messages} from "./assets/i18n/messages";
-import {LOCALES} from "./assets/i18n/locales";
 
 const App = () => {
 
@@ -17,7 +15,6 @@ const App = () => {
 
             <Container>
                 <Header/>
-                <FormattedMessage id='learn_to' />
 
                 <Route path='/' exact
                        render={() => <Home/>}/>

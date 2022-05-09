@@ -28,14 +28,14 @@ class Slider extends React.Component {
 
         this.state = {
             activeSlide: 0,
-            interval: 30,
-            autoplay: false
+            interval: 3,
+            autoplay: true
         };
+
     }
 
     componentDidMount() {
         this.timerId = setInterval(() => {
-            console.log(this.state.autoplay);
             if ( this.state.autoplay ) {
                 this.nextSlide();
             }
@@ -55,6 +55,7 @@ class Slider extends React.Component {
     }
 
     prevSlide() {
+
         let slide = this.state.activeSlide - 1 < 0
             ? this.props.slides.length - 1
             : this.state.activeSlide - 1;
@@ -73,14 +74,19 @@ class Slider extends React.Component {
     }
 
     render() {
-        var slides = this.props.slides;
+        let slides = this.props.slides;
+        this.props.sliderIdCont(this.state.activeSlide)
         return (
             <div onMouseEnter={this.pause.bind(this)} onMouseLeave={this.resume.bind(this)}>
                 {slides.map((slide, index) => {
+                   /* this.props.sliderIdCont(this.state.activeSlide)*/
+
                     return (
-                        <Slide
+
+                    <Slide
                             background={slide.background}
                             active={index === this.state.activeSlide}
+
                         />
                     );
                 })}

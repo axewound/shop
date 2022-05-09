@@ -16,6 +16,8 @@ const DECREASE_QUANTITY = "DECREASE_QUANTITY"
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_PRODUCT_EXECT = 'SET_PRODUCT_EXECT'
 const CHECKBOX = "CHECKBOX"
+const SLIDERID = "SLIDERID"
+
 let initialState = {
     numberCart: 0,
     Carts: [],
@@ -40,7 +42,15 @@ let initialState = {
         "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
         "rating": {"rate": 3.9, "count": 120}
     }],
-    filteredGoods: []
+    filteredGoods: [],
+    textId:0,
+     textnav : [
+        {name: "Top Sales", id: 0, active:false},
+        {name: "Brand Focus", id: 1,active:false},
+        {name: "Hi-tech", id: 2,active:false},
+        {name: "Best Sellers", id: 3,active:false},
+        {name: "Projects", id: 4,active:false},
+    ]
 };
 
 function strip(title) {
@@ -203,11 +213,26 @@ const productReducer = (state = initialState, action) => {
 
                 }
             }
+        case SLIDERID:
 
+           /* state.textnav.map((item) => {
+                return item.id === action.id
+            })*/
+
+            return {
+
+
+                ...state,
+                textId:action.id
+
+
+            }
         default:
             return state;
     }
 }
+export const sliderId = (id) => ({type: SLIDERID, id})
+
 
 export const setCheckFunction = (che) => ({type: CHECKBOX, che})
 export const setProductExect = (label) => ({type: SET_PRODUCT_EXECT, label})
