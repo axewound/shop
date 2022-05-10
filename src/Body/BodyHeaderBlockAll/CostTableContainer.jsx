@@ -1,12 +1,9 @@
 import React, {useState} from 'react';
-import ProductPages from "../ProductPage";
 import SortProduct from "./SortProduct";
 import SearchProductContainer from "./SearchProductContainer";
 import ProductPagesContainer from "../ProductPageContainer";
-import NavBarBodyLeft from "../NavBarLeft/NavBarBodyLeft";
 import Preloader from "../../assets/Preloader";
 import NavBarBodyLeftContainer from "../NavBarLeft/NavBarBodyLeftContainer";
-import Checkbox from "../NavBarLeft/NavCheckbox";
 import NavCheckboxContainer from "../NavBarLeft/NavCheckboxContainer";
 import LanguageSelected from "./Language";
 
@@ -94,29 +91,21 @@ const GoodsList = ({products, searchString, props}) => (
 );
 
 const CostTable = ({products, searchString, props}) => {
-    /*    console.log(props)*/
 
     const [price, setPrice] = React.useState(['', '']);
-
-
     let filteredGoods = products.filter(n => (
         (!price[0] || price[0] <= n.price) &&
         (!price[1] || price[1] >= n.price)
-
-
     ));
-
 
     const onPriceChange = ({target: {value, dataset: {index}}}) => {
         setPrice(price.map((n, i) => i === +index ? value : n));
 
     };
 
-
     return (
         <div>
             <div className="filters">
-
                 <SortProduct
                     handleChange={props.handleChange}
                 />
