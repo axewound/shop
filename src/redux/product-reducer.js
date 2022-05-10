@@ -60,6 +60,7 @@ function strip(title) {
 }
 
 const productReducer = (state = initialState, action) => {
+    console.log(action)
     switch (action.type) {
 
         case SET_PRODUCT_EXECT: {

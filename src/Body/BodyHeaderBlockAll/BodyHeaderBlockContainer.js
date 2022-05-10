@@ -12,7 +12,7 @@ const BodyHeaderBlockContainer = (props) => {
         <div>
 
             <CostTableContainer products={props.products} isFetching={props.isFetching} props={props}
-                                searchString={props.searchString} basket={props.basket} menus={props.menus}/>
+                                searchString={props.searchString} basket={props.basket} menus={props.props.menus}/>
         </div>
     )
 }

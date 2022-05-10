@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import styles from '../NavBodyLeft.module.css';
 
 
-const NavBarBodyLeft = ({menus,setProductExectFunction},) => {
+const NavBarBodyLeft = ({menus,setProductExectFunction, props},) => {
     const [activeMenus, setActiveMenus] = useState([]);
 
     const handleMenuClick = (data) => {
@@ -84,7 +84,7 @@ const NavBarBodyLeft = ({menus,setProductExectFunction},) => {
     return (
         <div className={styles.blockList}>
             <ul>
-                {menus.map((menu, index) => {
+                {props.menus.map((menu, index) => {
                     const dept = 1;
                     const menuName = `sidebar-menu-${dept}-${index}`;
 

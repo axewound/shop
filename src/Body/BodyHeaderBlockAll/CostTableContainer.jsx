@@ -91,7 +91,7 @@ const GoodsList = ({products, searchString, props}) => (
 );
 
 const CostTable = ({products, searchString, props}) => {
-
+console.log(props)
     const [price, setPrice] = React.useState(['', '']);
     let filteredGoods = products.filter(n => (
         (!price[0] || price[0] <= n.price) &&
@@ -115,7 +115,7 @@ const CostTable = ({products, searchString, props}) => {
             </div>
             <div style={{display: "flex"}}>
                 <div>
-                    <NavBarBodyLeftContainer props={props} menus={props.menus}/>
+                    <NavBarBodyLeftContainer props={props} menus={props.props.menus}/>
                     <NavCheckboxContainer props={props} menus={props.menus} products={filteredGoods}
                                           searchString={searchString}/>
                     {props.isFetching ? <Preloader/> : null}

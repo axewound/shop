@@ -8,6 +8,7 @@ import Home from "./Header/Home";
 import {Container} from "react-bootstrap";
 import ProductOnePagesContrtainer from "./Body/ProductOnePageContainer";
 import {FormattedMessage, IntlProvider} from "react-intl";
+import BodyContainer from "./Body/BodyContainer";
 
 const App = () => {
 
@@ -17,12 +18,13 @@ const App = () => {
 
                 <Header/>
 
-                <Route path='/' exact
+                <Route path='/portland' exact
                        render={() => <Home/>}/>
+
                 <Route path='/product/:userId?'
                        render={() => <ProductOnePagesContrtainer/>}/>
                 <Route path='/products'
-                       render={() => <Body/>}/>
+                       render={() => <BodyContainer/>}/>
                 <Footer/>
             </Container>
     )

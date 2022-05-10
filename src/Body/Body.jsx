@@ -1,75 +1,71 @@
 import React from 'react';
-import NavBarBodyLeft from "./NavBarLeft/NavBarBodyLeft";
 import BodyHeaderBlockContainer from "./BodyHeaderBlockAll/BodyHeaderBlockContainer";
 import {connect} from "react-redux";
 import {
     basket,
     getProductThunk,
     ratingAC,
-    setProduct,
-    toggleIsFetching,
     searccch,
-    searccch23, setCheckFunction
+    searccch23,
+    setCheckFunction,
+    setProduct,
+    toggleIsFetching
 } from "../redux/product-reducer";
-import Preloader from "../assets/Preloader";
-import styles from './Body.module.css';
-import {Route, withRouter} from "react-router-dom";
-import ProductPages from "./ProductPage";
-import CostTableContainer from "./BodyHeaderBlockAll/CostTableContainer";
-import ProductPagesContainer from "./ProductPageContainer";
+import {withRouter} from "react-router-dom";
 import {setProductExect} from "../redux/label-reducer";
+import SortProduct from "./BodyHeaderBlockAll/SortProduct";
+import LanguageSelected from "./BodyHeaderBlockAll/Language";
+import SearchProductContainer from "./BodyHeaderBlockAll/SearchProductContainer";
+import NavBarBodyLeftContainer from "./NavBarLeft/NavBarBodyLeftContainer";
+import NavCheckboxContainer from "./NavBarLeft/NavCheckboxContainer";
+import Preloader from "../assets/Preloader";
+import ProductPagesContainer from "./ProductPageContainer";
+import SortProductContainer from "./BodyHeaderBlockAll/SortProductContainer";
 
-class Body extends React.Component {
-    componentDidMount() {
-        this.props.getProductThunk();
-    }
+function Body(props) {
+    console.log(props)
+    return (
+        <div>
+    {/*        <BodyHeaderBlockContainer handleChange={props.handleChange}
+                                      handleChange23={props.handleChange23}
+                                      products={props.products}
+                                      searchString={props.searchString}
+                                      filteredGoods={props.filteredGoods}
+                                      props={props}
+                                      basket={props.basket}
+                                      isFetching={props.isFetching}
+                                      menus={props.label}
 
-    handleChange = (e) => {
-        let value = e.target.value
-        this.props.valueElment(value)
-        this.setState(this.props.products);
-    };
-    handleChange23 = (filteredGoods) => {
-        this.props.searccch23(filteredGoods)
+            />*/}
 
-    };
+          {/*  <div>
+                <div>
+                    <SortProduct props={props}
+                        handleChange={props.handleChange}
+                    />
+                    <SearchProductContainer/>
+                    <LanguageSelected/>
+                </div>
+                <div>
+                    <div>
+                        <NavBarBodyLeftContainer props={props} menus={props.props.menus}/>
+                        <NavCheckboxContainer props={props} menus={props.menus} products={props.props.filteredGoods}
+                                              searchString={props.props.searchString}/>
+                        {props.isFetching ? <Preloader/> : null}
+                    </div>
+                    <ProductPagesContainer basket={props.basket} isFetching={props.isFetching} products={props.props.filteredGoods}
+                                           searchString={props.props.searchString}/>
 
-    render() {
-
-        return (
-            <div>
-                <BodyHeaderBlockContainer handleChange={this.handleChange}
-                                          handleChange23={this.handleChange23}
-                                          products={this.props.products}
-                                          searchString={this.props.searchString}
-                                          filteredGoods={this.props.filteredGoods}
-                                           props={this.props}
-                                          basket={this.props.basket}
-                                          isFetching={this.props.isFetching}
-                                          menus={this.props.label}
-
-                />
-
-            </div>
-        )
-    }
-}
-
-let mapStateToProps = (state) => {
-    return {
-        products: state.productPage.products,
-        product: state.productPage.product,
-        isFetching: state.productPage.isFetching,
-        searchString: state.productPage.searchString,
-        filteredGoods: state.productPage.filteredGoods,
-        label:state.labelPage
-    }
+                </div>
+            </div>*/}
+        </div>
+    )
 }
 
 
 let WithContainer = withRouter(Body)
 
-export default connect(mapStateToProps, {
+export default connect(null, {
     getProductThunk,
     basket,
     searccch,
