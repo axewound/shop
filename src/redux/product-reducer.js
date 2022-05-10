@@ -1,5 +1,6 @@
 import {usersAPI} from "../api/api";
 import React from "react";
+import {act} from "react-dom/test-utils";
 
 const SET_PRODUCT = 'SET_PRODUCT';
 const Z_A = "Z_A";
@@ -139,6 +140,8 @@ const productReducer = (state = initialState, action) => {
                 state.basketProduct.map((item, key) => {
                     if (item.id === action.userId) {
                         state.basketProduct[key].quantity++;
+                        state.basketProduct[key].price+= action.price
+
                         check = true;
                     }
                 });
@@ -165,7 +168,7 @@ const productReducer = (state = initialState, action) => {
             state.basketProduct.map((item, key) => {
                 if (item.id === action.userId) {
                     state.basketProduct[key].quantity++;
-
+                    state.basketProduct[key].price += action.price;
 
                 }
             })
@@ -179,6 +182,9 @@ const productReducer = (state = initialState, action) => {
             state.basketProduct.map((item, key) => {
                 if (item.id === action.userId) {
                     state.basketProduct[key].quantity--;
+                    console.log(state.basketProduct[key].price)
+                    console.log(state.basketProduct[key].price-= action.price)
+                    console.log(action.price)
                     if (state.basketProduct[key].quantity === 0) {
                         let idBase = state.basketProduct.findIndex(el => el.id === item.id)
                         state.basketProduct.splice(idBase, 1)

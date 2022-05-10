@@ -24,7 +24,6 @@ class Basket extends React.Component {
                                 }}>+
                                 </button>
                                 <button onClick={() => {
-
                                     this.props.decreaseQuantity(item.quantity, item.id, item.price,item.image)
                                 }}>-
                                 </button>
