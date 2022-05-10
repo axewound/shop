@@ -13,11 +13,12 @@ class HeaderAfterTop extends React.Component {
             <div className={style.navHeaderTopBlock}>
                 <div className={style.navHeaderTop}>
                     <hr className={style.hr}/>
-
                     {
                         this.props.textnav.map(u =>
                             <nav className={style.headerAfterNav}>
                                 <ul>
+                                    {console.log(this.props.textId)}
+
                                     {((u.id === this.props.textId) ?
                                         <li key={u.id} className={styles.active}>{u.name}</li>
                                         :

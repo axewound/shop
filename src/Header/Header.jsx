@@ -23,7 +23,6 @@ class Header extends React.Component {
                            basketDelete={this.props.basketDelete}
                            increaseQuantity={this.props.increaseQuantity}
                            decreaseQuantity={this.props.decreaseQuantity}
-
             />
 
                 <HeaderAfterTopContainer
@@ -33,7 +32,7 @@ class Header extends React.Component {
                     product={this.props.product}
                     filteredGoods={this.props.filteredGoods}
                     uniqueArr={this.props.uniqueArr}
-
+                    textId={this.props.textId}
                 />
             </div>
         )

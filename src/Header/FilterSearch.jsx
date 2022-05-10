@@ -71,7 +71,7 @@ const FilterSearch = (props) => {
                         searchFilter(searchValue, list).map(x => (
 
                             <li
-                                key={x+1}
+                                key={x}
                                 onClick={() => selectItem(x)}
                                 className={style.dropdown_item}
                             >
@@ -90,7 +90,6 @@ export const searchFilter = ( searchValue, list) => {
     let filteredList = searchValue
         ? list.filter(x => x.toLowerCase().includes(lowerCaseQuery))
         : list;
-    console.log(filteredList)
 
     return filteredList;
 };
