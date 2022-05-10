@@ -7,6 +7,7 @@ import CostTableContainer from "./CostTableContainer";
 import NavBarBodyLeft from "../NavBarLeft/NavBarBodyLeft";
 
 const BodyHeaderBlockContainer = (props) => {
+    console.log(props)
 
     return (
         <div>

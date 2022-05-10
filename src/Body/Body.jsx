@@ -38,7 +38,7 @@ class Body extends React.Component {
 
         return (
             <div>
-                <BodyHeaderBlockContainer handleChange={this.handleChange}
+               {/* <BodyHeaderBlockContainer handleChange={this.handleChange}
                                           handleChange23={this.handleChange23}
                                           products={this.props.products}
                                           searchString={this.props.searchString}
@@ -48,8 +48,9 @@ class Body extends React.Component {
                                           isFetching={this.props.isFetching}
                                           menus={this.props.label}
 
-                />
-
+                />*/}
+                <CostTableContainer products={this.props.products} isFetching={this.props.isFetching} props={this.props} handleChange={this.handleChange}
+                                    searchString={this.props.searchString} basket={this.props.basket} menus={this.props.label}/>
             </div>
         )
     }
@@ -74,6 +75,7 @@ export default connect(mapStateToProps, {
     basket,
     searccch,
     searccch23,
+
     valueElment: ratingAC,
     setProduct,
     toggleIsFetching,
