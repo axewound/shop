@@ -19,6 +19,7 @@ import CostTableContainer from "./BodyHeaderBlockAll/CostTableContainer";
 import ProductPagesContainer from "./ProductPageContainer";
 import {setProductExect} from "../redux/label-reducer";
 import Body from "./Body";
+import CostTable from "./BodyHeaderBlockAll/CostTableContainer";
 
 class BodyContainer extends React.Component {
     componentDidMount() {
@@ -50,7 +51,6 @@ class BodyContainer extends React.Component {
                                           menus={this.props.label}
 
                 />
-
             </div>
         )
     }

@@ -3,6 +3,7 @@ import styles from "../ProductPages.module.css";
 
 
 class SearchProduct extends React.Component {
+
     state = {
         products:this.props.products
     };

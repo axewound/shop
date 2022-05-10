@@ -21,12 +21,15 @@ import NavCheckboxContainer from "./NavBarLeft/NavCheckboxContainer";
 import Preloader from "../assets/Preloader";
 import ProductPagesContainer from "./ProductPageContainer";
 import SortProductContainer from "./BodyHeaderBlockAll/SortProductContainer";
+import CostTable from "./BodyHeaderBlockAll/CostTableContainer";
+import CostTableContainer from "./BodyHeaderBlockAll/CostTableContainer";
 
 function Body(props) {
     console.log(props)
+
     return (
         <div>
-    {/*        <BodyHeaderBlockContainer handleChange={props.handleChange}
+            <BodyHeaderBlockContainer handleChange={props.handleChange}
                                       handleChange23={props.handleChange23}
                                       products={props.products}
                                       searchString={props.searchString}
@@ -36,11 +39,11 @@ function Body(props) {
                                       isFetching={props.isFetching}
                                       menus={props.label}
 
-            />*/}
+            />
 
-          {/*  <div>
+           {/* <div>
                 <div>
-                    <SortProduct props={props}
+                    <SortProductContainer props={props}
                         handleChange={props.handleChange}
                     />
                     <SearchProductContainer/>
@@ -56,8 +59,8 @@ function Body(props) {
                     <ProductPagesContainer basket={props.basket} isFetching={props.isFetching} products={props.props.filteredGoods}
                                            searchString={props.props.searchString}/>
 
-                </div>
-            </div>*/}
+                </div>*/}
+
         </div>
     )
 }

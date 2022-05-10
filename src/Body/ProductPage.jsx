@@ -32,7 +32,7 @@ class ProductPages extends React.Component {
         let _users = this.props.products;
         let search = this.props.searchString.trim().toLowerCase();
 
-
+console.log(this.props)
         if (search.length > 0) {
             _users = _users.filter(function (user) {
                 return user.title.toLowerCase().match(search);

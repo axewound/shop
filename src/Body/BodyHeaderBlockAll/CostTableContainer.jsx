@@ -7,62 +7,7 @@ import NavBarBodyLeftContainer from "../NavBarLeft/NavBarBodyLeftContainer";
 import NavCheckboxContainer from "../NavBarLeft/NavCheckboxContainer";
 import LanguageSelected from "./Language";
 
-/**
- * Stores recently viewed urls to local storage along with their view times
- *
- * @param {String} key - the localStorage key where the list is stored
- * @param {String} url - the location of the page that was viewed
- * @param {Object} json - arbitrary json blob associated with a url
- * @param {Integer} limit - the max number of urls to save
- */
-function addToRecentlyViewed(key, url, json, limit) {
 
-    var viewedAt = Date.now(),
-        recentlyViewed = localStorage[key],
-        alreadyInRecents = false,
-        limit = (limit) ? limit : 20;
-
-    // initialize the local storage recent views if it hasn't been
-
-    try {
-        recentlyViewed = (recentlyViewed) ? JSON.parse(recentlyViewed) : [];
-    } catch (e) {
-        console.log('Error parsing json of recently viewed items');
-        recentlyViewed = [];
-    }
-
-    // if the url is already in the set, update the view time and the data
-
-    for (var i = 0; i < recentlyViewed.length && !alreadyInRecents; i++) {
-        debugger
-        if (recentlyViewed[i]["url"] && recentlyViewed[i]["url"] === url) {
-            recentlyViewed[i]["viewedAt"] = viewedAt;
-            recentlyViewed[i]["json"] = json;
-            alreadyInRecents = true;
-        }
-    }
-
-    // add the url to the recently viewed list if it wasn't updated in place
-
-    if (!alreadyInRecents) {
-
-        recentlyViewed.unshift({url: url, viewedAt: viewedAt, json: json});
-    }
-
-    // sort urls by recently viewed times descending
-
-    recentlyViewed.sort(function (a, b) {
-
-        if (a.viewedAt > b.viewedAt) return -1;
-        if (a.viewedAt < b.viewedAt) return 1;
-        return 0;
-    });
-
-    // save a limited list of recently viewed items to local storage
-
-    localStorage[key] = JSON.stringify(recentlyViewed.slice(0, limit));
-    console.log(localStorage)
-}
 
 const PriceInput = ({index, ...props}) => (
 

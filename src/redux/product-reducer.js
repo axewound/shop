@@ -60,7 +60,6 @@ function strip(title) {
 }
 
 const productReducer = (state = initialState, action) => {
-    console.log(action)
     switch (action.type) {
 
         case SET_PRODUCT_EXECT: {
@@ -90,7 +89,7 @@ const productReducer = (state = initialState, action) => {
         case Low_rating:
             return {
                 ...state,
-                products: state.products.sort((a, b) => (a.price > b.price ? 1 : -1))
+                filteredGoods: state.products.sort((a, b) => (a.price > b.price ? 1 : -1))
             };
         case High_rating:
             return {
@@ -104,9 +103,10 @@ const productReducer = (state = initialState, action) => {
                     strip(a.title) > strip(b.title) ? 1 : -1)
             }
         case Z_A:
+
             return {
                 ...state,
-                products: state.products.sort((a, b) =>
+                products: action.products.sort((a, b) =>
                     strip(b.title) > strip(a.title) ? 1 : -1
                 )
             }
