@@ -36,11 +36,11 @@ class HeaderTop extends React.Component {
 
     render() {
         return (
-
             <div className={styles.HeaderTopContainer}>
                 <div className="popover-container" ref={node => {
                     this.node = node;
                 }}>
+                    }
                 {this.state.popupVisible && (
                     <div>
                         <Basket basketProduct={this.props.basketProduct}

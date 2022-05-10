@@ -84,7 +84,6 @@ const NavBarBodyLeft = ({menus,setProductExectFunction,props},) => {
     return (
         <div className={styles.blockList}>
             <ul>
-                {console.log(props)}
 
                 {props.label.map((menu, index) => {
                     const dept = 1;

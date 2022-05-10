@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import SortProduct from "./SortProduct";
 import SearchProductContainer from "./SearchProductContainer";
-import ProductPagesContainer from "../ProductPageContainer";
 import Preloader from "../../assets/Preloader";
 import NavBarBodyLeftContainer from "../NavBarLeft/NavBarBodyLeftContainer";
 import NavCheckboxContainer from "../NavBarLeft/NavCheckboxContainer";
 import LanguageSelected from "./Language";
+import ProductPages from "../ProductPage";
 
 
 
@@ -24,19 +24,8 @@ const PriceFilter = ({props, value, onChange,}) => (
 );
 
 
-const GoodsList = ({products, searchString, props}) => (
-    <div>
-        {products.map(n => (
-            <div className="good" key={n.id}>
-                <p>Цена: {n.price}</p>
-                <p>Title: {n.title}</p>
-            </div>
-        ))}
-    </div>
-);
 
 const CostTable = ({products, searchString, props,handleChange}) => {
-
     const [price, setPrice] = React.useState(['', '']);
     let filteredGoods = products.filter(n => (
         (!price[0] || price[0] <= n.price) &&
@@ -61,13 +50,12 @@ const CostTable = ({products, searchString, props,handleChange}) => {
             <div style={{display: "flex"}}>
                 <div>
                     <NavBarBodyLeftContainer props={props} menus={props.menus}/>
-                    {console.log(props)}
                     <NavCheckboxContainer props={props} menus={props.menus} products={filteredGoods}
                                           searchString={searchString}/>
-                    {props.isFetching ? <Preloader/> : null}
                 </div>
+                {props.isFetching ? <Preloader/> : null}
 
-                <ProductPagesContainer basket={props.basket} isFetching={props.isFetching} products={filteredGoods}
+                <ProductPages basket={props.basket} isFetching={props.isFetching} products={filteredGoods}
                                        searchString={searchString}/>
             </div>
         </div>

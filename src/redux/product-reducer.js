@@ -176,6 +176,7 @@ const productReducer = (state = initialState, action) => {
             }
         case
         DECREASE_QUANTITY:
+
             state.basketProduct.map((item, key) => {
                 if (item.id === action.userId) {
                     state.basketProduct[key].quantity--;

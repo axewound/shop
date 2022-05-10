@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch) => {
         },
     }
 }
-let mapStateToProps = (state) => {
+/*let mapStateToProps = (state) => {
     return {
         products: state.productPage.products,
         product: state.productPage.product,
@@ -21,7 +21,7 @@ let mapStateToProps = (state) => {
         filteredGoods: state.productPage.filteredGoods,
         label: state.labelPage
     }
-}
-const NavBarBodyLeftContainer = connect(mapStateToProps,mapDispatchToProps)(NavBarBodyLeft);
+}*/
+const NavBarBodyLeftContainer = connect(null,mapDispatchToProps)(NavBarBodyLeft);
 
 export default NavBarBodyLeftContainer;
