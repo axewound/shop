@@ -12,7 +12,6 @@ class HeaderTop extends React.Component {
             <div className={style.HeaderTopContainer}>
                 <div>
                     <Menu/>
-
                 </div>
                 <div>
                     <img className={style.Icon_Portland} src={Icon_Portland} alt=""/>
@@ -42,5 +41,6 @@ class HeaderTop extends React.Component {
         )
     }
 }
+
 
 export default HeaderTop
