@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
-import Slider from "./Slider";
-import {sliderId} from "../redux/product-reducer";
+import {sliderId} from "../../redux/product-reducer";
+import Slider from "./sliderIndex";
 
 
 const mapDispatchToProps = (dispatch) => {

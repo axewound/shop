@@ -39,7 +39,6 @@ const Body = ({products, searchString, props,handleChange}) => {
                     <NavCheckboxContainer props={props}/>
                     {props.isFetching ? <Preloader/> : null}
                 </div>
-        {/*        {console.log(props)}*/}
                 <ProductPagesContainer basket={props.basket}
                                        products={filteredGoods}
                                        searchString={searchString}

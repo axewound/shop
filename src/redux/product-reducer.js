@@ -44,12 +44,12 @@ let initialState = {
     }],
     filteredGoods: [],
     textId:0,
-     textnav : [
-        {name: "Top Sales", id: 0, active:false},
-        {name: "Brand Focus", id: 1,active:false},
-        {name: "Hi-tech", id: 2,active:false},
-        {name: "Best Sellers", id: 3,active:false},
-        {name: "Projects", id: 4,active:false},
+    textnav : [
+        {name: "Top Sales", id: 1, active:false},
+        {name: "Brand Focus", id: 2,active:false},
+        {name: "Hi-tech", id: 3,active:false},
+        {name: "Best Sellers", id: 4,active:false},
+        {name: "Projects", id: 5,active:false},
     ],
     uniqueArr:[{}],
     currentPage:1,
@@ -223,8 +223,8 @@ const productReducer = (state = initialState, action) => {
                 }
             }
         case SLIDERID:
-
-           /* state.textnav.map((item) => {
+/*
+            state.textnav.map((item) => {
                 return item.id === action.id
             })*/
 
@@ -263,10 +263,7 @@ export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFe
 
 export const searccch = (searchString) => ({type: SER, searchString})
 
-/*export const searccch23 = (filteredGoods) => (
 
-    {type: SER23, filteredGoods}
-)*/
 
 export const basket = (userId, title, price, image) => ({type: BASKET, userId, title, price, image})
 export const basketDelete = (userId) => ({type: BASKETDELETE, userId})

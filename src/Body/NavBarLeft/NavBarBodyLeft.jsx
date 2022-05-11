@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import styles from '../NavBodyLeft.module.css';
+import styles from './NavBodyLeft.module.css';
 
 
 const NavBarBodyLeft = ({setProductExectFunction,props},) => {

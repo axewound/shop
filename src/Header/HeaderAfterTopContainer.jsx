@@ -12,8 +12,6 @@ const mapDispatchToProps = (dispatch) => {
 let mapStateToProps = (state) => {
     return {
         products: state.productPage.products,
-
-       /* filteredGoods: state.productPage.filteredGoods,*/
         searchString: state.productPage.searchString,
         uniqueArr:state.productPage.uniqueArr
     }

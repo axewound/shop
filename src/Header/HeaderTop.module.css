@@ -119,4 +119,7 @@ hr {
     width: 100%;
 }
 
+.active{
+    color: #505259 !important;
+}
 
