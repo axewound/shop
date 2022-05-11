@@ -29,8 +29,7 @@ class Header extends React.Component {
                     textnav={this.props.textnav}
                     products={this.props.products}
                     searchString={this.props.searchString}
-                    product={this.props.product}
-                    filteredGoods={this.props.filteredGoods}
+                   /* filteredGoods={this.props.filteredGoods}*/
                     uniqueArr={this.props.uniqueArr}
                     textId={this.props.textId}
                 />
@@ -45,8 +44,8 @@ let mapStateToProps = (state) => {
         basketProduct: state.productPage.basketProduct,
         totalPrice: state.productPage.totalPrice,
         products: state.productPage.products,
-        product: state.productPage.product,
-        filteredGoods: state.productPage.filteredGoods,
+
+       /* filteredGoods: state.productPage.filteredGoods,*/
         searchString: state.productPage.searchString,
         uniqueArr: state.productPage.uniqueArr,
 

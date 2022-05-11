@@ -14,10 +14,9 @@ const mapDispatchToProps = (dispatch) => {
 let mapStateToProps = (state) => {
     return {
         products: state.productPage.products,
-        product: state.productPage.product,
         isFetching: state.productPage.isFetching,
         searchString: state.productPage.searchString,
-        filteredGoods: state.productPage.filteredGoods,
+       /* filteredGoods: state.productPage.filteredGoods,*/
         label: state.labelPage
     }
 }

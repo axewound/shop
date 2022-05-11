@@ -3,15 +3,13 @@ import style from './Basket.module.css';
 import userPhoto from "../assets/image/user.png";
 
 class Basket extends React.Component {
-
     render() {
         return (
             <div className={style.basket}>
                 <div>{this.props.basketProduct.map(item => {
                     return (
                         <div key={item.id} className={style.basket_one_product}><img
-                            src={item.image != null ? item.image : userPhoto}/>
-
+                            src={item.image != null ? item.image : userPhoto} alt="photo"/>
                             <h2>{item.name}</h2>
                             <div>
                                 <button onClick={() => {
@@ -19,7 +17,6 @@ class Basket extends React.Component {
                                 }}>X
                                 </button>
                                 <button onClick={() => {
-
                                     this.props.increaseQuantity(item.quantity, item.id, item.price,item.image)
                                 }}>+
                                 </button>
@@ -32,20 +29,15 @@ class Basket extends React.Component {
                                 <h5>{item.quantity}</h5>
                                 <h4>{item.price}</h4>
                             </div>
-
                             {item.count}
-
                         </div>
                     )
                 })}
                     Total Price : {this.props.totalPrice.toFixed(2)}
-
                 </div>
-
             </div>
         )
     }
-
 }
 
 export default Basket

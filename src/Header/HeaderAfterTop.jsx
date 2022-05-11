@@ -30,8 +30,8 @@ class HeaderAfterTop extends React.Component {
                     <hr className={style.hr}/>
                 </div>
                 <FilterSearchContainerTop products={this.props.products}
-                product={this.props.product}
-                filteredGoods={this.props.filteredGoods}
+
+               /* filteredGoods={this.props.filteredGoods}*/
                 searchString={this.props.searchString}
                                           uniqueArr={this.props.uniqueArr}/>
             </div>

@@ -3,7 +3,7 @@ import SortProduct from "./SortProduct";
 import {connect} from "react-redux";
 import SearchProductContainer from "./SearchProductContainer";
 import SearchProduct from "./SearchProduct";
-import CostTableContainer from "./CostTableContainer";
+import CostTableContainer from "./Body";
 import NavBarBodyLeft from "../NavBarLeft/NavBarBodyLeft";
 
 const BodyHeaderBlockContainer = (props) => {

@@ -1,8 +1,8 @@
 
 import {usersAPI} from "../api/api";
 import React from "react";
-import initialState from "../redux/product-reducer"
-import productReducer from "../redux/product-reducer";
+
+
 
 const SET_PRODUCT_EXECT = 'SET_PRODUCT_EXECT'
 

@@ -9,7 +9,7 @@ const Low_rating = "Low_rating"
 const High_rating = "High_rating"
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING';
 const SER = "SER"
-const SER23 = "SER23"
+/*const SER23 = "SER23"*/
 const BASKET = "BASKET"
 const BASKETDELETE = "BASKETDELETE"
 const INCREASE_QUANTITY = "INCREASE_QUANTITY"
@@ -29,8 +29,6 @@ let initialState = {
     post: [],
     allPosts: [],
     searchString: "",
-    min: "",
-    max: "",
     count: 1,
     value: "",
     basketProduct: [],
@@ -85,7 +83,7 @@ const productReducer = (state = initialState, action) => {
         }
         case SET_PRODUCT: {
 
-            return {...state, products: action.products, filteredGoods: action.products, product: action.products,uniqueArr : [... new Set(action.products.map(data => data.category))]}
+            return {...state, products: action.products, filteredGoods: action.products, uniqueArr : [... new Set(action.products.map(data => data.category))]}
         }
         case Low_rating:
             return {
@@ -120,10 +118,10 @@ const productReducer = (state = initialState, action) => {
             }
 
         }
-        case SER23: {
-            return {...state, profile: action.profile, filteredGoods: action.filteredGoods}
+/*        case SER23: {
+            return {...state, profile: action.profile, /!*filteredGoods: action.filteredGoods*!/}
 
-        }
+        }*/
         case
         BASKET:
             if (state.numberCart === 0) {
@@ -212,7 +210,7 @@ const productReducer = (state = initialState, action) => {
             if (action.che) {
                 return {
                     ...state,
-                    products: state.filteredGoods.filter((row) => row.rating.rate >= 4.0)
+                    products: state.products.filter((row) => row.rating.rate >= 4.0)
 
                 }
             } else {
@@ -263,10 +261,10 @@ export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFe
 
 export const searccch = (searchString) => ({type: SER, searchString})
 
-export const searccch23 = (filteredGoods) => (
+/*export const searccch23 = (filteredGoods) => (
 
     {type: SER23, filteredGoods}
-)
+)*/
 
 export const basket = (userId, title, price, image) => ({type: BASKET, userId, title, price, image})
 export const basketDelete = (userId) => ({type: BASKETDELETE, userId})

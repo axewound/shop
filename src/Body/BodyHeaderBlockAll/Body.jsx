@@ -12,7 +12,7 @@ import PriceFilter from "./PriceFilter";
 
 
 
-const CostTable = ({products, searchString, props,handleChange}) => {
+const Body = ({products, searchString, props,handleChange}) => {
 
     const [price, setPrice] = React.useState(['', '']);
     let filteredGoods = products.filter(n => (
@@ -39,16 +39,18 @@ const CostTable = ({products, searchString, props,handleChange}) => {
                 <div>
                     <NavBarBodyLeftContainer props={props} menus={props.menus}/>
 
-                    <NavCheckboxContainer props={props} menus={props.menus} products={filteredGoods}
+                    <NavCheckboxContainer props={props} menus={props.menus}
+                                          /*products={filteredGoods}*/
                                           searchString={searchString}/>
                     {props.isFetching ? <Preloader/> : null}
                 </div>
 
-                <ProductPagesContainer basket={props.basket} isFetching={props.isFetching} products={filteredGoods}
+                <ProductPagesContainer basket={props.basket} isFetching={props.isFetching}
+                                       products={filteredGoods}
                                        searchString={searchString}/>
             </div>
         </div>
     );
 }
 
-export default CostTable
+export default Body
