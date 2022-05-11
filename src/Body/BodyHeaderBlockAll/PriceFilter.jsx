@@ -5,7 +5,7 @@ const PriceInput = ({index, ...props}) => (
     <input className="price-input" data-index={index} {...props} />
 );
 
-const PriceFilter = ({props, value, onChange,}) => (
+const PriceFilter = ({ value, onChange,}) => (
     <div>
         <span>Price</span>
         <PriceInput value={value[0]} onChange={onChange} index="0"/>

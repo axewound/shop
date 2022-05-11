@@ -11,15 +11,7 @@ const mapDispatchToProps = (dispatch) => {
         },
     }
 }
-let mapStateToProps = (state) => {
-    return {
-        products: state.productPage.products,
-        isFetching: state.productPage.isFetching,
-        searchString: state.productPage.searchString,
-       /* filteredGoods: state.productPage.filteredGoods,*/
-        label: state.labelPage
-    }
-}
-const NavCheckboxContainer = connect(mapStateToProps,mapDispatchToProps)(NavCheckbox);
+
+const NavCheckboxContainer = connect(null,mapDispatchToProps)(NavCheckbox);
 
 export default NavCheckboxContainer;

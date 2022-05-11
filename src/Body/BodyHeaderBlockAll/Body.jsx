@@ -9,12 +9,9 @@ import LanguageSelected from "./Language";
 import styles from "./CostTableContainer.module.css";
 import PriceFilter from "./PriceFilter";
 
-
-
-
 const Body = ({products, searchString, props,handleChange}) => {
 
-    const [price, setPrice] = React.useState(['', '']);
+    const [price, setPrice] = useState(['', '']);
     let filteredGoods = products.filter(n => (
         (!price[0] || price[0] <= n.price) &&
         (!price[1] || price[1] >= n.price)
@@ -35,19 +32,20 @@ const Body = ({products, searchString, props,handleChange}) => {
                 <PriceFilter value={price} onChange={onPriceChange}/>
                 <LanguageSelected/>
             </div>
-            <div style={{display: "flex"}}>
+
+            <div className={styles.navbarLeft}>
                 <div>
                     <NavBarBodyLeftContainer props={props} menus={props.menus}/>
-
-                    <NavCheckboxContainer props={props} menus={props.menus}
-                                          /*products={filteredGoods}*/
-                                          searchString={searchString}/>
+                    <NavCheckboxContainer props={props}/>
                     {props.isFetching ? <Preloader/> : null}
                 </div>
-
-                <ProductPagesContainer basket={props.basket} isFetching={props.isFetching}
+        {/*        {console.log(props)}*/}
+                <ProductPagesContainer basket={props.basket}
                                        products={filteredGoods}
-                                       searchString={searchString}/>
+                                       searchString={searchString}
+                                       currentPage={props.currentPage}
+                                       todosPerPage={props.todosPerPage}
+                />
             </div>
         </div>
     );

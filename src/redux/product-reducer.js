@@ -51,7 +51,9 @@ let initialState = {
         {name: "Best Sellers", id: 3,active:false},
         {name: "Projects", id: 4,active:false},
     ],
-    uniqueArr:[{}]
+    uniqueArr:[{}],
+    currentPage:1,
+    todosPerPage: 6
 };
 
 function strip(title) {

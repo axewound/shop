@@ -8,7 +8,7 @@ const  NavCheckbox = (props) => {
 
     return (
         <div >
-            <div id="filter">
+            <div>
                 <div>
                     <input type="checkbox" onChange={handleChecked} />
                 </div>

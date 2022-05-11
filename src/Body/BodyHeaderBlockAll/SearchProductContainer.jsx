@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleChange2: (searchString) => {
+        serchStringReducer: (searchString) => {
             dispatch(searccch(searchString));
         },
     }
