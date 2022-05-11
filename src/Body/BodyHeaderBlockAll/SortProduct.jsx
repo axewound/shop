@@ -3,6 +3,8 @@ import React from 'react';
 const SortProduct = (props) => {
     return (
         <div>
+            <span>Sort by</span>
+
             <form>
                 <select id="rating-filter" value={props.value} onChange={props.handleChange}>
                     <option value="Sort">Sort</option>

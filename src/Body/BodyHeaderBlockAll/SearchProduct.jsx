@@ -14,7 +14,7 @@ class SearchProduct extends React.Component {
     render() {
         return (
                 <div className={styles.blockProducts}>
-
+<span>Keywords</span>
                     <div>
                         <input
                             type="text"

@@ -6,34 +6,11 @@ import Preloader from "../../assets/Preloader";
 import NavBarBodyLeftContainer from "../NavBarLeft/NavBarBodyLeftContainer";
 import NavCheckboxContainer from "../NavBarLeft/NavCheckboxContainer";
 import LanguageSelected from "./Language";
+import styles from "./CostTableContainer.module.css";
+import PriceFilter from "./PriceFilter";
 
 
 
-const PriceInput = ({index, ...props}) => (
-
-    <input className="price-input" data-index={index} {...props} />
-);
-
-const PriceFilter = ({props, value, onChange,}) => (
-    <div>
-        <PriceInput value={value[0]} onChange={onChange} index="0"/>
-        &nbsp;-&nbsp;
-        <PriceInput value={value[1]} onChange={onChange} index="1"/>
-        &nbsp;usd&nbsp;
-    </div>
-);
-
-
-const GoodsList = ({products, searchString, props}) => (
-    <div>
-        {products.map(n => (
-            <div className="good" key={n.id}>
-                <p>Цена: {n.price}</p>
-                <p>Title: {n.title}</p>
-            </div>
-        ))}
-    </div>
-);
 
 const CostTable = ({products, searchString, props,handleChange}) => {
 
@@ -50,7 +27,7 @@ const CostTable = ({products, searchString, props,handleChange}) => {
 
     return (
         <div>
-            <div className="filters">
+            <div className={styles.filters}>
                 <SortProduct
                     handleChange={handleChange}
                 />
@@ -61,7 +38,7 @@ const CostTable = ({products, searchString, props,handleChange}) => {
             <div style={{display: "flex"}}>
                 <div>
                     <NavBarBodyLeftContainer props={props} menus={props.menus}/>
-                    {console.log(props)}
+
                     <NavCheckboxContainer props={props} menus={props.menus} products={filteredGoods}
                                           searchString={searchString}/>
                     {props.isFetching ? <Preloader/> : null}

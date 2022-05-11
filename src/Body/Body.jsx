@@ -20,19 +20,19 @@ import ProductPagesContainer from "./ProductPageContainer";
 import {setProductExect} from "../redux/label-reducer";
 
 class Body extends React.Component {
-    componentDidMount() {
+  /*  componentDidMount() {
         this.props.getProductThunk();
-    }
+    }*/
 
     handleChange = (e) => {
         let value = e.target.value
         this.props.valueElment(value)
         this.setState(this.props.products);
     };
-    handleChange23 = (filteredGoods) => {
+ /*   handleChange23 = (filteredGoods) => {
         this.props.searccch23(filteredGoods)
 
-    };
+    };*/
 
     render() {
 
