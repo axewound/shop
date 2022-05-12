@@ -6,24 +6,28 @@ class Basket extends React.Component {
     render() {
         return (
             <div className={style.basket}>
-                <div>{this.props.basketProduct.map(item => {
+                <span onClick={this.props.handleCloseButtonClick}>
+                    X
+
+                </span>
+                <div>{this.props.props.basketProduct.map(item => {
                     return (
                         <div key={item.id} className={style.basket_one_product}><img
                             src={item.image != null ? item.image : userPhoto} alt="photo"/>
                             <h2>{item.name}</h2>
                             <div>
-                                <button onClick={() => {
-                                    this.props.basketDelete(item.id)
+                                <span onClick={() => {
+                                    this.props.props.basketDelete(item.id)
                                 }}>X
-                                </button>
-                                <button onClick={() => {
-                                    this.props.increaseQuantity(item.quantity, item.id, item.price,item.image)
+                                </span>
+                                <span onClick={() => {
+                                    this.props.props.increaseQuantity(item.quantity, item.id, item.price,item.image)
                                 }}>+
-                                </button>
-                                <button onClick={() => {
-                                    this.props.decreaseQuantity(item.quantity, item.id, item.price,item.image)
+                                </span>
+                                <span onClick={() => {
+                                    this.props.props.decreaseQuantity(item.quantity, item.id, item.price,item.image)
                                 }}>-
-                                </button>
+                                </span>
                             </div>
                             <div className={style.basket_info}>
                                 <h5>{item.quantity}</h5>
@@ -33,7 +37,7 @@ class Basket extends React.Component {
                         </div>
                     )
                 })}
-                    Total Price : {this.props.totalPrice.toFixed(2)}
+                    Total Price : {this.props.props.totalPrice.toFixed(2)}
                 </div>
             </div>
         )

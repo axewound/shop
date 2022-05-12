@@ -5,6 +5,7 @@ import Shopping_Cart_Icon from '../assets/image/Shopping_Cart_Icon.svg'
 import {NavLink} from "react-router-dom";
 import Menu from "./Hamburger/Hamburger";
 import Basket from "./Basket";
+import PopupMenu from "../assets/PopupMenu";
 
 class HeaderTop extends React.Component {
     constructor() {
@@ -38,10 +39,12 @@ class HeaderTop extends React.Component {
         return (
 
             <div className={styles.HeaderTopContainer}>
-                <div className="popover-container" ref={node => {
+                {/* <div className="popover-container" ref={node => {
                     this.node = node;
                 }}>
-                {this.state.popupVisible && (
+                </div>
+*/}
+                {/* {this.state.popupVisible && (
                     <div>
                         <Basket basketProduct={this.props.basketProduct}
                                 totalPrice={this.props.totalPrice}
@@ -49,8 +52,7 @@ class HeaderTop extends React.Component {
                                 increaseQuantity={this.props.increaseQuantity}
                                 decreaseQuantity={this.props.decreaseQuantity}/>
                     </div>
-                )}
-                </div>
+                )}*/}
 
 
 
@@ -73,15 +75,10 @@ class HeaderTop extends React.Component {
                 </nav>
 
                 <div className={styles.basketHeader}>
-                    <button className={styles.button_basket}
-                        onClick={this.handleClick}
-                    >
-                        <img src={Shopping_Cart_Icon} alt=""/>
-                        <div className={styles.basketHeaderCount}>
-                            <span>CART</span>
-                            <div className={styles.basketCount}>{this.props.basketProduct.length}</div>
-                        </div>
+                    <button>
+                    <PopupMenu props={this.props}/>
                     </button>
+
 
                 </div>
                 <div>

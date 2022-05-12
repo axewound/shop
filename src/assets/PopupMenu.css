@@ -1,0 +1,17 @@
+.popupMenuContainer{
+
+}
+
+.popup-menu {
+    position: absolute;
+    transform: scale(0);
+    transform-origin: top right;
+left: 0;
+    background: #fff;
+
+    transition: transform 0.2s;
+}
+
+.popup-menu.shown {
+    transform: scale(1);
+}

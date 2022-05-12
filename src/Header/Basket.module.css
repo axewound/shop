@@ -3,13 +3,11 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    width: 83%;
-    max-width: 83%;
-    height: 100%;
+    width: 750px;
+    height: 100px;
     background-color: #fff;
     border-radius: 8px;
     overflow: auto;
-    max-height: 100%;
     margin: 0 auto;
     box-shadow: 0 8px 40px rgb(0 0 0 / 32%);
     z-index: 9999;
