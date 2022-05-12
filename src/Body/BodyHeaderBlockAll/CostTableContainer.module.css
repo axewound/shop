@@ -1,0 +1,16 @@
+.filters{
+    display: flex;
+    background: #ffffff;
+    border-radius: 4px;
+    justify-content: space-between;
+    align-items: center;
+}
+.filters span{
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #a1a8bd;
+}
+
+.navbarLeft{
+    display: flex;}

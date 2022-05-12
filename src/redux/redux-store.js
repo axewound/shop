@@ -1,0 +1,17 @@
+import {applyMiddleware, combineReducers, createStore} from "redux";
+import productReducer from "./product-reducer";
+import thunkMiddleware from "redux-thunk";
+import labelReducer from "./label-reducer";
+
+let reducers = combineReducers({
+    productPage: productReducer,
+    labelPage: labelReducer
+
+});
+
+let store = createStore(reducers,applyMiddleware(thunkMiddleware));
+
+window.store = store;
+
+
+export default store;

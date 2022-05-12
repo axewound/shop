@@ -1,0 +1,128 @@
+[33m308647d[m[33m ([m[1;36mHEAD -> [m[1;32mnew_yard[m[33m)[m HEAD@{0}: reset: moving to HEAD@{8c6b6e8}
+[33mcb9e13a[m[33m ([m[1;31morigin/new_yard[m[33m)[m HEAD@{1}: reset: moving to HEAD
+[33mcb9e13a[m[33m ([m[1;31morigin/new_yard[m[33m)[m HEAD@{2}: checkout: moving from language_add to new_yard
+[33m504cc95[m[33m ([m[1;31morigin/language_add[m[33m, [m[1;32mlanguage_add[m[33m)[m HEAD@{3}: checkout: moving from e458ec2f7304b463678d988c74b6ad76fd099c1f to language_add
+[33me458ec2[m[33m ([m[1;31morigin/trash[m[33m, [m[1;32mtrash[m[33m)[m HEAD@{4}: checkout: moving from cb9e13acc4a9fa163e767109658dc7b46121de50 to e458ec2f7304b463678d988c74b6ad76fd099c1f
+[33mcb9e13a[m[33m ([m[1;31morigin/new_yard[m[33m)[m HEAD@{5}: checkout: moving from new_yard to cb9e13acc4a9fa163e767109658dc7b46121de50
+[33mcb9e13a[m[33m ([m[1;31morigin/new_yard[m[33m)[m HEAD@{6}: checkout: moving from master to new_yard
+[33m94d2a23[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{7}: checkout: moving from 94d2a2381312b96faf3a5a8cc9573a0a9e16f2b4 to master
+[33m94d2a23[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{8}: checkout: moving from master to 94d2a2381312b96faf3a5a8cc9573a0a9e16f2b4
+[33m94d2a23[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{9}: checkout: moving from new_yard to master
+[33mcb9e13a[m[33m ([m[1;31morigin/new_yard[m[33m)[m HEAD@{10}: checkout: moving from language_add to new_yard
+[33m504cc95[m[33m ([m[1;31morigin/language_add[m[33m, [m[1;32mlanguage_add[m[33m)[m HEAD@{11}: checkout: moving from other to language_add
+[33m4702dde[m[33m ([m[1;31morigin/other[m[33m, [m[1;32mother[m[33m)[m HEAD@{12}: checkout: moving from trash to other
+[33me458ec2[m[33m ([m[1;31morigin/trash[m[33m, [m[1;32mtrash[m[33m)[m HEAD@{13}: checkout: moving from trash2 to trash
+[33mdc212e6[m[33m ([m[1;31morigin/trash2[m[33m, [m[1;32mtrash2[m[33m)[m HEAD@{14}: checkout: moving from new_yard to trash2
+[33mcb9e13a[m[33m ([m[1;31morigin/new_yard[m[33m)[m HEAD@{15}: checkout: moving from master to new_yard
+[33m94d2a23[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{16}: checkout: moving from trash2 to master
+[33mdc212e6[m[33m ([m[1;31morigin/trash2[m[33m, [m[1;32mtrash2[m[33m)[m HEAD@{17}: checkout: moving from new_yard to trash2
+[33mcb9e13a[m[33m ([m[1;31morigin/new_yard[m[33m)[m HEAD@{18}: checkout: moving from master to new_yard
+[33m94d2a23[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{19}: checkout: moving from new_yard to master
+[33mcb9e13a[m[33m ([m[1;31morigin/new_yard[m[33m)[m HEAD@{20}: checkout: moving from master to new_yard
+[33m94d2a23[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{21}: commit: add hooks popup
+[33m4fbf624[m HEAD@{22}: checkout: moving from 0f68c96dbaa6e39934ab98384b82967e7d83173b to master
+[33m0f68c96[m HEAD@{23}: commit: add hooks popup
+[33m8c6b6e8[m HEAD@{24}: commit: add hooks slider
+[33mcb9e13a[m[33m ([m[1;31morigin/new_yard[m[33m)[m HEAD@{25}: checkout: moving from new_yard to cb9e13acc4a9fa163e767109658dc7b46121de50
+[33mcb9e13a[m[33m ([m[1;31morigin/new_yard[m[33m)[m HEAD@{26}: checkout: moving from cb9e13acc4a9fa163e767109658dc7b46121de50 to new_yard
+[33mcb9e13a[m[33m ([m[1;31morigin/new_yard[m[33m)[m HEAD@{27}: checkout: moving from new_yard to cb9e13acc4a9fa163e767109658dc7b46121de50
+[33mcb9e13a[m[33m ([m[1;31morigin/new_yard[m[33m)[m HEAD@{28}: checkout: moving from 5b2fbc631c2b404085d198f0fdf3dc8560e552e1 to new_yard
+[33m5b2fbc6[m HEAD@{29}: checkout: moving from new_yard to 5b2fbc631c2b404085d198f0fdf3dc8560e552e1
+[33mcb9e13a[m[33m ([m[1;31morigin/new_yard[m[33m)[m HEAD@{30}: checkout: moving from trash to new_yard
+[33me458ec2[m[33m ([m[1;31morigin/trash[m[33m, [m[1;32mtrash[m[33m)[m HEAD@{31}: checkout: moving from trash2 to trash
+[33mdc212e6[m[33m ([m[1;31morigin/trash2[m[33m, [m[1;32mtrash2[m[33m)[m HEAD@{32}: checkout: moving from new_yard to trash2
+[33mcb9e13a[m[33m ([m[1;31morigin/new_yard[m[33m)[m HEAD@{33}: checkout: moving from master to new_yard
+[33m4fbf624[m HEAD@{34}: commit: clearing
+[33mf77b018[m HEAD@{35}: checkout: moving from new_yard to master
+[33mcb9e13a[m[33m ([m[1;31morigin/new_yard[m[33m)[m HEAD@{36}: commit: clearing
+[33m5b2fbc6[m HEAD@{37}: commit: clearing
+[33mb7df203[m HEAD@{38}: commit: fixed
+[33mbe75800[m HEAD@{39}: commit: fixed
+[33m55aa299[m HEAD@{40}: checkout: moving from trash2 to new_yard
+[33mdc212e6[m[33m ([m[1;31morigin/trash2[m[33m, [m[1;32mtrash2[m[33m)[m HEAD@{41}: checkout: moving from ef528ca5d725130a24b092f843a5ad342391c7be to trash2
+[33mef528ca[m HEAD@{42}: checkout: moving from 81f10780699777d3771d471e150d0a52a15743f5 to ef528ca5d725130a24b092f843a5ad342391c7be
+[33m81f1078[m HEAD@{43}: checkout: moving from 4cc5e06c1572e1856d4067adb3d8307d75c245a8 to 81f10780699777d3771d471e150d0a52a15743f5
+[33m4cc5e06[m HEAD@{44}: checkout: moving from b69b6976f4a1b81be24a4614c8aa462e271344bd to 4cc5e06c1572e1856d4067adb3d8307d75c245a8
+[33mb69b697[m HEAD@{45}: checkout: moving from e6765ccaa1a5c08d67c29c8d9179f293821eae76 to b69b6976f4a1b81be24a4614c8aa462e271344bd
+[33me6765cc[m HEAD@{46}: checkout: moving from 0d7c90d64ef1e9b99eefc7e0069fc5d3a4e8755a to e6765ccaa1a5c08d67c29c8d9179f293821eae76
+[33m0d7c90d[m HEAD@{47}: checkout: moving from new_yard to 0d7c90d64ef1e9b99eefc7e0069fc5d3a4e8755a
+[33m55aa299[m HEAD@{48}: checkout: moving from trash2 to new_yard
+[33mdc212e6[m[33m ([m[1;31morigin/trash2[m[33m, [m[1;32mtrash2[m[33m)[m HEAD@{49}: commit: mhhhhhheeee
+[33m55aa299[m HEAD@{50}: checkout: moving from new_yard to trash2
+[33m55aa299[m HEAD@{51}: commit: mhhhhhheeee
+[33m0d7c90d[m HEAD@{52}: checkout: moving from trash to new_yard
+[33me458ec2[m[33m ([m[1;31morigin/trash[m[33m, [m[1;32mtrash[m[33m)[m HEAD@{53}: commit: before hellrtyghmkkhkghkghkhgk
+[33m926c35f[m HEAD@{54}: checkout: moving from new_yard to trash
+[33m0d7c90d[m HEAD@{55}: checkout: moving from trash to new_yard
+[33m926c35f[m HEAD@{56}: commit: before hell
+[33m0d7c90d[m HEAD@{57}: checkout: moving from new_yard to trash
+[33m0d7c90d[m HEAD@{58}: commit: before hell
+[33me6765cc[m HEAD@{59}: commit: before hell
+[33m1dff495[m HEAD@{60}: commit: fixed some
+[33me56e72b[m HEAD@{61}: commit: add second top search an fixed it
+[33mf651f38[m HEAD@{62}: commit: add second top search
+[33mb69b697[m HEAD@{63}: checkout: moving from language_add to new_yard
+[33m504cc95[m[33m ([m[1;31morigin/language_add[m[33m, [m[1;32mlanguage_add[m[33m)[m HEAD@{64}: commit: add language, but not good work, fixed last version
+[33mb69b697[m HEAD@{65}: checkout: moving from new_yard to language_add
+[33mb69b697[m HEAD@{66}: commit: before dedupe
+[33m4cc5e06[m HEAD@{67}: checkout: moving from 2cc8dec736127cfef66aa578103afa2bb97cec08 to new_yard
+[33m2cc8dec[m HEAD@{68}: checkout: moving from 81f10780699777d3771d471e150d0a52a15743f5 to 2cc8dec736127cfef66aa578103afa2bb97cec08
+[33m81f1078[m HEAD@{69}: checkout: moving from other to 81f10780699777d3771d471e150d0a52a15743f5
+[33m4702dde[m[33m ([m[1;31morigin/other[m[33m, [m[1;32mother[m[33m)[m HEAD@{70}: checkout: moving from master to other
+[33mf77b018[m HEAD@{71}: checkout: moving from other to master
+[33m4702dde[m[33m ([m[1;31morigin/other[m[33m, [m[1;32mother[m[33m)[m HEAD@{72}: checkout: moving from new_yard to other
+[33m4cc5e06[m HEAD@{73}: commit: check
+[33m892147f[m HEAD@{74}: commit: add sort through navbar
+[33m3c78c56[m HEAD@{75}: commit: Navbar add but not function
+[33mef528ca[m HEAD@{76}: commit: fixed all and work all
+[33m4702dde[m[33m ([m[1;31morigin/other[m[33m, [m[1;32mother[m[33m)[m HEAD@{77}: checkout: moving from other to new_yard
+[33m4702dde[m[33m ([m[1;31morigin/other[m[33m, [m[1;32mother[m[33m)[m HEAD@{78}: commit: clearning code
+[33mb839a03[m HEAD@{79}: commit: xz
+[33m81f1078[m HEAD@{80}: commit: search and price ok? but other is shhh
+[33m86d645b[m HEAD@{81}: checkout: moving from master to other
+[33mf77b018[m HEAD@{82}: checkout: moving from other to master
+[33m86d645b[m HEAD@{83}: commit: fixed reflection and search, url
+[33m2cc8dec[m HEAD@{84}: checkout: moving from 2cc8dec736127cfef66aa578103afa2bb97cec08 to other
+[33m2cc8dec[m HEAD@{85}: commit: fixed reflection and search, url
+[33m1a6bc1b[m HEAD@{86}: checkout: moving from master to 1a6bc1bf872ab6033f7d9fd66712672de8cb224a
+[33mf77b018[m HEAD@{87}: commit: fixed reflection but crash other function
+[33m1a6bc1b[m HEAD@{88}: commit: before crash search
+[33m010d530[m HEAD@{89}: commit: before url change
+[33m45e4b34[m HEAD@{90}: commit: basked fixed
+[33mccd4562[m HEAD@{91}: commit: add price search
+[33me43c06a[m HEAD@{92}: commit: fixed basket
+[33m4b3a88f[m HEAD@{93}: commit: basket add
+[33m56103b5[m HEAD@{94}: commit: add min-max
+[33ma3f6539[m HEAD@{95}: commit: add min-max
+[33mefba394[m HEAD@{96}: commit: add
+[33me21aa26[m HEAD@{97}: commit: add pagination
+[33ma28466d[m HEAD@{98}: commit: veslayout
+[33m286daf4[m HEAD@{99}: commit: add slider and burger working
+[33m30bc036[m HEAD@{100}: commit: cleader routers and fix it
+[33m365d101[m HEAD@{101}: commit: add slider and add to baslet and delete working
+[33m183731c[m HEAD@{102}: commit: add button and visible at button on head
+[33m0f2df70[m HEAD@{103}: commit: workin search and sort
+[33mb232e40[m HEAD@{104}: checkout: moving from 610afa872748f461acbe542fe75c9caf66297a51 to master
+[33m610afa8[m HEAD@{105}: checkout: moving from master to 610afa872748f461acbe542fe75c9caf66297a51
+[33mb232e40[m HEAD@{106}: checkout: moving from 8b8aed7968a9c2e00d14471f6424289aa6294e80 to master
+[33m8b8aed7[m HEAD@{107}: checkout: moving from master to 8b8aed7968a9c2e00d14471f6424289aa6294e80
+[33mb232e40[m HEAD@{108}: checkout: moving from 610afa872748f461acbe542fe75c9caf66297a51 to master
+[33m610afa8[m HEAD@{109}: checkout: moving from master to 610afa872748f461acbe542fe75c9caf66297a51
+[33mb232e40[m HEAD@{110}: checkout: moving from 610afa872748f461acbe542fe75c9caf66297a51 to master
+[33m610afa8[m HEAD@{111}: checkout: moving from master to 610afa872748f461acbe542fe75c9caf66297a51
+[33mb232e40[m HEAD@{112}: checkout: moving from 610afa872748f461acbe542fe75c9caf66297a51 to master
+[33m610afa8[m HEAD@{113}: checkout: moving from 8b8aed7968a9c2e00d14471f6424289aa6294e80 to 610afa872748f461acbe542fe75c9caf66297a51
+[33m8b8aed7[m HEAD@{114}: checkout: moving from master to 8b8aed7968a9c2e00d14471f6424289aa6294e80
+[33mb232e40[m HEAD@{115}: commit: clear and find rating
+[33m9a1011d[m HEAD@{116}: checkout: moving from 8b8aed7968a9c2e00d14471f6424289aa6294e80 to master
+[33m8b8aed7[m HEAD@{117}: checkout: moving from 610afa872748f461acbe542fe75c9caf66297a51 to 8b8aed7968a9c2e00d14471f6424289aa6294e80
+[33m610afa8[m HEAD@{118}: checkout: moving from 8b8aed7968a9c2e00d14471f6424289aa6294e80 to 610afa872748f461acbe542fe75c9caf66297a51
+[33m8b8aed7[m HEAD@{119}: checkout: moving from master to 8b8aed7968a9c2e00d14471f6424289aa6294e80
+[33m9a1011d[m HEAD@{120}: commit: add structuree
+[33m1a82c2c[m HEAD@{121}: commit: add structuree
+[33m8b8aed7[m HEAD@{122}: commit: add search
+[33m610afa8[m HEAD@{123}: commit: add many
+[33mfba7cdf[m HEAD@{124}: commit: structure add
+[33m2ea9806[m HEAD@{125}: commit: add store
+[33m3de6274[m HEAD@{126}: commit: First test, clear app
+[33m308647d[m[33m ([m[1;36mHEAD -> [m[1;32mnew_yard[m[33m)[m HEAD@{127}: commit (initial): Initialize project using Create React App
