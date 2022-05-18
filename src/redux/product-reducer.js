@@ -61,8 +61,8 @@ function strip(title) {
 }
 
 const productReducer = (state = initialState, action) => {
-    switch (action.type) {
 
+    switch (action.type) {
         case SET_PRODUCT_EXECT: {
 
             switch (action.label) {
@@ -182,12 +182,12 @@ const productReducer = (state = initialState, action) => {
             state.basketProduct.map((item, key) => {
                 if (item.id === action.userId) {
                     state.basketProduct[key].quantity--;
-                    console.log(state.basketProduct[key].price)
-                    console.log(state.basketProduct[key].price-= action.price)
-                    console.log(action.price)
                     if (state.basketProduct[key].quantity === 0) {
                         let idBase = state.basketProduct.findIndex(el => el.id === item.id)
                         state.basketProduct.splice(idBase, 1)
+                        if (state.basketProduct === 0){
+                            return state.basketProduct
+                        }
                     }
                 }
             })

@@ -4,13 +4,17 @@ import userPhoto from "../assets/image/user.png";
 
 class Basket extends React.Component {
     render() {
+
+
         return (
-            <div className={style.basket}>
+                <div className={style.basket}>
                 <span onClick={this.props.handleCloseButtonClick}>
                     X
-
                 </span>
-                <div>{this.props.props.basketProduct.map(item => {
+
+                <div className={style.basket_product}>{this.props.props.basketProduct.map(item => {
+                    {console.log(this.props.props.basketProduct)}
+
                     return (
                         <div key={item.id} className={style.basket_one_product}><img
                             src={item.image != null ? item.image : userPhoto} alt="photo"/>
