@@ -17,7 +17,9 @@ class Header extends React.Component {
                            basketDelete={this.props.basketDelete}
                            increaseQuantity={this.props.increaseQuantity}
                            decreaseQuantity={this.props.decreaseQuantity}
-            />
+                           totalPriceOne={this.props.totalPriceOne}
+
+                />
                 <HeaderAfterTopContainer
                     textnav={this.props.textnav}
                     products={this.props.products}
@@ -38,6 +40,7 @@ let mapStateToProps = (state) => {
         products: state.productPage.products,
         searchString: state.productPage.searchString,
         uniqueArr: state.productPage.uniqueArr,
+        totalPriceOne: state.productPage.totalPriceOne,
 
     }
 }

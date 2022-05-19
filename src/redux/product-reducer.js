@@ -43,17 +43,18 @@ let initialState = {
         "rating": {"rate": 3.9, "count": 120}
     }],
     filteredGoods: [],
-    textId:0,
-    textnav : [
-        {name: "Top Sales", id: 1, active:false},
-        {name: "Brand Focus", id: 2,active:false},
-        {name: "Hi-tech", id: 3,active:false},
-        {name: "Best Sellers", id: 4,active:false},
-        {name: "Projects", id: 5,active:false},
+    textId: 0,
+    textnav: [
+        {name: "Top Sales", id: 1, active: false},
+        {name: "Brand Focus", id: 2, active: false},
+        {name: "Hi-tech", id: 3, active: false},
+        {name: "Best Sellers", id: 4, active: false},
+        {name: "Projects", id: 5, active: false},
     ],
-    uniqueArr:[{}],
-    currentPage:1,
-    todosPerPage: 6
+    uniqueArr: [{}],
+    currentPage: 1,
+    todosPerPage: 6,
+    totalPriceOne:0
 };
 
 function strip(title) {
@@ -85,7 +86,12 @@ const productReducer = (state = initialState, action) => {
         }
         case SET_PRODUCT: {
 
-            return {...state, products: action.products, filteredGoods: action.products, uniqueArr : [... new Set(action.products.map(data => data.category))]}
+            return {
+                ...state,
+                products: action.products,
+                filteredGoods: action.products,
+                uniqueArr: [...new Set(action.products.map(data => data.category))]
+            }
         }
         case Low_rating:
             return {
@@ -120,10 +126,10 @@ const productReducer = (state = initialState, action) => {
             }
 
         }
-/*        case SER23: {
-            return {...state, profile: action.profile, /!*filteredGoods: action.filteredGoods*!/}
+        /*        case SER23: {
+                    return {...state, profile: action.profile, /!*filteredGoods: action.filteredGoods*!/}
 
-        }*/
+                }*/
         case
         BASKET:
             if (state.numberCart === 0) {
@@ -133,6 +139,7 @@ const productReducer = (state = initialState, action) => {
                     name: action.title,
                     price: action.price,
                     image: action.image,
+                    totalPriceOne:action.price
                 }
                 state.basketProduct.push(cart);
             } else {
@@ -140,7 +147,7 @@ const productReducer = (state = initialState, action) => {
                 state.basketProduct.map((item, key) => {
                     if (item.id === action.userId) {
                         state.basketProduct[key].quantity++;
-                        state.basketProduct[key].price+= action.price
+                        state.basketProduct[key].totalPriceOne += action.price
 
                         check = true;
                     }
@@ -151,7 +158,9 @@ const productReducer = (state = initialState, action) => {
                         quantity: 1,
                         name: action.title,
                         price: action.price,
-                        image: action.image
+                        image: action.image,
+                        totalPriceOne:action.price
+
                     }
                     state.basketProduct.push(_cart);
                 }
@@ -161,31 +170,34 @@ const productReducer = (state = initialState, action) => {
                 ...state,
                 numberCart: state.numberCart + 1,
                 basketProduct: [...state.basketProduct],
-                totalPrice: state.totalPrice + action.price
+                totalPrice: state.totalPrice + action.price,
+
             }
         case
         INCREASE_QUANTITY:
             state.basketProduct.map((item, key) => {
                 if (item.id === action.userId) {
                     state.basketProduct[key].quantity++;
-                    state.basketProduct[key].price += action.price;
+                    state.basketProduct[key].totalPriceOne += action.price
 
                 }
             })
+
             return {
                 ...state,
                 basketProduct: [...state.basketProduct],
-                totalPrice: state.totalPrice + action.price
+                totalPrice: state.totalPrice + action.price,
             }
         case
         DECREASE_QUANTITY:
             state.basketProduct.map((item, key) => {
                 if (item.id === action.userId) {
                     state.basketProduct[key].quantity--;
+                    state.basketProduct[key].totalPriceOne -= action.price;
                     if (state.basketProduct[key].quantity === 0) {
                         let idBase = state.basketProduct.findIndex(el => el.id === item.id)
                         state.basketProduct.splice(idBase, 1)
-                        if (state.basketProduct === 0){
+                        if (state.basketProduct === 0) {
                             return state.basketProduct
                         }
                     }
@@ -204,7 +216,10 @@ const productReducer = (state = initialState, action) => {
 
                 basketProduct: state.basketProduct.filter((item) => {
                     return item.id !== action.userId
-                })
+
+                }),
+                totalPrice: state.totalPrice - action.totalPriceOne
+
             }
 
         case CHECKBOX:
@@ -223,22 +238,22 @@ const productReducer = (state = initialState, action) => {
                 }
             }
         case SLIDERID:
-/*
-            state.textnav.map((item) => {
-                return item.id === action.id
-            })*/
+            /*
+                        state.textnav.map((item) => {
+                            return item.id === action.id
+                        })*/
 
             return {
 
 
                 ...state,
-                textId:action.id
+                textId: action.id
 
 
             }
         case
         NAVLINKSEARCH:
-           /* const uniqueArr = [... new Set(props.filteredGoods.map(data => data.category))]*/
+            /* const uniqueArr = [... new Set(props.filteredGoods.map(data => data.category))]*/
 
             return {
                 ...state,
@@ -264,9 +279,8 @@ export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFe
 export const searccch = (searchString) => ({type: SER, searchString})
 
 
-
 export const basket = (userId, title, price, image) => ({type: BASKET, userId, title, price, image})
-export const basketDelete = (userId) => ({type: BASKETDELETE, userId})
+export const basketDelete = (userId, totalPriceOne) => ({type: BASKETDELETE, userId, totalPriceOne})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 
 
