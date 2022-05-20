@@ -63,18 +63,15 @@ function strip(title) {
 }
 
 const productReducer = (state = initialState, action) => {
-console.log(action)
     switch (action.type) {
         case SET_PRODUCT_EXECT: {
 
             switch (action.label) {
                 case "Top Sales": {
 
-
                 }
                 case action.label: {
 
-console.log( state.filteredGoods.filter(word => word.category === action.label.toLowerCase()))
                     return {
                         ...state,
                         products: state.filteredGoods.filter(word => word.category === action.label.toLowerCase()),

@@ -6,7 +6,7 @@ import Preloader from "../assets/Preloader";
 import NavBarBodyLeftContainer from "./NavBarLeft/NavBarBodyLeftContainer";
 import NavCheckboxContainer from "./NavBarLeft/NavCheckboxContainer";
 import LanguageSelected from "./BodyHeaderFunction/Language/Language";
-import styles from "./Body.module.css";
+import styles from "../Body/BodyHeaderFunction/CostTableContainer.module.css";
 import PriceFilter from "./BodyHeaderFunction/PriceFilter/PriceFilter";
 
 const Body = ({products, searchString, props,handleChange}) => {
