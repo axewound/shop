@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #b8bfd3;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="Open_Icon" data-name="Open Icon" class="cls-1" d="M360.3,806.173l3.836-3.823a1.083,1.083,0,0,1,1.534,1.528l-3.836,3.824A1.083,1.083,0,0,1,360.3,806.173Zm0-6.316,3.836,3.823a1.083,1.083,0,1,0,1.534-1.529l-3.836-3.824A1.083,1.083,0,1,0,360.3,799.857Z" transform="translate(-360 -798.031)"/>
+</svg>

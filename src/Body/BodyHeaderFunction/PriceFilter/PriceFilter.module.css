@@ -1,0 +1,11 @@
+.price_input{
+    border-radius: 16px;
+    border: 1px solid #e4e9f0;
+    outline: none;
+    background: #f0f2f7;
+    padding: 4px 0 4px 14px;
+    max-width: 64px;
+}
+.filter_price_container span{
+    margin-right: 14px;
+}
