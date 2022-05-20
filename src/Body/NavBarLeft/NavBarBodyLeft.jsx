@@ -39,7 +39,8 @@ const NavBarBodyLeft = ({setProductExectFunction,props},) => {
                     />
                 ) }
             </div>
-            {console.log(data)}
+            {console.log(props)}
+
             <Link  to={'/products/' + activeMenus}> {hasSubMenu && (
 
                     <SubMenu

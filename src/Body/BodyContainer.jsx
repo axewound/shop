@@ -18,6 +18,8 @@ class BodyContainer extends React.Component {
     render() {
         return (
             <div>
+                {console.log(this.props)}
+
                 <Body products={this.props.products}
                       props={this.props}
                       handleChange={this.handleChange}
