@@ -8,14 +8,20 @@
 
 .arrow{
     display: flex;
-    height: 100%;
-    width: 100%;
+
     justify-content: center;
     align-items: center;
     cursor: pointer;
     position: absolute;
    /* background: url("../../assets/image/Opened.png") no-repeat center right;*/
     margin-right: 20px;
+}
+.arrow_img{
+
+}
+.blockList ul div:first-child{
+    border-radius: 4px 4px 0 0;
+
 }
 .listText{
     font-size: 13px;
@@ -31,5 +37,6 @@
 }
 .blockList{
     min-width: 270px;
+    border-radius: 4px;
 
 }

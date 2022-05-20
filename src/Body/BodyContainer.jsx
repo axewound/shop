@@ -5,7 +5,7 @@ import {
     ratingAC,
 } from "../redux/product-reducer";
 import { withRouter} from "react-router-dom";
-import Body from "./BodyHeaderFunction/Body";
+import Body from "./Body";
 
 class BodyContainer extends React.Component {
 

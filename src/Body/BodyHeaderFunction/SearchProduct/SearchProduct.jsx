@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "../ProductPages.module.css";
+import styles from "./SearchProduct.module.css"
 
 
 class SearchProduct extends React.Component {
@@ -11,7 +11,7 @@ class SearchProduct extends React.Component {
 
     render() {
         return (
-            <div className={styles.blockProducts}>
+            <div className={styles.search_container}>
                 <span>Keywords</span>
                 <div>
                     <input
@@ -19,7 +19,7 @@ class SearchProduct extends React.Component {
                         value={this.props.searchString}
                         ref="search"
                         onChange={this.searchStringFunc}
-                        placeholder="type name heres"
+                        placeholder="Table"
                     />
                 </div>
             </div>

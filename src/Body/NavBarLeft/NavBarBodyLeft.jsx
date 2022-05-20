@@ -39,9 +39,9 @@ const NavBarBodyLeft = ({setProductExectFunction,props},) => {
                     />
                 ) }
             </div>
-            {console.log(props)}
-
+            {console.log(data)}
             <Link  to={'/products/' + activeMenus}> {hasSubMenu && (
+
                     <SubMenu
                     data={data.submenu}
                     toggle={activeMenus.includes(menuName)}
@@ -51,7 +51,6 @@ const NavBarBodyLeft = ({setProductExectFunction,props},) => {
 
         </span>
     );
-
     const SubMenu = ({dept, data, toggle, menuIndex}) => {
         if (!toggle) {
             return null;

@@ -98,12 +98,12 @@ console.log(action)
         case Low_rating:
             return {
                 ...state,
-                products: state.products.sort((a, b) => (a.price > b.price ? 1 : -1))
+                products: state.products.sort((a, b) => (a.rating.rate > b.rating.rate ? 1 : -1))
             };
         case High_rating:
             return {
                 ...state,
-                products: state.products.sort((a, b) => (b.price > a.price ? 1 : -1))
+                products: state.products.sort((a, b) => (b.rating.rate > a.rating.rate ? 1 : -1))
             }
         case A_Z:
             return {

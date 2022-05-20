@@ -3,22 +3,26 @@
     align-items: center;
     justify-content: space-around;
 }
-.container_sort span{
-    margin: 24px 0 24px 20px;
-}
+
 .container_sort select{
     border: none;
     margin-left: 62px;
     margin-right: 20px;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 700;
+    font-size: 11px;
 
 }
 .container_sort select:focus-visible {
-border: none;
+outline: none;
 }
 .container_sort option{
     border: none;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 700;
+    font-size: 11px;
+}
+
+.container_sort_selected{
+    border: none;
 }

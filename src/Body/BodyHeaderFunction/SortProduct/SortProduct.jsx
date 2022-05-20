@@ -5,9 +5,10 @@ import styles from './SortProduct.module.css';
 const SortProduct = (props) => {
     return (
         <div className={styles.container_sort}>
-            <span>Sort by:</span>
-
-            <form>
+            <div className={styles.span_sort}>
+                <span>Sort by:</span>
+            </div>
+            <div className={styles.container_sort_selected}>
                 <select id="rating-filter" value={props.value} onChange={props.handleChange}>
                     <option value="Sort">Sort</option>
                     <option value="Low_rating">Low rating</option>
@@ -15,7 +16,7 @@ const SortProduct = (props) => {
                     <option value="A_Z">A-Z</option>
                     <option value="Z_A">Z-A</option>
                 </select>
-            </form>
+            </div>
         </div>
     )
 }

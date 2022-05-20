@@ -4,6 +4,8 @@
     border-radius: 4px;
     justify-content: space-between;
     align-items: center;
+    padding: 13px 0 13px 20px;
+    margin-bottom: 30px;
 }
 .filters span{
     font-size: 11px;

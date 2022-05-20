@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
-import SortProduct from "./SortProduct";
-import SearchProductContainer from "./SearchProductContainer";
-import ProductPagesContainer from "../ProductPageContainer";
-import Preloader from "../../assets/Preloader";
-import NavBarBodyLeftContainer from "../NavBarLeft/NavBarBodyLeftContainer";
-import NavCheckboxContainer from "../NavBarLeft/NavCheckboxContainer";
-import LanguageSelected from "./Language";
-import styles from "./CostTableContainer.module.css";
-import PriceFilter from "./PriceFilter";
+import SortProduct from "./BodyHeaderFunction/SortProduct/SortProduct";
+import SearchProductContainer from "./BodyHeaderFunction/SearchProduct/SearchProductContainer";
+import ProductPagesContainer from "./ProductPageContainer";
+import Preloader from "../assets/Preloader";
+import NavBarBodyLeftContainer from "./NavBarLeft/NavBarBodyLeftContainer";
+import NavCheckboxContainer from "./NavBarLeft/NavCheckboxContainer";
+import LanguageSelected from "./BodyHeaderFunction/Language/Language";
+import styles from "./BodyContainer.module.css";
+import PriceFilter from "./BodyHeaderFunction/PriceFilter/PriceFilter";
 
 const Body = ({products, searchString, props,handleChange}) => {
 

@@ -24,7 +24,6 @@ class ProductPages extends React.Component {
         }
 
         const indexOfLastTodo = this.state.currentPage * this.props.todosPerPage;
-
         const indexOfFirstTodo = indexOfLastTodo - this.props.todosPerPage;
         const currentTodos = _users.slice(indexOfFirstTodo, indexOfLastTodo);
         const pageNumbers = [];

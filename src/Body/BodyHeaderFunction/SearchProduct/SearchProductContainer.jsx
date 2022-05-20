@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchProduct from "./SearchProduct";
-import { searccch } from "../../redux/product-reducer";
+import { searccch } from "../../../redux/product-reducer";
 import {connect} from "react-redux";
 
 
