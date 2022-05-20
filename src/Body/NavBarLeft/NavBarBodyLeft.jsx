@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import styles from './NavBodyLeft.module.css';
+import {NavLink} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 
 const NavBarBodyLeft = ({setProductExectFunction,props},) => {
@@ -29,7 +31,7 @@ const NavBarBodyLeft = ({setProductExectFunction,props},) => {
     const ListMenu = ({ data, hasSubMenu, menuName, menuIndex}) => (
         <span>
             <div className={styles.listText}>
-                <label onClick={() => handleMenuClick(data)}>{data.label}</label>
+                <label    onClick={() => handleMenuClick(data)}>{data.label}</label>
                 {hasSubMenu && (
                     <div className={styles.arrow}
                          onClick={() => handleArrowClick(menuName)}
@@ -37,13 +39,16 @@ const NavBarBodyLeft = ({setProductExectFunction,props},) => {
                     />
                 ) }
             </div>
-            {hasSubMenu && (
-                <SubMenu
+            {console.log(props)}
+
+            <Link  to={'/products/' + activeMenus}> {hasSubMenu && (
+                    <SubMenu
                     data={data.submenu}
                     toggle={activeMenus.includes(menuName)}
                     menuIndex={menuIndex}
-                />
-            ) }
+                    />
+            ) }</Link >
+
         </span>
     );
 

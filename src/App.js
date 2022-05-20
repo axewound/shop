@@ -6,6 +6,7 @@ import Home from "./Header/Home";
 import {Container} from "react-bootstrap";
 import ProductOnePagesContrtainer from "./Body/ProductOnePageContainer";
 import BodyContainer from "./Body/BodyContainer";
+import Simple from "./assets/Simple";
 
 const App = () => {
     return (
@@ -15,6 +16,8 @@ const App = () => {
                        render={() => <Home/>}/>
                 <Route path='/product/:userId?'
                        render={() => <ProductOnePagesContrtainer/>}/>
+                <Route path='/product/:label?'
+                       render={() => <Simple/>}/>
                 <Route path='/products'
                        render={() => <BodyContainer/>}/>
                 <Footer/>

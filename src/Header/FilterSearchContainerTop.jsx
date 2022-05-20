@@ -1,14 +1,15 @@
 import React from 'react';
 import {connect} from "react-redux";
 import FilterSearch from "./FilterSearch";
-import {setCheckFunction} from "../redux/product-reducer";
+import {setFindSectionTop} from "../redux/product-reducer";
 
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setCheck: (che) => {
-            dispatch(setCheckFunction(che));
-        },
+        searchTopSection: (title) => {
+        dispatch(setFindSectionTop(title));
+},
+
     }
 }
 let mapStateToProps = (state) => {

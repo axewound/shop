@@ -1,5 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import style from "./HeaderTop.module.css"
+import {Link, NavLink, Route} from "react-router-dom";
+import styles from "./HeaderTop.module.css";
+
+
 
 
 
@@ -8,8 +12,13 @@ const FilterSearch = (props) => {
 
     const [visible, setVisible] = useState(false);
     const [searchValue, setSearchValue] = useState('');
-    const [selectedItem, setSelectedItem] = useState(null);
     const dropdownRef = useRef(null);
+
+
+
+
+
+
 
     useEffect(() => {
 
@@ -18,8 +27,6 @@ const FilterSearch = (props) => {
     }, []);
 
     const handleClick = e => {
-
-
 
         if (dropdownRef.current.contains(e.target)) {
             return;
@@ -39,12 +46,16 @@ const FilterSearch = (props) => {
     const selectItem = item => {
         setSearchValue(item);
         setVisible(false);
+        props.searchTopSection(item)
+        console.log('/product/'+ item)
+        global.window && (global.window.location.href = '/product/'+ item);
+
     };
 
 
 
     return (
-        <div >
+        <div>
             <div tabIndex="0" className="input_container">
                 <input
                     className="input"
@@ -59,7 +70,7 @@ const FilterSearch = (props) => {
                     }}
                 />
             </div>
-            <div ref={dropdownRef} className={style.dropdown  }>
+            <div ref={dropdownRef} className={style.dropdown}>
                 {visible && (
                     <ul>
                         {!list && (
@@ -70,14 +81,15 @@ const FilterSearch = (props) => {
                         {list &&
                         searchFilter(searchValue, list).map(x => (
 
-                            <li
+                            <ul
                                 key={x}
                                 onClick={() => selectItem(x)}
                                 className={style.dropdown_item}
                             >
+                                }
+                                <NavLink to={"/products/" + x} className={styles.NavLink}>{x}</NavLink>
 
-                                <div className={style.item_text1}>{x}</div>
-                            </li>
+                            </ul>
                         ))}
                     </ul>
                 )}
@@ -85,7 +97,7 @@ const FilterSearch = (props) => {
         </div>
     );
 };
-export const searchFilter = ( searchValue, list) => {
+export const searchFilter = (searchValue, list) => {
     let lowerCaseQuery = searchValue.toLowerCase();
     let filteredList = searchValue
         ? list.filter(x => x.toLowerCase().includes(lowerCaseQuery))

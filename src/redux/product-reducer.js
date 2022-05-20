@@ -19,6 +19,7 @@ const SET_PRODUCT_EXECT = 'SET_PRODUCT_EXECT'
 const CHECKBOX = "CHECKBOX"
 const SLIDERID = "SLIDERID"
 const NAVLINKSEARCH = "NAVLINKSEARCH"
+const SETFINDSECTIONTOP = "SETFINDSECTIONTOP"
 
 let initialState = {
     numberCart: 0,
@@ -51,10 +52,10 @@ let initialState = {
         {name: "Best Sellers", id: 4, active: false},
         {name: "Projects", id: 5, active: false},
     ],
-    uniqueArr: [{}],
+    uniqueArr: [],
     currentPage: 1,
     todosPerPage: 6,
-    totalPriceOne:0
+    totalPriceOne: 0
 };
 
 function strip(title) {
@@ -62,7 +63,7 @@ function strip(title) {
 }
 
 const productReducer = (state = initialState, action) => {
-
+console.log(action)
     switch (action.type) {
         case SET_PRODUCT_EXECT: {
 
@@ -76,7 +77,8 @@ const productReducer = (state = initialState, action) => {
 
                     return {
                         ...state,
-                        products: state.filteredGoods.filter(word => word.category === action.label.toLowerCase())
+                        products: state.filteredGoods.filter(word => word.category === action.label.toLowerCase()),
+                        label:action.label
                     }
                 }
             }
@@ -126,10 +128,6 @@ const productReducer = (state = initialState, action) => {
             }
 
         }
-        /*        case SER23: {
-                    return {...state, profile: action.profile, /!*filteredGoods: action.filteredGoods*!/}
-
-                }*/
         case
         BASKET:
             if (state.numberCart === 0) {
@@ -139,7 +137,7 @@ const productReducer = (state = initialState, action) => {
                     name: action.title,
                     price: action.price,
                     image: action.image,
-                    totalPriceOne:action.price
+                    totalPriceOne: action.price
                 }
                 state.basketProduct.push(cart);
             } else {
@@ -148,7 +146,6 @@ const productReducer = (state = initialState, action) => {
                     if (item.id === action.userId) {
                         state.basketProduct[key].quantity++;
                         state.basketProduct[key].totalPriceOne += action.price
-
                         check = true;
                     }
                 });
@@ -159,7 +156,7 @@ const productReducer = (state = initialState, action) => {
                         name: action.title,
                         price: action.price,
                         image: action.image,
-                        totalPriceOne:action.price
+                        totalPriceOne: action.price
 
                     }
                     state.basketProduct.push(_cart);
@@ -256,7 +253,15 @@ const productReducer = (state = initialState, action) => {
             /* const uniqueArr = [... new Set(props.filteredGoods.map(data => data.category))]*/
 
             return {
+
                 ...state,
+
+            }
+        case
+        SETFINDSECTIONTOP:
+            return {
+                ...state,
+                products: state.filteredGoods.filter(categor => categor.category === action.title)
 
             }
         default:
@@ -268,6 +273,8 @@ export const navLinkSearch = (products) => ({type: NAVLINKSEARCH, products})
 
 
 export const setCheckFunction = (che) => ({type: CHECKBOX, che})
+export const setFindSectionTop = (title) => ({type: SETFINDSECTIONTOP, title})
+
 export const setProductExect = (label) => ({type: SET_PRODUCT_EXECT, label})
 export const setProduct = (products) => ({type: SET_PRODUCT, products})
 export const ratingAC = (value) => (

@@ -8,15 +8,18 @@ const PopupMenu = ({props}) => {
     const [isShown, setIsShown] = useState(false)
     const popupRef = useRef()
     const documentClickHandler = useRef()
-
+/*    let elem = document.querySelector('.popup-menu');
+    console.log(elem.matches('basket_product'));*/
     useEffect(() => {
         documentClickHandler.current = e => {
-            console.log(e.target)
-            console.log(popupRef.current)
+      /*      if (popupRef.current.contains(e.target)) return*/
 
             if (popupRef.current.includes(e.target)) return
+
             setIsShown(false)
+
             removeDocumentClickHandler()
+
         }
     }, [])
 
@@ -29,7 +32,7 @@ const PopupMenu = ({props}) => {
         setIsShown(true)
         document.addEventListener('click', documentClickHandler.current)
     }
-
+    let child = document.querySelector('#root');
     const handleCloseButtonClick = () => {
         setIsShown(false)
         removeDocumentClickHandler()
