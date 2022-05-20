@@ -13,7 +13,7 @@ const BodyHeaderBlockContainer = (props) => {
     return (
         <div>
 
-            <BodyContainer products={props.products} isFetching={props.isFetching} props={props}
+            <Body products={props.products} isFetching={props.isFetching} props={props}
                                 searchString={props.searchString} basket={props.basket} menus={props.menus}/>
         </div>
     )
