@@ -74,11 +74,10 @@ console.log(action)
                 }
                 case action.label: {
 
-
+console.log( state.filteredGoods.filter(word => word.category === action.label.toLowerCase()))
                     return {
                         ...state,
                         products: state.filteredGoods.filter(word => word.category === action.label.toLowerCase()),
-                        label:action.label
                     }
                 }
             }
