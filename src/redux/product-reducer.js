@@ -21,6 +21,7 @@ const SLIDERID = "SLIDERID"
 const NAVLINKSEARCH = "NAVLINKSEARCH"
 const SETFINDSECTIONTOP = "SETFINDSECTIONTOP"
 
+
 let initialState = {
     numberCart: 0,
     Carts: [],
@@ -80,6 +81,7 @@ const productReducer = (state = initialState, action) => {
             }
         }
         case SET_USER_PROFILE: {
+            debugger
             return {...state, profile: action.profile}
         }
         case SET_PRODUCT: {
@@ -311,9 +313,12 @@ export const getProductThunk = () => {
             dispatch(setProduct(data));
         });
     }
+
 }
 export const getUserProfile = (userId) => (dispatch) => {
+
     usersAPI.getProfile(userId).then(response => {
+        console.log(userId)
         dispatch(setUserProfile(response.data));
     });
 }

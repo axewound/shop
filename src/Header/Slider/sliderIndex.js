@@ -7,8 +7,6 @@ function Slider248(props) {
     console.log(props)
     return (
         <>
-            <h2>Slider</h2>
-
             <Slider height="300px" auto speed={3000} props={props}>
                 <div style={{ width: "100%", height: "300px", background: "red" }}>
                 </div>

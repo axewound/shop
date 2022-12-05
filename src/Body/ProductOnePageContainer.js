@@ -8,7 +8,9 @@ import {compose} from "redux";
 
 class ProductOnePagesContrtainer extends React.Component {
     componentDidMount() {
+
         let userId = this.props.match.params.userId;
+        console.log(this.props)
         this.props.getUserProfile(userId);
 
     }
